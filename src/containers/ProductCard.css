@@ -1,0 +1,45 @@
+figure {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 10px;
+}
+
+.color-names {
+  height: 30%;
+}
+.colors {
+  margin: auto;
+  height: 40%;
+  width: 100px;
+}
+
+.align-vertically {
+  height: 100px;
+}
+
+article {
+  border: 1px solid lightgrey;
+  margin: 10px;
+  padding: 10px;
+  background-clip: content-box;
+  background-color: rgb(252, 252, 252);
+}
+
+.product-image {
+  height: 190px;
+  width: 170px;
+}
+
+.heart {
+  height: 20px;
+  width: 20px;
+}
+
+.heart:hover {
+  height: 30px;
+  width: 30px;
+}
+
+.bottom-card{
+  height: 15px;
+}
