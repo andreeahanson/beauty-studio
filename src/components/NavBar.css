@@ -1,0 +1,14 @@
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.red {
+  color: red;
+}
+
+.nav-word:hover{
+  color: red;
+}
