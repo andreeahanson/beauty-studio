@@ -7,6 +7,8 @@ import ProductCollection from '../components/ProductCollection';
 import { sampleProducts } from '../sampleCall';
 import NavBar from '../components/NavBar';
 import Banner from '../components/Banner';
+import { Switch, Route } from 'react-router-dom';
+import Landing from '../components/Landing';
 
 class App extends Component {
   constructor(){
@@ -28,12 +30,16 @@ class App extends Component {
     // const {products} = this.props
     return(
       <section className="App">
-            <Banner />
+            {/* <Banner /> */}
             <NavBar />
-          <section className="product-collection">
-            <p className="intro shimmer">Mirror, mirror on the wall, who's the smartest, strongest, inner and outer beauty of them all?</p>
+          {/* <section className="product-collection"> */}
+            
             {/* <ProductCollection products={products} /> */}
-          </section>
+            <Switch>
+              <Route exact path='/' render={() => <Landing />}/>
+              <Route exact path='' render={() => <ProductCollection />}/>
+            </Switch>
+          {/* </section> */}
       </section>
     )
   }
