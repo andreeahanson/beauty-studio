@@ -8,14 +8,15 @@ nav {
   padding-bottom: 0px;
 }
 
-.red {
-  color: rgb(194, 15, 110);
-}
 
 .nav-word{
   text-decoration: none;
   padding: 20px;
   color: black;
+}
+
+.red {
+  color: rgb(194, 15, 110);
 }
 
 .nav-word:hover{
