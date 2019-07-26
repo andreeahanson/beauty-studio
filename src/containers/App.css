@@ -7,35 +7,6 @@
   grid-template-columns: repeat(5, 1fr);
   grid-gap: 1px;
   padding: 20px;
-  background-color: red;
-  background-image: url('https://static1.squarespace.com/static/58c233319de4bbceb91e60d3/t/5bf7b83621c67c5581d34f6e/1492226929729/makeup-brush2.png?format=1500w');
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 80vh;
 }
-
-* {
-  font: Helvetica medium;
-}
-
-.intro{
-  font-size: 30px;
-  color: white;
-  float: right;
-  grid-column: 4/4;
-  grid-row: 2/4;
-}
-
-.intro {
-  animation: glow 1s infinite alternate;
-}
-
-@keyframes glow {
-  to {
-      text-shadow: 0 0 10px white;
-  }
-}
-
-
 
 
