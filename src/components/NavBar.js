@@ -1,19 +1,20 @@
 import React from 'react';
 import './NavBar.css';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
   return (
     <nav>
-      <p className="nav-word">Blush</p>
-      <p className="nav-word">Bronzer</p>
-      <p className="nav-word">Eyebrow</p>
-      <p className="nav-word">Eyeliner</p>
-      <p className="nav-word">Eyeshadow</p>
-      <p className="nav-word">Foundation</p>
-      <p className="nav-word">Lip Liner</p>
-      <p className="nav-word">Lipstick</p>
-      <p className="nav-word">Mascara</p>
-      <p className="nav-word red">Loves list</p>
+      <NavLink to="/blush" className="nav-word">Blush</NavLink>
+      <NavLink to="/bronzer" className="nav-word">Bronzer</NavLink>
+      <NavLink to="/eyebrow" className="nav-word">Eyebrow</NavLink>
+      <NavLink to="/eyeliner" className="nav-word">Eyeliner</NavLink>
+      <NavLink to="/eyeshadow" className="nav-word">Eyeshadow</NavLink>
+      <NavLink to="/foundation" className="nav-word">Foundation</NavLink>
+      <NavLink to="/lipliner" className="nav-word">Lip Liner</NavLink>
+      <NavLink to="/lipstick" className="nav-word">Lipstick</NavLink>
+      <NavLink to="/mascara" className="nav-word">Mascara</NavLink>
+      <NavLink to="/" className="nav-word red">Loves list</NavLink>
     </nav>
   )
 }

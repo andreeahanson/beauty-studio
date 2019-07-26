@@ -12,6 +12,12 @@ nav {
   color: rgb(194, 15, 110);
 }
 
+.nav-word{
+  text-decoration: none;
+  padding: 20px;
+  color: black;
+}
+
 .nav-word:hover{
   color: rgb(194, 15, 110);
   cursor: pointer;
