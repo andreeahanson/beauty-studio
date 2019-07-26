@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import './Landing.css';
 
 const Landing = () => {
@@ -11,8 +11,8 @@ const Landing = () => {
   );
 };
 
-Landing.propTypes = {
-  films: PropTypes.array
-};
+// Landing.propTypes = {
+//   films: PropTypes.array
+// };
 
 export default Landing;

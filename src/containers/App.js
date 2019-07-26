@@ -29,18 +29,27 @@ class App extends Component {
     console.log(products)
     // const {products} = this.props
     return(
+      <>
       <section className="App">
             {/* <Banner /> */}
             <NavBar />
-          {/* <section className="product-collection"> */}
-            
-            {/* <ProductCollection products={products} /> */}
-            <Switch>
-              <Route exact path='/' render={() => <Landing />}/>
-              <Route exact path='' render={() => <ProductCollection />}/>
-            </Switch>
-          {/* </section> */}
+        <Route exact path='/' render={() => <Landing />}/>
+          <section className="product-collection">
+      <Switch>
+        <Route exact path='/blush' render={() => <ProductCollection products={products}/>}/>
+        <Route exact path='/bronzer' render={() => <ProductCollection products={products}/>}/>
+        <Route exact path='/eyebrow' render={() => <ProductCollection products={products}/>}/>
+        <Route exact path='/eyeliner' render={() => <ProductCollection products={products}/>}/>
+        <Route exact path='/eyeshadow' render={() => <ProductCollection products={products}/>}/>
+        <Route exact path='/foundation' render={() => <ProductCollection products={products}/>}/>
+        <Route exact path='/lipliner' render={() => <ProductCollection products={products}/>}/>
+        <Route exact path='/lipstick' render={() => <ProductCollection products={products}/>}/>
+        <Route exact path='/mascara' render={() => <ProductCollection products={products}/>}/>
+        <Route exact path='/loves' render={() => <ProductCollection />}/>
+      </Switch>
+          </section>
       </section>
+    </>
     )
   }
 }
