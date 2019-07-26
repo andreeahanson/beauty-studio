@@ -31,7 +31,8 @@ class App extends Component {
             <Banner />
             <NavBar />
           <section className="product-collection">
-            <ProductCollection products={products} />
+            <p className="intro shimmer">Mirror, mirror on the wall, who's the smartest, strongest, inner and outer beauty of them all?</p>
+            {/* <ProductCollection products={products} /> */}
           </section>
       </section>
     )

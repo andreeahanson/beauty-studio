@@ -14,7 +14,7 @@ const NavBar = () => {
       <p className="nav-word">Lipstick</p>
       <p className="nav-word">Mascara</p>
       <p className="nav-word" >Nail polish</p>
-      <p className="nav-word" className='red'>Loves list</p>
+      <p className="nav-word red">Loves list</p>
     </nav>
   )
 }

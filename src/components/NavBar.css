@@ -3,6 +3,7 @@ nav {
   flex-direction: row;
   justify-content: space-between;
   padding: 20px;
+  padding-bottom: 0px;
 }
 
 .red {
@@ -11,4 +12,5 @@ nav {
 
 .nav-word:hover{
   color: red;
+  cursor: pointer;
 }
