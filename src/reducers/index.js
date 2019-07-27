@@ -1,6 +1,14 @@
 import { combineReducers } from 'redux';
-import { productsReducer } from './ProductsReducer';
+import { blushReducer,bronzerReducer, eyebrowReducer, eyelinerReducer, eyeshadowReducer, foundationReducer, liplinerReducer, lipstickReducer, mascaraReducer } from './ProductsReducer';
 
 export const rootReducer = combineReducers({
-  products: productsReducer
+  blush: blushReducer,
+  bronzer: bronzerReducer,
+  eyebrow: eyebrowReducer,
+  eyeliner: eyelinerReducer,
+  eyeshadow: eyeshadowReducer,
+  foundation: foundationReducer,
+  lip_liner: liplinerReducer,
+  lipstick: lipstickReducer,
+  mascara: mascaraReducer,
 })
