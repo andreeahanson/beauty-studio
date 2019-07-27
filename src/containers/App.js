@@ -8,6 +8,9 @@ import NavBar from '../components/NavBar';
 import Banner from '../components/Banner';
 import { Switch, Route } from 'react-router';
 import Landing from '../components/Landing';
+import { loadLoading } from '../actions';
+import { Redirect } from 'react-router'
+
 
 class App extends Component {
   constructor(){
@@ -26,12 +29,15 @@ class App extends Component {
   }
   
   render(){
+    console.log(this.props)
+    console.log(this.props.isLoading)
     return(
       <section className="App">
             {/* <Banner /> */}
         <NavBar />
         <Route exact path='/' component={Landing}/>
-        <section className="product-collection">
+        <section className="product-collection">      
+          {this.props.isLoading && <h1>Loading...</h1>}  
           <Route exact path='/blush' render={() => <ProductCollection products={this.props.blush} />} />
           <Route exact path='/bronzer' render={() => <ProductCollection products={this.props.bronzer}/>}/>
           <Route exact path='/eyebrow' render={() => <ProductCollection products={this.props.eyebrow}/>}/>
@@ -41,6 +47,7 @@ class App extends Component {
           <Route exact path='/lip_liner' render={() => <ProductCollection products={this.props.lip_liner}/>}/>
           <Route exact path='/lipstick' render={() => <ProductCollection products={this.props.lipstick}/>}/>
           <Route exact path='/mascara' render={() => <ProductCollection products={this.props.mascara}/>}/>
+          <Route exact path='/loading' render={()=> <h1>Loading</h1>} />
           <Route exact path='/loves' render={() => <ProductCollection />}/>
         </section>
       </section>
@@ -59,7 +66,12 @@ const mapStateToProps = (state) => ({
   lip_liner: state.lip_liner,
   lipstick: state.lipstick,
   mascara: state.mascara, 
-  loves: state.loves
+  loves: state.loves,
+  isLoading: state.isLoading
 })
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = (dispatch) => ({
+  loadLoading: waiting => dispatch(loadLoading(waiting))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
