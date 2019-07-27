@@ -6,7 +6,7 @@ import ProductCollection from '../components/ProductCollection';
 import { sampleProducts } from '../sampleCall';
 import NavBar from '../components/NavBar';
 import Banner from '../components/Banner';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router';
 import Landing from '../components/Landing';
 
 class App extends Component {
@@ -26,27 +26,25 @@ class App extends Component {
   }
   
   render(){
-    // let blush = this.props.blush
     return(
-      <>
       <section className="App">
             {/* <Banner /> */}
         <NavBar />
-              {/* <Route exact path='/' render={() => <Landing />}/> */}
-          {/* <section className="product-collection"> */}
-              {/* <Route exact path='/blush' render={() => <ProductCollection products={this.props.blush} />} />
-              <Route exact path='/bronzer' render={() => <ProductCollection products={this.props.bronzer}/>}/>
-              <Route exact path='/eyebrow' render={() => <ProductCollection products={this.props.eyebrow}/>}/>
-              <Route exact path='/eyeliner' render={() => <ProductCollection products={this.props.eyeliner}/>}/>
-              <Route exact path='/eyeshadow' render={() => <ProductCollection products={this.props.eyeshadow}/>}/>
-              <Route exact path='/foundation' render={() => <ProductCollection products={this.props.foundation}/>}/>
-              <Route exact path='/lipliner' render={() => <ProductCollection products={this.props.lip_liner}/>}/>
-              <Route exact path='/lipstick' render={() => <ProductCollection products={this.props.lipstick}/>}/>
-              <Route exact path='/mascara' render={() => <ProductCollection products={this.props.mascara}/>}/>
-              <Route exact path='/loves' render={() => <ProductCollection />}/> */}
-          {/* </section> */}
+        <Route exact path='/' component={Landing}/>
+        <section className="product-collection">
+          <Route exact path='/blush' render={() => <ProductCollection products={this.props.blush} />} />
+          <Route exact path='/bronzer' render={() => <ProductCollection products={this.props.bronzer}/>}/>
+          <Route exact path='/eyebrow' render={() => <ProductCollection products={this.props.eyebrow}/>}/>
+          <Route exact path='/eyeliner' render={() => <ProductCollection products={this.props.eyeliner}/>}/>
+          <Route exact path='/eyeshadow' render={() => <ProductCollection products={this.props.eyeshadow}/>}/>
+          <Route exact path='/foundation' render={() => <ProductCollection products={this.props.foundation}/>}/>
+          <Route exact path='/lipliner' render={() => <ProductCollection products={this.props.lip_liner}/>}/>
+          <Route exact path='/lipstick' render={() => <ProductCollection products={this.props.lipstick}/>}/>
+          <Route exact path='/mascara' render={() => <ProductCollection products={this.props.mascara}/>}/>
+          <Route exact path='/loves' render={() => <ProductCollection />}/>
+        </section>
       </section>
-    </>
+
     )
   }
 }

@@ -3,11 +3,9 @@ import ProductCard from '../containers/ProductCard';
 import { connect } from 'react-redux';
 import { loadBlush, loadBronzer, loadEyebrow, loadEyeliner, loadEyeshadow, loadFoundation, loadLipliner, loadLipstick, loadMascara} from '../actions';
 
-
-
 const ProductCollection = (products) => {
   const allProducts = products.products.map(product => {
-    if(product.price !== 0){
+    if(product.price != 0){
     return (
     <ProductCard 
     id={product.created_at}
@@ -23,11 +21,7 @@ const ProductCollection = (products) => {
     />)
     }
   })
-  return (
-    <section className="product-collection">
-    {allProducts}
-    </section>
-  )
+  return allProducts
 }
 
 

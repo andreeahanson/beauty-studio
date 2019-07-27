@@ -13,7 +13,6 @@ class NavBar extends Component {
   }
 
   pickBlush = async (e) => {
-    e.preventDefault();
     if(!this.props.blush.length){
       const products = await fetchMakeup(e.target.name);
       this.props.loadBlush(products)
@@ -23,7 +22,6 @@ class NavBar extends Component {
   }
 
   pickBronzer = async (e) => {
-    e.preventDefault();
     if(!this.props.bronzer.length){
       const products = await fetchMakeup(e.target.name);
       this.props.loadBronzer(products)
@@ -33,7 +31,6 @@ class NavBar extends Component {
   }
 
   pickEyebrow = async (e) => {
-    e.preventDefault();
     if(!this.props.eyebrow.length){
       const products = await fetchMakeup(e.target.name);
       this.props.loadEyebrow(products)
@@ -43,7 +40,6 @@ class NavBar extends Component {
   }
 
   pickEyeliner = async (e) => {
-    e.preventDefault();
     if(!this.props.eyeliner.length){
     const products = await fetchMakeup(e.target.name);
     this.props.loadEyeliner(products)
@@ -53,7 +49,6 @@ class NavBar extends Component {
   }
 
   pickEyeshadow = async (e) => {
-    e.preventDefault();
     if(!this.props.eyeshadow.length){
     const products = await fetchMakeup(e.target.name);
     this.props.loadEyeshadow(products)
@@ -63,7 +58,6 @@ class NavBar extends Component {
   }
 
   pickFoundation = async (e) => {
-    e.preventDefault();
     if(!this.props.eyeshadow.length){
     const products = await fetchMakeup(e.target.name);
     this.props.loadFoundation(products)
@@ -73,7 +67,6 @@ class NavBar extends Component {
   }
 
   pickLipliner = async (e) => {
-    e.preventDefault();
     if(!this.props.lip_liner.length){
     const products = await fetchMakeup(e.target.name);
     this.props.loadLipliner(products)
@@ -83,7 +76,6 @@ class NavBar extends Component {
   }
 
   pickLipstick = async (e) => {
-    e.preventDefault();
     if(!this.props.lipstick.length){
     const products = await fetchMakeup(e.target.name);
     this.props.loadLipstick(products)
@@ -93,7 +85,6 @@ class NavBar extends Component {
   }
 
   pickMascara = async (e) => {
-    e.preventDefault();
     if(!this.props.mascara.length){
     const products = await fetchMakeup(e.target.name);
     this.props.loadMascara(products)
@@ -103,12 +94,11 @@ class NavBar extends Component {
   }
 
   render() {
-    console.log(this.props.blush)
     return (
       <>
       <nav>
         <NavLink to="/" className="nav-word">Home</NavLink>
-        <NavLink to="/blush" className="nav-word" name="blush" onClick={(e)=>this.pickBlush(e)}>Blush</NavLink>
+        <NavLink to="/blush" className="nav-word" name="blush" onClick={this.pickBlush}>Blush</NavLink>
         <NavLink to="/bronzer" className="nav-word" name="bronzer" onClick={this.pickBronzer}>Bronzer</NavLink>
         <NavLink to="/eyebrow" className="nav-word" name="eyebrow" onClick={this.pickEyebrow}>Eyebrow</NavLink>
         <NavLink to="/eyeliner" className="nav-word" name="eyeliner" onClick={this.pickEyeliner}>Eyeliner</NavLink>
@@ -117,8 +107,8 @@ class NavBar extends Component {
         <NavLink to="/lip_liner" className="nav-word" name="lip_liner" onClick={this.pickLipliner}>Lip Liner</NavLink>
         <NavLink to="/lipstick" className="nav-word" name="lipstick" onClick={this.pickLipstick}>Lipstick</NavLink>
         <NavLink to="/mascara" className="nav-word" name="mascara" onClick={this.pickMascara}>Mascara</NavLink>
-        {/* <NavLink to="/loves" className="nav-word red" name="loves" onClick={this.pi ƒckLoves}>Loves list</NavLink> */}
-        <Switch>
+        <NavLink to="/loves" className="nav-word red" name="loves">Loves list</NavLink>
+        {/* <Switch>
         <Route exact path='/blush' render={() => <ProductCollection products={this.props.blush} />} />
         <Route exact path='/bronzer' render={() => <ProductCollection products={this.props.bronzer}/>}/>
         <Route exact path='/eyebrow' render={() => <ProductCollection products={this.props.eyebrow}/>}/>
@@ -129,7 +119,7 @@ class NavBar extends Component {
         <Route exact path='/lipstick' render={() => <ProductCollection products={this.props.lipstick}/>}/>
         <Route exact path='/mascara' render={() => <ProductCollection products={this.props.mascara}/>}/>
         <Route exact path='/loves' render={() => <ProductCollection />}/>
-        </Switch>
+        </Switch> */}
       </nav>
     </>
     )
