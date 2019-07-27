@@ -43,3 +43,8 @@ export const loadMascara = (mascara) => ({
   mascara
 })
 
+export const isLoading = (isLoading) => ({
+  type: "IS_LOADING",
+  isLoading
+})
+
