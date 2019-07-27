@@ -4,7 +4,7 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchMakeup } from '../apiCalls';
 import ProductCollection from './ProductCollection'
-import { isLoading, loadBlush, loadBronzer, loadEyebrow, loadEyeliner, loadEyeshadow, loadFoundation, loadLipliner, loadLipstick, loadMascara} from '../actions';
+import { loadLoading, loadBlush, loadBronzer, loadEyebrow, loadEyeliner, loadEyeshadow, loadFoundation, loadLipliner, loadLipstick, loadMascara} from '../actions';
 
 class NavBar extends Component {
   constructor() {
@@ -15,10 +15,10 @@ class NavBar extends Component {
 
   pickBlush = async (e) => {
     if(!this.props.blush.length){
-      this.props.isLoading(true)
+      this.props.loadLoading(true)
       const products = await fetchMakeup(e.target.name);
       this.props.loadBlush(products)
-      this.props.isLoading(false)
+      this.props.loadLoading(false)
     } else {
       this.props.loadBlush(this.props.blush)
     }
@@ -26,97 +26,97 @@ class NavBar extends Component {
 
   pickBronzer = async (e) => {
     if(!this.props.bronzer.length){
-      this.props.isLoading(true)
+      this.props.loadLoading(true)
       const products = await fetchMakeup(e.target.name);
       this.props.loadBronzer(products)
-      this.props.isLoading(false)
+      this.props.loadLoading(false)
     } else {
       this.props.loadBronzer(this.props.bronzer)
-      this.props.isLoading(false)
+      this.props.loadLoading(false)
     }
   }
 
   pickEyebrow = async (e) => {
     if(!this.props.eyebrow.length){
-      this.props.isLoading(true)
+      this.props.loadLoading(true)
       const products = await fetchMakeup(e.target.name);
       this.props.loadEyebrow(products)
-      this.props.isLoading(false)
+      this.props.loadLoading(false)
     } else {
       this.props.loadEyebrow(this.props.eyebrow)
-      this.props.isLoading(false)
+      this.props.loadLoading(false)
     }
   }
 
   pickEyeliner = async (e) => {
     if(!this.props.eyeliner.length){
-      this.props.isLoading(true)
+      this.props.loadLoading(true)
     const products = await fetchMakeup(e.target.name);
     this.props.loadEyeliner(products)
-    this.props.isLoading(false)
+    this.props.loadLoading(false)
     } else {
       this.props.loadEyeliner(this.props.eyeliner)
-      this.props.isLoading(false)
+      this.props.loadLoading(false)
     }
   }
 
   pickEyeshadow = async (e) => {
     if(!this.props.eyeshadow.length){
-    this.props.isLoading(true)
+    this.props.loadLoading(true)
     const products = await fetchMakeup(e.target.name);
     this.props.loadEyeshadow(products)
-    this.props.isLoading(false)
+    this.props.loadLoading(false)
   } else {
     this.props.loadEyeshadow(this.props.eyeshadow)
-    this.props.isLoading(false)
+    this.props.loadLoading(false)
   }
   }
 
   pickFoundation = async (e) => {
     if(!this.props.eyeshadow.length){
-      this.props.isLoading(true)
+      this.props.loadLoading(true)
     const products = await fetchMakeup(e.target.name);
     this.props.loadFoundation(products)
-    this.props.isLoading(false)
+    this.props.loadLoading(false)
   } else {
     this.props.loadFoundation(this.props.foundation)
-    this.props.isLoading(false)
+    this.props.loadLoading(false)
   }
   }
 
   pickLipliner = async (e) => {
     if(!this.props.lip_liner.length){
-      this.props.isLoading(true)
+      this.props.loadLoading(true)
     const products = await fetchMakeup(e.target.name);
     this.props.loadLipliner(products)
-    this.props.isLoading(false)
+    this.props.loadLoading(false)
      } else {
       this.props.loadLipliner(this.props.lip_liner)
-      this.props.isLoading(false)
+      this.props.loadLoading(false)
     }
   }
 
   pickLipstick = async (e) => {
     if(!this.props.lipstick.length){
-      this.props.isLoading(true)
+      this.props.loadLoading(true)
     const products = await fetchMakeup(e.target.name);
     this.props.loadLipstick(products)
-    this.props.isLoading(false)
+    this.props.loadLoading(false)
     } else {
       this.props.loadLipstick(this.props.lipstick)
-      this.props.isLoading(false)
+      this.props.loadLoading(false)
     }
   }
 
   pickMascara = async (e) => {
     if(!this.props.mascara.length){
-      this.props.isLoading(true)   
+      this.props.loadLoading(true)   
     const products = await fetchMakeup(e.target.name);
     this.props.loadMascara(products)
-    this.props.isLoading(false)
+    this.props.loadLoading(false)
   } else {
     this.props.loadMascara(this.props.mascara)
-    this.props.isLoading(false)
+    this.props.loadLoading(false)
   }
   }
 
@@ -164,7 +164,7 @@ const mapDispatchToProps = dispatch => ({
   loadLipliner: products => dispatch(loadLipliner(products)),
   loadLipstick: products => dispatch(loadLipstick(products)),
   loadMascara: products => dispatch(loadMascara(products)),
-  isLoading: waiting => dispatch(isLoading(waiting))
+  loadLoading: waiting => dispatch(loadLoading(waiting))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar);

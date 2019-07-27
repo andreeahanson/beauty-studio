@@ -8,7 +8,7 @@ import NavBar from '../components/NavBar';
 import Banner from '../components/Banner';
 import { Switch, Route } from 'react-router';
 import Landing from '../components/Landing';
-import { isLoading } from '../actions';
+import { loadLoading } from '../actions';
 import { Redirect } from 'react-router'
 
 
@@ -30,13 +30,14 @@ class App extends Component {
   
   render(){
     console.log(this.props)
+    console.log(this.props.isLoading)
     return(
       <section className="App">
             {/* <Banner /> */}
         <NavBar />
         <Route exact path='/' component={Landing}/>
-        <section className="product-collection">
-          {this.props.isLoading(true) && <Redirect to='/loading'/>}
+        <section className="product-collection">      
+          {this.props.isLoading && <h1>Loading...</h1>}  
           <Route exact path='/blush' render={() => <ProductCollection products={this.props.blush} />} />
           <Route exact path='/bronzer' render={() => <ProductCollection products={this.props.bronzer}/>}/>
           <Route exact path='/eyebrow' render={() => <ProductCollection products={this.props.eyebrow}/>}/>
@@ -65,11 +66,12 @@ const mapStateToProps = (state) => ({
   lip_liner: state.lip_liner,
   lipstick: state.lipstick,
   mascara: state.mascara, 
-  loves: state.loves
+  loves: state.loves,
+  isLoading: state.isLoading
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  isLoading: waiting => dispatch(isLoading(waiting))
+  loadLoading: waiting => dispatch(loadLoading(waiting))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
