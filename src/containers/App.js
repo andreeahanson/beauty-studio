@@ -47,7 +47,6 @@ class App extends Component {
           <Route exact path='/lip_liner' render={() => <ProductCollection products={this.props.lip_liner}/>}/>
           <Route exact path='/lipstick' render={() => <ProductCollection products={this.props.lipstick}/>}/>
           <Route exact path='/mascara' render={() => <ProductCollection products={this.props.mascara}/>}/>
-          <Route exact path='/loading' render={()=> <h1>Loading</h1>} />
           <Route exact path='/loves' render={() => <ProductCollection />}/>
         </section>
       </section>
