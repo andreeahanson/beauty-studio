@@ -1,65 +1,65 @@
 import React, { Component } from 'react';
 import './App.css';
-import { fetchMakeup } from '../apiCalls';
+// import { fetchMakeup } from '../apiCalls';
 import { connect } from 'react-redux';
-import { loadProducts } from '../actions';
 import ProductCollection from '../components/ProductCollection';
 import { sampleProducts } from '../sampleCall';
 import NavBar from '../components/NavBar';
 import Banner from '../components/Banner';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router';
 import Landing from '../components/Landing';
 
 class App extends Component {
   constructor(){
     super();
-    this.state = {}
+    this.state = {
+      // isLoading: true
+    }
   }
   
-  componentDidMount = async () => {
+  componentDidMount = () => {
     // const makeup = await fetchMakeup()
     // await console.log(makeup)
     // await this.props.loadProducts(makeup)
+    // this.setState({isLoading: false})
     
   }
   
   render(){
-    let products = sampleProducts;
-    this.props.loadProducts(products)
-    console.log(products)
-    // const {products} = this.props
     return(
-      <>
       <section className="App">
             {/* <Banner /> */}
-            <NavBar />
-        <Route exact path='/' render={() => <Landing />}/>
-          <section className="product-collection">
-      <Switch>
-        <Route exact path='/blush' render={() => <ProductCollection products={products}/>}/>
-        <Route exact path='/bronzer' render={() => <ProductCollection products={products}/>}/>
-        <Route exact path='/eyebrow' render={() => <ProductCollection products={products}/>}/>
-        <Route exact path='/eyeliner' render={() => <ProductCollection products={products}/>}/>
-        <Route exact path='/eyeshadow' render={() => <ProductCollection products={products}/>}/>
-        <Route exact path='/foundation' render={() => <ProductCollection products={products}/>}/>
-        <Route exact path='/lipliner' render={() => <ProductCollection products={products}/>}/>
-        <Route exact path='/lipstick' render={() => <ProductCollection products={products}/>}/>
-        <Route exact path='/mascara' render={() => <ProductCollection products={products}/>}/>
-        <Route exact path='/loves' render={() => <ProductCollection />}/>
-      </Switch>
-          </section>
+        <NavBar />
+        <Route exact path='/' component={Landing}/>
+        <section className="product-collection">
+          <Route exact path='/blush' render={() => <ProductCollection products={this.props.blush} />} />
+          <Route exact path='/bronzer' render={() => <ProductCollection products={this.props.bronzer}/>}/>
+          <Route exact path='/eyebrow' render={() => <ProductCollection products={this.props.eyebrow}/>}/>
+          <Route exact path='/eyeliner' render={() => <ProductCollection products={this.props.eyeliner}/>}/>
+          <Route exact path='/eyeshadow' render={() => <ProductCollection products={this.props.eyeshadow}/>}/>
+          <Route exact path='/foundation' render={() => <ProductCollection products={this.props.foundation}/>}/>
+          <Route exact path='/lip_liner' render={() => <ProductCollection products={this.props.lip_liner}/>}/>
+          <Route exact path='/lipstick' render={() => <ProductCollection products={this.props.lipstick}/>}/>
+          <Route exact path='/mascara' render={() => <ProductCollection products={this.props.mascara}/>}/>
+          <Route exact path='/loves' render={() => <ProductCollection />}/>
+        </section>
       </section>
-    </>
+
     )
   }
 }
 
-const mapStateToProps = state => ({
-  products: state.products
+const mapStateToProps = (state) => ({
+  blush: state.blush, 
+  bronzer: state.bronzer,
+  eyebrow: state.eyebrow,
+  eyeliner: state.eyeliner,
+  eyeshadow: state.eyeshadow,
+  foundation: state.foundation,
+  lip_liner: state.lip_liner,
+  lipstick: state.lipstick,
+  mascara: state.mascara, 
+  loves: state.loves
 })
 
-const mapDispatchToProps = dispatch => ({
-  loadProducts: products => dispatch(loadProducts(products))
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps)(App);
