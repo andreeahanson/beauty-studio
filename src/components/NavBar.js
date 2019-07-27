@@ -108,18 +108,6 @@ class NavBar extends Component {
         <NavLink to="/lipstick" className="nav-word" name="lipstick" onClick={this.pickLipstick}>Lipstick</NavLink>
         <NavLink to="/mascara" className="nav-word" name="mascara" onClick={this.pickMascara}>Mascara</NavLink>
         <NavLink to="/loves" className="nav-word red" name="loves">Loves list</NavLink>
-        {/* <Switch>
-        <Route exact path='/blush' render={() => <ProductCollection products={this.props.blush} />} />
-        <Route exact path='/bronzer' render={() => <ProductCollection products={this.props.bronzer}/>}/>
-        <Route exact path='/eyebrow' render={() => <ProductCollection products={this.props.eyebrow}/>}/>
-        <Route exact path='/eyeliner' render={() => <ProductCollection products={this.props.eyeliner}/>}/>
-        <Route exact path='/eyeshadow' render={() => <ProductCollection products={this.props.eyeshadow}/>}/>
-        <Route exact path='/foundation' render={() => <ProductCollection products={this.props.foundation}/>}/>
-        <Route exact path='/lipliner' render={() => <ProductCollection products={this.props.lip_liner}/>}/>
-        <Route exact path='/lipstick' render={() => <ProductCollection products={this.props.lipstick}/>}/>
-        <Route exact path='/mascara' render={() => <ProductCollection products={this.props.mascara}/>}/>
-        <Route exact path='/loves' render={() => <ProductCollection />}/>
-        </Switch> */}
       </nav>
     </>
     )
