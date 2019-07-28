@@ -5,7 +5,8 @@ import { connect } from 'react-redux';
 import { fetchMakeup } from '../apiCalls';
 import PropTypes from 'prop-types';
 import { loadError, loadLoading, loadBlush, loadBronzer, loadEyebrow, loadEyeliner, loadEyeshadow, loadFoundation, loadLipliner, loadLipstick, loadMascara} from '../actions';
-import { sampleProducts } from '../sampleCall'
+import { sampleProducts } from '../sampleCall';
+import { dataCleanup } from '../dataCleaner';
 
 
 class NavBar extends Component {
@@ -20,7 +21,8 @@ class NavBar extends Component {
         this.props.loadLoading(true)
         // const products = await fetchMakeup(e.target.name);
         const products = sampleProducts;
-        this.props.loadBlush(products)
+        let cleanProducts = dataCleanup(products);
+        this.props.loadBlush(cleanProducts)
         this.props.loadLoading(false)
       } catch ({errorMsg}){
         this.props.loadError(errorMsg)
@@ -36,7 +38,8 @@ class NavBar extends Component {
         this.props.loadLoading(true)
         // const products = await fetchMakeup(e.target.name);
         const products = sampleProducts;
-        this.props.loadBronzer(products)
+        let cleanProducts = dataCleanup(products);
+        this.props.loadBronzer(cleanProducts)
         this.props.loadLoading(false)
       } catch({errorMsg}){
         this.props.loadError(errorMsg)
@@ -53,7 +56,8 @@ class NavBar extends Component {
         this.props.loadLoading(true)
         // const products = await fetchMakeup(e.target.name);
         const products = sampleProducts;
-        this.props.loadEyebrow(products)
+        let cleanProducts = dataCleanup(products);
+        this.props.loadEyebrow(cleanProducts)
         this.props.loadLoading(false)
       } catch({errorMsg}){
         this.props.loadError(errorMsg)
@@ -70,7 +74,8 @@ class NavBar extends Component {
         this.props.loadLoading(true)
         // const products = await fetchMakeup(e.target.name);
         const products = sampleProducts;
-        this.props.loadEyeliner(products)
+        let cleanProducts = dataCleanup(products);
+        this.props.loadEyeliner(cleanProducts)
         this.props.loadLoading(false)
       } catch({errorMsg}){
         this.props.loadError(errorMsg)
@@ -87,7 +92,8 @@ class NavBar extends Component {
       this.props.loadLoading(true)
       // const products = await fetchMakeup(e.target.name);
       const products = sampleProducts;
-      this.props.loadEyeshadow(products)
+      let cleanProducts = dataCleanup(products);
+      this.props.loadEyeshadow(cleanProducts)
       this.props.loadLoading(false)
     } catch({errorMsg}){
       this.props.loadError(errorMsg)
@@ -104,7 +110,8 @@ class NavBar extends Component {
         this.props.loadLoading(true)
         // const products = await fetchMakeup(e.target.name);
         const products = sampleProducts;
-        this.props.loadFoundation(products)
+        let cleanProducts = dataCleanup(products);
+        this.props.loadFoundation(cleanProducts)
         this.props.loadLoading(false)
       } catch({errorMsg}){
         this.props.loadError(errorMsg)
@@ -121,7 +128,8 @@ class NavBar extends Component {
         this.props.loadLoading(true)
         // const products = await fetchMakeup(e.target.name);
         const products = sampleProducts;
-        this.props.loadLipliner(products)
+        let cleanProducts = dataCleanup(products);
+        this.props.loadLipliner(cleanProducts)
         this.props.loadLoading(false)
       } catch({errorMsg}){
         this.props.loadError(errorMsg)
@@ -138,7 +146,8 @@ class NavBar extends Component {
         this.props.loadLoading(true)
         // const products = await fetchMakeup(e.target.name);
         const products = sampleProducts;
-        this.props.loadLipstick(products)
+        let cleanProducts = dataCleanup(products);
+        this.props.loadLipstick(cleanProducts)
         this.props.loadLoading(false)
       } catch({errorMsg}){
         this.props.loadError(errorMsg)
@@ -155,7 +164,8 @@ class NavBar extends Component {
         this.props.loadLoading(true)   
         // const products = await fetchMakeup(e.target.name);
         const products = sampleProducts;
-        this.props.loadMascara(products)
+        let cleanProducts = dataCleanup(products);
+        this.props.loadMascara(cleanProducts)
         this.props.loadLoading(false)
       } catch({errorMsg}){
         this.props.loadError(errorMsg)
@@ -167,6 +177,7 @@ class NavBar extends Component {
   }
 
   render() {
+    console.log(this.props.blush)
     return (
       <>
       <nav>
