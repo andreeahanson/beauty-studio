@@ -46,7 +46,7 @@ export const DetailPage = ({match, toggleFavorite, id, brand, price, image_link,
   )
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   blush: state.blush, 
   bronzer: state.bronzer,
   eyebrow: state.eyebrow,

@@ -35,4 +35,34 @@ describe('DetailPage', () => {
   it('should match the snapshot', () => {
     expect(wrapper).toMatchSnapshot();
   })
+
+  describe('mapStateToProps', () => {
+    let wrapper;
+    let initialState = {
+      blush: [],
+      bronzer: [],
+      eyebrow: [],
+      eyeliner: [],
+      eyeshadow: [],
+      foundation: [],
+      lip_liner: [],
+      lipstick: [],
+      mascara: [],
+      isLoading: false,
+      favorites: []
+    }
+
+    wrapper = shallow(
+    <DetailPage 
+    initialState={initialState} 
+    product_colors={product_colors} 
+    tag_list={tag_list}
+    favorites = {mockFavorites}
+    />)
+
+    it('should return arrays of products, an array of favorites, and a boolean for isLoading', () => {
+      const mappedProps = mapStateToProps(initialState);
+      expect(mappedProps).toEqual(initialState);
+    })
+  })
 })
