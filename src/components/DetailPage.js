@@ -11,32 +11,38 @@ const DetailPage = ({match, toggleFavorite, id, brand, price, image_link, name, 
       backgroundColor: color.hex_value
     }
     return (
-      <div className="align-vertically">
-        <p className="color-names">{color.colour_name}</p>
-        <div className="colors" style={divStyle}></div>
+        <div className="align-vertically">
+          <p className="color-names marg">{color.colour_name}</p>
+          <div className="colors marg" style={divStyle}></div>
       </div>
     )
   })
 
     let qualities = tag_list.map(element => <li>{element}</li>)
   return (
-    <>
-      <NavLink to={`/${product_type}`} className="none">Go Back</NavLink>
-      <figure className="detail-page">
-      <h5>{brand}</h5>
-      <h3>{name}</h3>
-      <h4>$ {price}</h4>
-      <img className="selectedProduct-image" src={image_link} alt='beauty-product' />
-      <p className='bottom-card'>
-      <img onClick={()=>toggleFavorite(id)} className="heart" alt="heart" src={favorites.includes(id) ? 'https://ui-ex.com/images/svg-heart-transparent-background.png' : 'https://images.vexels.com/media/users/3/156965/isolated/preview/cc193f8f5c8e89553153055f410288f9-simple-heart-silhouette-by-vexels.png'} />
-      </p>
-      <p className="x">Description: {description}</p>
-      <p className="x">Find the product here: {product_link}</p>
-      <p className="x">Rating: {rating ? rating : 'not yet rated'}</p>
-      <ul className="x">Product tags: {qualities.length ? qualities : 'no tags for this product'}</ul>
-      {allColors}
-      </figure>
-    </>
+    <section className="whole-detail-page">
+      <NavLink to={`/${product_type}`} className="go-back detail">Go Back</NavLink>
+      <div className="align-colors-and-details">
+        <div className="align">
+          <img className="detail-page-image" src={image_link} alt='beauty-product' />
+          <div className="detail-page">
+            <h5>{brand}</h5>
+            <h3>{name}</h3>
+            <h4>$ {price}</h4>
+            <img onClick={()=>toggleFavorite(id)} className="heart" alt="heart" src={favorites.includes(id) ? 'https://ui-ex.com/images/svg-heart-transparent-background.png' : 'https://images.vexels.com/media/users/3/156965/isolated/preview/cc193f8f5c8e89553153055f410288f9-simple-heart-silhouette-by-vexels.png'} />
+            <p className="description detail">Description: {description}</p>
+            <p className="find-link detail">Find the product here: {product_link}</p>
+            <h5 className="rating detail">Rating: {rating ? rating : 'not yet rated'}</h5>
+            <h5>Product tags: </h5>
+            <ul className="tags detail">{qualities.length ? qualities : 'no tags for this product'}</ul>
+          </div>
+        </div>
+          <h3>Color pallete</h3>
+          <div className="color-box">
+            {allColors}
+          </div>
+      </div>
+    </section>
   )
 }
 

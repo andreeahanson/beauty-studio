@@ -17,8 +17,8 @@ class NavBar extends Component {
   pickBlush = async (e) => {
     if(!this.props.blush.length){
       this.props.loadLoading(true)
-      const products = await fetchMakeup(e.target.name);
-      // const products = sampleProducts;
+      // const products = await fetchMakeup(e.target.name);
+      const products = sampleProducts;
       this.props.loadBlush(products)
       this.props.loadLoading(false)
     } else {
@@ -29,8 +29,8 @@ class NavBar extends Component {
   pickBronzer = async (e) => {
     if(!this.props.bronzer.length){
       this.props.loadLoading(true)
-      const products = await fetchMakeup(e.target.name);
-      // const products = sampleProducts;
+      // const products = await fetchMakeup(e.target.name);
+      const products = sampleProducts;
       this.props.loadBronzer(products)
       this.props.loadLoading(false)
     } else {
@@ -42,8 +42,8 @@ class NavBar extends Component {
   pickEyebrow = async (e) => {
     if(!this.props.eyebrow.length){
       this.props.loadLoading(true)
-      const products = await fetchMakeup(e.target.name);
-      // const products = sampleProducts;
+      // const products = await fetchMakeup(e.target.name);
+      const products = sampleProducts;
       this.props.loadEyebrow(products)
       this.props.loadLoading(false)
     } else {
@@ -55,8 +55,8 @@ class NavBar extends Component {
   pickEyeliner = async (e) => {
     if(!this.props.eyeliner.length){
       this.props.loadLoading(true)
-    const products = await fetchMakeup(e.target.name);
-    // const products = sampleProducts;
+    // const products = await fetchMakeup(e.target.name);
+    const products = sampleProducts;
     this.props.loadEyeliner(products)
     this.props.loadLoading(false)
     } else {
@@ -68,8 +68,8 @@ class NavBar extends Component {
   pickEyeshadow = async (e) => {
     if(!this.props.eyeshadow.length){
     this.props.loadLoading(true)
-    const products = await fetchMakeup(e.target.name);
-    // const products = sampleProducts;
+    // const products = await fetchMakeup(e.target.name);
+    const products = sampleProducts;
     this.props.loadEyeshadow(products)
     this.props.loadLoading(false)
   } else {
@@ -81,8 +81,8 @@ class NavBar extends Component {
   pickFoundation = async (e) => {
     if(!this.props.foundation.length){
       this.props.loadLoading(true)
-    const products = await fetchMakeup(e.target.name);
-    // const products = sampleProducts;
+    // const products = await fetchMakeup(e.target.name);
+    const products = sampleProducts;
     this.props.loadFoundation(products)
     this.props.loadLoading(false)
   } else {
@@ -94,8 +94,8 @@ class NavBar extends Component {
   pickLipliner = async (e) => {
     if(!this.props.lip_liner.length){
       this.props.loadLoading(true)
-    const products = await fetchMakeup(e.target.name);
-    // const products = sampleProducts;
+    // const products = await fetchMakeup(e.target.name);
+    const products = sampleProducts;
     this.props.loadLipliner(products)
     this.props.loadLoading(false)
      } else {
@@ -107,8 +107,8 @@ class NavBar extends Component {
   pickLipstick = async (e) => {
     if(!this.props.lipstick.length){
       this.props.loadLoading(true)
-    const products = await fetchMakeup(e.target.name);
-    // const products = sampleProducts;
+    // const products = await fetchMakeup(e.target.name);
+    const products = sampleProducts;
     this.props.loadLipstick(products)
     this.props.loadLoading(false)
     } else {
@@ -120,8 +120,8 @@ class NavBar extends Component {
   pickMascara = async (e) => {
     if(!this.props.mascara.length){
       this.props.loadLoading(true)   
-    const products = await fetchMakeup(e.target.name);
-    // const products = sampleProducts;
+    // const products = await fetchMakeup(e.target.name);
+    const products = sampleProducts;
     this.props.loadMascara(products)
     this.props.loadLoading(false)
   } else {

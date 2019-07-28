@@ -1,20 +1,44 @@
-.hello{
-  color: red;
-  font-size: 100px;
+.whole-detail-page{
+  position: fixed;
+  overflow: scroll;
+  height: 200vh;
+}
+
+.align-colors-and-details{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.align {
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+.detail-page-image {
+  height: 54vh;
+  width: 28vw;
 }
 
 .detail-page {
-  border: 1px solid blue;
-  width: 500px;
-  height: 500px;
-  color: white
+  width: 40vw;
 }
 
-.selectedProduct-image {
-  height: 200px;
-  width: 170px;
+.color-box{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
 }
 
-.x {
-  color: red;
+.each-color{
+  display: flex;
+  flex-direction: column;
 }
+
+.align-vertically{
+  height: 60px;;
+}
+
