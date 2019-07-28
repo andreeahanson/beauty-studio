@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import './NavBar.css';
-import { NavLink, Switch, Route } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchMakeup } from '../apiCalls';
-import ProductCollection from './ProductCollection'
 import PropTypes from 'prop-types';
 import { loadLoading, loadBlush, loadBronzer, loadEyebrow, loadEyeliner, loadEyeshadow, loadFoundation, loadLipliner, loadLipstick, loadMascara} from '../actions';
 

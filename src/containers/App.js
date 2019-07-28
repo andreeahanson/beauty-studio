@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import PropTypes from 'prop-types';
-// import { fetchMakeup } from '../apiCalls';
 import { connect } from 'react-redux';
 import ProductCollection from '../components/ProductCollection';
-import { sampleProducts } from '../sampleCall';
 import NavBar from '../components/NavBar';
-import Banner from '../components/Banner';
-import { Switch, Route } from 'react-router';
+import { Route } from 'react-router';
 import Landing from '../components/Landing';
 import { loadLoading } from '../actions';
-import { Redirect } from 'react-router'
+// import { Redirect } from 'react-router'
 
 
 class App extends Component {
@@ -20,16 +17,9 @@ class App extends Component {
   }
   
   componentDidMount = () => {
-    // const makeup = await fetchMakeup()
-    // await console.log(makeup)
-    // await this.props.loadProducts(makeup)
-    // this.setState({isLoading: false})
-    
   }
   
   render(){
-    console.log(this.props)
-    console.log(this.props.isLoading)
     return(
       <section className="App">
             {/* <Banner /> */}
@@ -49,7 +39,6 @@ class App extends Component {
           <Route exact path='/loves' render={() => <ProductCollection />}/>
         </section>
       </section>
-
     )
   }
 }
@@ -73,8 +62,6 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
-
-
 
 
 App.propTypes = {

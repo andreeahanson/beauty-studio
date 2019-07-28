@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductCard from '../containers/ProductCard';
+import PropTypes from 'prop-types';
 
 const ProductCollection = (products) => {
   const allProducts = products.products.map(product => {
@@ -23,3 +24,7 @@ const ProductCollection = (products) => {
 }
 
 export default ProductCollection;
+
+ProductCollection.propTypes = {
+  products: PropTypes.array
+}  
