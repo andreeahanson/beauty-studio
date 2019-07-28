@@ -28,10 +28,10 @@ const DetailPage = ({match, toggleFavorite, id, brand, price, image_link, name, 
       <p className='bottom-card'>
       <img onClick={()=>toggleFavorite(id)} className="heart" alt="heart" src={favorites.includes(id) ? 'https://ui-ex.com/images/svg-heart-transparent-background.png' : 'https://images.vexels.com/media/users/3/156965/isolated/preview/cc193f8f5c8e89553153055f410288f9-simple-heart-silhouette-by-vexels.png'} />
       </p>
-      <p>{description}</p>
-      <p>{product_link}</p>
-      <p>Rating: {rating}</p>
-      <ul>{qualities}</ul>
+      <p className="x">Description: {description}</p>
+      <p className="x">Find the product here: {product_link}</p>
+      <p className="x">Rating: {rating ? rating : 'not yet rated'}</p>
+      <ul className="x">Product tags: {qualities.length ? qualities : 'no tags for this product'}</ul>
       {allColors}
       </figure>
     </>
