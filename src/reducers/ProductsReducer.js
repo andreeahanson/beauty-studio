@@ -92,11 +92,11 @@ export const favoritesReducer = (state=[], action) => {
   switch(action.type){
     case 'LOAD_FAVORITES':
       return action.favorites;
-    case 'ADD_FAVORITE':
-      if(!state.includes(action.newFavorite)){
-        return [...state, action.newFavorite]
-      }
-      break;
+    case 'ADD_FAVORITE_ID':
+      let updatedFavs = [...state, action.id];
+      return updatedFavs;
+    case 'DELETE_FAVORITE':
+      return state.filter(id => id !== action.id) || []
     default:
       return state;
   }

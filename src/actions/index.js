@@ -53,8 +53,12 @@ export const loadFavorites = (favorites) => ({
   favorites
 })
 
-export const addFavorite = (newFavorite) => ({
-  type: "ADD_FAVORITE",
-  newFavorite
+export const addFavoriteId = (id) => ({
+  type: 'ADD_FAVORITE_ID',
+  id
 })
 
+export const deleteFavorite = (id) => ({
+  type: 'DELETE_FAVORITE',
+  id
+})

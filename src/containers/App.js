@@ -6,7 +6,7 @@ import ProductCollection from '../components/ProductCollection';
 import NavBar from '../components/NavBar';
 import { Route } from 'react-router';
 import Landing from '../components/Landing';
-import { loadLoading } from '../actions';
+import { loadLoading, loadFavorites, addFavoriteId, deleteFavorite } from '../actions';
 // import { Redirect } from 'react-router'
 
 
@@ -18,6 +18,23 @@ class App extends Component {
   
   componentDidMount = () => {
   }
+
+  findFavorite = (id) => {
+    const allProducts = [...this.props.blush, this.props.bronzer, this.props.lipstick, this.props.lip_liner, this.props.mascara, this.props.foundation, this.props.eyeliner, this.props.eyeshadow, this.props.eyebrow].flat()
+    console.log(allProducts)
+    return allProducts.find(product => product.id === id).id
+  }
+
+  toggleFavorite = async (id) => {
+    let favorite = this.findFavorite(id);
+    if(!this.props.favorites.includes(favorite)){
+      this.props.addFavoriteId(id)
+      console.log(this.props.favorites)
+    } else {
+      this.props.deleteFavorite(id)
+      console.log(this.props.favorites)
+    }
+  }
   
   render(){
     return(
@@ -27,16 +44,16 @@ class App extends Component {
         <Route exact path='/' component={Landing}/>
         <section className="product-collection">      
           {this.props.isLoading && <h1>Loading...</h1>}  
-          <Route exact path='/blush' render={() => <ProductCollection products={this.props.blush} />} />
-          <Route exact path='/bronzer' render={() => <ProductCollection products={this.props.bronzer}/>}/>
-          <Route exact path='/eyebrow' render={() => <ProductCollection products={this.props.eyebrow}/>}/>
-          <Route exact path='/eyeliner' render={() => <ProductCollection products={this.props.eyeliner}/>}/>
-          <Route exact path='/eyeshadow' render={() => <ProductCollection products={this.props.eyeshadow}/>}/>
-          <Route exact path='/foundation' render={() => <ProductCollection products={this.props.foundation}/>}/>
-          <Route exact path='/lip_liner' render={() => <ProductCollection products={this.props.lip_liner}/>}/>
-          <Route exact path='/lipstick' render={() => <ProductCollection products={this.props.lipstick}/>}/>
-          <Route exact path='/mascara' render={() => <ProductCollection products={this.props.mascara}/>}/>
-          <Route exact path='/loves' render={() => <ProductCollection products={this.props.favorites}/>}/>
+          <Route exact path='/blush' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.blush} />} />
+          <Route exact path='/bronzer' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.bronzer}/>}/>
+          <Route exact path='/eyebrow' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.eyebrow}/>}/>
+          <Route exact path='/eyeliner' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.eyeliner}/>}/>
+          <Route exact path='/eyeshadow' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.eyeshadow}/>}/>
+          <Route exact path='/foundation' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.foundation}/>}/>
+          <Route exact path='/lip_liner' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.lip_liner}/>}/>
+          <Route exact path='/lipstick' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.lipstick}/>}/>
+          <Route exact path='/mascara' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.mascara}/>}/>
+          <Route exact path='/loves' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.favorites}/>}/>
         </section>
       </section>
     )
@@ -59,7 +76,10 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  loadLoading: waiting => dispatch(loadLoading(waiting))
+  loadLoading: waiting => dispatch(loadLoading(waiting)),
+  loadFavorites: favorites => dispatch(loadFavorites(favorites)),
+  addFavoriteId: id => dispatch(addFavoriteId(id)),
+  deleteFavorite: id => dispatch(deleteFavorite(id))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

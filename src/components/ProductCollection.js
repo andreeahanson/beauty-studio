@@ -2,13 +2,13 @@ import React from 'react';
 import ProductCard from '../containers/ProductCard';
 import PropTypes from 'prop-types';
 
-const ProductCollection = (products) => {
-  const allProducts = products.products.map(product => {
+const ProductCollection = ({products, toggleFavorite}) => {
+  const allProducts = products.map(product => {
     if(product.price != 0){
     return (
     <ProductCard 
-    id={product.created_at}
-    key={product.created_at}
+    id={product.id}
+    key={product.id}
     brand={product.brand}
     name={product.name} 
     description={product.description}
@@ -17,6 +17,7 @@ const ProductCollection = (products) => {
     colors={product.product_colors}
     type={product.product_type}
     tagList={product.tag_list}
+    toggleFavorite={toggleFavorite}
     />)
     }
   })
