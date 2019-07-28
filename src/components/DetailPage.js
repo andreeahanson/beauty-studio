@@ -2,6 +2,7 @@ import React from 'react';
 import './DetailPage.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { NavLink } from 'react-router-dom';
 
 
 const DetailPage = ({match, toggleFavorite, id, brand, price, image_link, name, product_type, product_link, description, rating, tag_list, product_colors, favorites}) => {
@@ -20,6 +21,7 @@ const DetailPage = ({match, toggleFavorite, id, brand, price, image_link, name, 
     let qualities = tag_list.map(element => <li>{element}</li>)
   return (
     <>
+      <NavLink to={`/${product_type}`} className="none">Go Back</NavLink>
       <figure className="detail-page">
       <h5>{brand}</h5>
       <h3>{name}</h3>

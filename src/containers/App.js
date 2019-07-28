@@ -47,7 +47,7 @@ class App extends Component {
         <NavBar />
         <Route exact path='/' component={Landing}/>
         <section className="product-collection">      
-          {this.props.isLoading && <h1>Loading...</h1>}  
+          {this.props.isLoading && <h1 className="loading">Loading...</h1>}  
           <Switch>
           <Route exact path='/blush' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.blush} />} />
           <Route exact path='/bronzer' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.bronzer}/>}/>
