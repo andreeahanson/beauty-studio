@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductCard from '../containers/ProductCard';
+import ProductCard from '../ProductCard/ProductCard';
 import PropTypes from 'prop-types';
 
 const ProductCollection = ({products, toggleFavorite}) => {
