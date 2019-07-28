@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './NavBar.css';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { fetchMakeup } from '../apiCalls';
+import { fetchMakeup } from '../../apiCalls';
 import PropTypes from 'prop-types';
-import { loadError, loadLoading, loadBlush, loadBronzer, loadEyebrow, loadEyeliner, loadEyeshadow, loadFoundation, loadLipliner, loadLipstick, loadMascara} from '../actions';
-import { sampleProducts } from '../sampleCall';
-import { dataCleanup } from '../dataCleaner';
+import { loadError, loadLoading, loadBlush, loadBronzer, loadEyebrow, loadEyeliner, loadEyeshadow, loadFoundation, loadLipliner, loadLipstick, loadMascara} from '../../actions';
+import { sampleProducts } from '../../sampleCall';
+import { dataCleanup } from '../../dataCleaner';
 
 
 class NavBar extends Component {

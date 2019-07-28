@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ProductCollection from '../components/ProductCollection';
-import NavBar from '../components/NavBar';
+import ProductCollection from '../../components/ProductCollection/ProductCollection';
+import NavBar from '../NavBar/NavBar';
 import { Route, Switch } from 'react-router';
-import Landing from '../components/Landing';
-import { loadLoading, loadFavorites, addFavoriteId, deleteFavorite } from '../actions';
-import NotFound from '../components/NotFound';
-import DetailPage from '../components/DetailPage';
+import Landing from '../../components/Landing/Landing';
+import { loadLoading, loadFavorites, addFavoriteId, deleteFavorite } from '../../actions';
+import NotFound from '../../components/NotFound/NotFound';
+import DetailPage from '../../components/DetailPage/DetailPage';
 
 class App extends Component {
   constructor(){
