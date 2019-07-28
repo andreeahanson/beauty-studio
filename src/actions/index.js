@@ -62,3 +62,8 @@ export const deleteFavorite = (id) => ({
   type: 'DELETE_FAVORITE',
   id
 })
+
+export const loadError = (errorMsg) => ({
+  type: 'LOAD_ERROR',
+  errorMsg
+})
