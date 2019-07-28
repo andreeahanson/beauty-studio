@@ -87,3 +87,17 @@ export const isLoadingReducer = (state=false, action) => {
       return state;
   }
 }
+
+export const favoritesReducer = (state=[], action) => {
+  switch(action.type){
+    case 'LOAD_FAVORITES':
+      return action.favorites;
+    case 'ADD_FAVORITE':
+      if(!state.includes(action.newFavorite)){
+        return [...state, action.newFavorite]
+      }
+      break;
+    default:
+      return state;
+  }
+}

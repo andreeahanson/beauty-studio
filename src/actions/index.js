@@ -48,3 +48,13 @@ export const loadLoading = (isLoading) => ({
   isLoading
 })
 
+export const loadFavorites = (favorites) => ({
+  type: "LOAD_FAVORITES",
+  favorites
+})
+
+export const addFavorite = (newFavorite) => ({
+  type: "ADD_FAVORITE",
+  newFavorite
+})
+

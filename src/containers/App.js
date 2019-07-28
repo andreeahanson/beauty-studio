@@ -36,7 +36,7 @@ class App extends Component {
           <Route exact path='/lip_liner' render={() => <ProductCollection products={this.props.lip_liner}/>}/>
           <Route exact path='/lipstick' render={() => <ProductCollection products={this.props.lipstick}/>}/>
           <Route exact path='/mascara' render={() => <ProductCollection products={this.props.mascara}/>}/>
-          <Route exact path='/loves' render={() => <ProductCollection />}/>
+          <Route exact path='/loves' render={() => <ProductCollection products={this.props.favorites}/>}/>
         </section>
       </section>
     )
@@ -54,7 +54,8 @@ const mapStateToProps = (state) => ({
   lipstick: state.lipstick,
   mascara: state.mascara, 
   loves: state.loves,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  favorites: state.favorites
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -76,4 +77,5 @@ App.propTypes = {
   mascara: PropTypes.array, 
   loves: PropTypes.array, 
   isLoading: PropTypes.bool,
+  favorites: PropTypes.array
 };
