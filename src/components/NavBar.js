@@ -11,8 +11,7 @@ import { sampleProducts } from '../sampleCall'
 class NavBar extends Component {
   constructor() {
     super()
-    this.state = {
-    }
+    this.state = {}
   }
 
   pickBlush = async (e) => {

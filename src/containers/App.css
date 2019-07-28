@@ -11,6 +11,7 @@
   background-color: black;
 }
 
-.none {
+.none,
+.loading {
   color: red;
 }
