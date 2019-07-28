@@ -2,3 +2,15 @@
   color: red;
   font-size: 100px;
 }
+
+.detail-page {
+  border: 1px solid blue;
+  width: 500px;
+  height: 500px;
+  color: white
+}
+
+.selectedProduct-image {
+  height: 200px;
+  width: 170px;
+}

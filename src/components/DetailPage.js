@@ -3,21 +3,24 @@ import './DetailPage.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const DetailPage = ({match, toggleFavorite, blush, bronzer, lipstick, lip_liner, mascara, foundation, eyeliner, eyeshadow, eyebrow, favorites}) => {
-  let id = match.params.id
-  const allProducts = [...blush, bronzer, lipstick, lip_liner, mascara, foundation, eyeliner, eyeshadow, eyebrow].flat()
-  console.log(allProducts)
-  const selectedProduct = allProducts.find(product => product.id === id)
+
+const DetailPage = ({match, toggleFavorite, id, brand, price, image_link, name, product_type, favorites}) => {
+  // let id = match.params.id
+  // const allProducts = [...blush, bronzer, lipstick, lip_liner, mascara, foundation, eyeliner, eyeshadow, eyebrow].flat()
+  // console.log(allProducts)
+  // const selectedProduct = allProducts.find(product => product.id === id)
   return (
     <>
-      {/* <h5>{selectedProduct.brand}</h5>
-      <h3>{selectedProduct.name}</h3>
-      <h4>$ {selectedProduct.price}</h4>
-      <img className="selectedProduct-image" src={selectedProduct.image} alt='beauty-product' /> */}
+      <figure className="detail-page">
+      <h5>{brand}</h5>
+      <h3>{name}</h3>
+      <h4>$ {price}</h4>
+      <img className="selectedProduct-image" src={image_link} alt='beauty-product' />
       <p className='bottom-card'>
       {/* <img className="heart" src={'https://ui-ex.com/images/svg-heart-transparent-background.png'} /> */}
       <img onClick={()=>toggleFavorite(id)} className="heart" alt="heart" src={favorites.includes(id) ? 'https://ui-ex.com/images/svg-heart-transparent-background.png' : 'https://images.vexels.com/media/users/3/156965/isolated/preview/cc193f8f5c8e89553153055f410288f9-simple-heart-silhouette-by-vexels.png'} />
       </p>
+      </figure>
     </>
   )
 }
