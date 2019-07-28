@@ -21,7 +21,6 @@ class App extends Component {
 
   findFavorite = (id) => {
     const allProducts = [...this.props.blush, this.props.bronzer, this.props.lipstick, this.props.lip_liner, this.props.mascara, this.props.foundation, this.props.eyeliner, this.props.eyeshadow, this.props.eyebrow].flat()
-    console.log(allProducts)
     return allProducts.find(product => product.id === id).id
   }
 
@@ -32,6 +31,12 @@ class App extends Component {
     } else {
       this.props.deleteFavorite(id)
     }
+  }
+
+  setFavorites = () => {
+    const allProducts = [...this.props.blush, this.props.bronzer, this.props.lipstick, this.props.lip_liner, this.props.mascara, this.props.foundation, this.props.eyeliner, this.props.eyeshadow, this.props.eyebrow].flat()
+    const favoriteProducts = allProducts.filter(product => this.props.favorites.includes(product.id))
+    return favoriteProducts
   }
   
   render(){
@@ -51,7 +56,7 @@ class App extends Component {
           <Route exact path='/lip_liner' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.lip_liner}/>}/>
           <Route exact path='/lipstick' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.lipstick}/>}/>
           <Route exact path='/mascara' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.mascara}/>}/>
-          <Route exact path='/loves' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.favorites}/>}/>
+          <Route exact path='/loves' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.setFavorites()}/>}/>
         </section>
       </section>
     )
