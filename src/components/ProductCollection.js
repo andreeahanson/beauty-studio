@@ -27,5 +27,6 @@ const ProductCollection = ({products, toggleFavorite}) => {
 export default ProductCollection;
 
 ProductCollection.propTypes = {
-  products: PropTypes.array
+  products: PropTypes.array,
+  toggleFavorite: PropTypes.func
 }  
