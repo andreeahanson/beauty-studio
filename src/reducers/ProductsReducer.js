@@ -87,3 +87,16 @@ export const isLoadingReducer = (state=false, action) => {
       return state;
   }
 }
+
+export const favoritesReducer = (state=[], action) => {
+  switch(action.type){
+    case 'LOAD_FAVORITES':
+      return action.favorites;
+    case 'ADD_FAVORITE_ID':
+      return [...state, action.id];
+    case 'DELETE_FAVORITE':
+      return state.filter(id => id !== action.id) || []
+    default:
+      return state;
+  }
+}

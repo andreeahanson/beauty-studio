@@ -48,3 +48,17 @@ export const loadLoading = (isLoading) => ({
   isLoading
 })
 
+export const loadFavorites = (favorites) => ({
+  type: "LOAD_FAVORITES",
+  favorites
+})
+
+export const addFavoriteId = (id) => ({
+  type: 'ADD_FAVORITE_ID',
+  id
+})
+
+export const deleteFavorite = (id) => ({
+  type: 'DELETE_FAVORITE',
+  id
+})

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { isLoadingReducer, blushReducer,bronzerReducer, eyebrowReducer, eyelinerReducer, eyeshadowReducer, foundationReducer, liplinerReducer, lipstickReducer, mascaraReducer } from './ProductsReducer';
+import { favoritesReducer, isLoadingReducer, blushReducer,bronzerReducer, eyebrowReducer, eyelinerReducer, eyeshadowReducer, foundationReducer, liplinerReducer, lipstickReducer, mascaraReducer } from './ProductsReducer';
 
 export const rootReducer = combineReducers({
   blush: blushReducer,
@@ -11,5 +11,6 @@ export const rootReducer = combineReducers({
   lip_liner: liplinerReducer,
   lipstick: lipstickReducer,
   mascara: mascaraReducer,
-  isLoading: isLoadingReducer
+  isLoading: isLoadingReducer,
+  favorites: favoritesReducer
 })
