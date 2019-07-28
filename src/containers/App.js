@@ -22,11 +22,16 @@ class App extends Component {
   findFavorite = (id) => {
     const allProducts = [...this.props.blush, this.props.bronzer, this.props.lipstick, this.props.lip_liner, this.props.mascara, this.props.foundation, this.props.eyeliner, this.props.eyeshadow, this.props.eyebrow].flat()
     console.log(allProducts)
-    return allProducts.find(product => product.id === id).id
+    let foundProductId = allProducts.find(product => product.id === id).id
+    console.log("FOUND PRODUCT ID", foundProductId)
+    return foundProductId
   }
 
-  toggleFavorite = async (id) => {
+  toggleFavorite = (id) => {
     let favorite = this.findFavorite(id);
+    console.log(this.props.favorites)
+    console.log(favorite)
+    console.log(!this.props.favorites.includes(favorite))
     if(!this.props.favorites.includes(favorite)){
       this.props.addFavoriteId(id)
       console.log(this.props.favorites)
