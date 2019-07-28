@@ -100,3 +100,12 @@ export const favoritesReducer = (state=[], action) => {
       return state;
   }
 }
+
+export const loadErrorReducer = (state='', action) => {
+  switch(action.type){
+    case 'LOAD_ERROR':
+      return action.errorMsg;
+    default:
+      return state;
+  }
+}
