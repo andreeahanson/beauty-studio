@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 
-const DetailPage = ({match, toggleFavorite, id, brand, price, image_link, name, product_type, description, product_colors, favorites}) => {
+const DetailPage = ({match, toggleFavorite, id, brand, price, image_link, name, product_type, product_link, description, rating, tag_list, product_colors, favorites}) => {
    let allColors = product_colors.map(color => {
     const divStyle = {
       backgroundColor: color.hex_value
@@ -16,6 +16,8 @@ const DetailPage = ({match, toggleFavorite, id, brand, price, image_link, name, 
       </div>
     )
   })
+
+    let qualities = tag_list.map(element => <li>{element}</li>)
   return (
     <>
       <figure className="detail-page">
@@ -27,6 +29,9 @@ const DetailPage = ({match, toggleFavorite, id, brand, price, image_link, name, 
       <img onClick={()=>toggleFavorite(id)} className="heart" alt="heart" src={favorites.includes(id) ? 'https://ui-ex.com/images/svg-heart-transparent-background.png' : 'https://images.vexels.com/media/users/3/156965/isolated/preview/cc193f8f5c8e89553153055f410288f9-simple-heart-silhouette-by-vexels.png'} />
       </p>
       <p>{description}</p>
+      <p>{product_link}</p>
+      <p>Rating: {rating}</p>
+      <ul>{qualities}</ul>
       {allColors}
       </figure>
     </>
