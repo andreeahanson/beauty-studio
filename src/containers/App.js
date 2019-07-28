@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ProductCollection from '../components/ProductCollection';
 import NavBar from '../components/NavBar';
-import { Route } from 'react-router';
+import { Route, Switch } from 'react-router';
 import Landing from '../components/Landing';
 import { loadLoading, loadFavorites, addFavoriteId, deleteFavorite } from '../actions';
+import NotFound from '../components/NotFound';
 // import { Redirect } from 'react-router'
 
 
@@ -47,6 +48,7 @@ class App extends Component {
         <Route exact path='/' component={Landing}/>
         <section className="product-collection">      
           {this.props.isLoading && <h1>Loading...</h1>}  
+          <Switch>
           <Route exact path='/blush' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.blush} />} />
           <Route exact path='/bronzer' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.bronzer}/>}/>
           <Route exact path='/eyebrow' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.eyebrow}/>}/>
@@ -57,6 +59,8 @@ class App extends Component {
           <Route exact path='/lipstick' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.lipstick}/>}/>
           <Route exact path='/mascara' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.mascara}/>}/>
           <Route exact path='/loves' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.setFavorites()}/>}/>
+          <Route path='*' component={NotFound}/>
+          </Switch>
         </section>
       </section>
     )
