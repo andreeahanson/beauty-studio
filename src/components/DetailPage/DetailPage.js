@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
 
-const DetailPage = ({match, toggleFavorite, id, brand, price, image_link, name, product_type, product_link, description, rating, tag_list, product_colors, favorites}) => {
+export const DetailPage = ({match, toggleFavorite, id, brand, price, image_link, name, product_type, product_link, description, rating, tag_list, product_colors, favorites}) => {
    let allColors = product_colors.map(color => {
     const divStyle = {
       backgroundColor: color.hex_value
