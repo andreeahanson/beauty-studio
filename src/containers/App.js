@@ -8,6 +8,7 @@ import { Route, Switch } from 'react-router';
 import Landing from '../components/Landing';
 import { loadLoading, loadFavorites, addFavoriteId, deleteFavorite } from '../actions';
 import NotFound from '../components/NotFound';
+import DetailPage from '../components/DetailPage';
 // import { Redirect } from 'react-router'
 
 
@@ -59,6 +60,43 @@ class App extends Component {
           <Route exact path='/lipstick' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.lipstick}/>}/>
           <Route exact path='/mascara' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.mascara}/>}/>
           <Route exact path='/loves' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.setFavorites()}/>}/>
+          <Route exact path='/blush/:id' render={ ({match}) => {
+            const selectedProduct = this.props.blush.find(product => product.id === parseInt(match.params.id));
+            return <DetailPage match={match} {...selectedProduct} toggleFavorite={this.toggleFavorite} />
+            }
+          }/>
+          <Route exact path='/bronzer/:id' render={ ({match}) => {
+            const selectedProduct = this.props.bronzer.find(product => product.id === parseInt(match.params.id));
+            return <DetailPage match={match} {...selectedProduct} toggleFavorite={this.toggleFavorite} />
+            }}/>
+          <Route exact path='/eyebrow/:id' render={ ({match}) => {
+            const selectedProduct = this.props.eyebrow.find(product => product.id === parseInt(match.params.id));
+            return <DetailPage match={match} {...selectedProduct} toggleFavorite={this.toggleFavorite} />
+            }}/>
+          <Route exact path='/eyeliner/:id' render={ ({match}) => {
+            const selectedProduct = this.props.eyeliner.find(product => product.id === parseInt(match.params.id));
+            return <DetailPage match={match} {...selectedProduct} toggleFavorite={this.toggleFavorite} />
+            }}/>
+          <Route exact path='/eyeshadow/:id' render={ ({match}) => {
+            const selectedProduct = this.props.eyeshadow.find(product => product.id === parseInt(match.params.id));
+            return <DetailPage match={match} {...selectedProduct} toggleFavorite={this.toggleFavorite} />
+            }}/>
+          <Route exact path='/foundation/:id' render={ ({match}) => {
+            const selectedProduct = this.props.foundation.find(product => product.id === parseInt(match.params.id));
+            return <DetailPage match={match} {...selectedProduct} toggleFavorite={this.toggleFavorite} />
+            }}/>
+          <Route exact path='/lip_liner/:id' render={ ({match}) => {
+            const selectedProduct = this.props.lip_liner.find(product => product.id === parseInt(match.params.id));
+            return <DetailPage match={match} {...selectedProduct} toggleFavorite={this.toggleFavorite} />
+            }}/>
+          <Route exact path='/lipstick/:id' render={ ({match}) => {
+            const selectedProduct = this.props.lipstick.find(product => product.id === parseInt(match.params.id));
+            return <DetailPage match={match} {...selectedProduct} toggleFavorite={this.toggleFavorite} />
+            }}/>
+          <Route exact path='/mascara/:id' render={ ({match}) => {
+            const selectedProduct = this.props.mascara.find(product => product.id === parseInt(match.params.id));
+            return <DetailPage match={match} {...selectedProduct} toggleFavorite={this.toggleFavorite} />
+            }}/>
           <Route path='*' component={NotFound}/>
           </Switch>
         </section>
@@ -76,8 +114,7 @@ const mapStateToProps = (state) => ({
   foundation: state.foundation,
   lip_liner: state.lip_liner,
   lipstick: state.lipstick,
-  mascara: state.mascara, 
-  loves: state.loves,
+  mascara: state.mascara,
   isLoading: state.isLoading,
   favorites: state.favorites
 })
@@ -102,7 +139,6 @@ App.propTypes = {
   lip_liner: PropTypes.array,
   lipstick: PropTypes.array,
   mascara: PropTypes.array, 
-  loves: PropTypes.array, 
   isLoading: PropTypes.bool,
   favorites: PropTypes.array
 };

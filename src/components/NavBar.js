@@ -132,6 +132,7 @@ class NavBar extends Component {
   }
 
   render() {
+    console.log(this.props.mascara)
     return (
       <>
       <nav>
@@ -161,8 +162,7 @@ const mapStateToProps = state => ({
   foundation: state.foundation,
   lip_liner: state.lip_liner,
   lipstick: state.lipstick,
-  mascara: state.mascara,
-  loves: state.loves
+  mascara: state.mascara
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -192,8 +192,7 @@ NavBar.propTypes = {
   foundation: PropTypes.array,
   lip_liner: PropTypes.array,
   lipstick: PropTypes.array,
-  mascara: PropTypes.array, 
-  loves: PropTypes.array, 
+  mascara: PropTypes.array,  
   isLoading: PropTypes.bool,
   loadBlush: PropTypes.func, 
   loadBronzer: PropTypes.func,
