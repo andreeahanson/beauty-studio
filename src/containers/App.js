@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import PropTypes from 'prop-types';
 // import { fetchMakeup } from '../apiCalls';
 import { connect } from 'react-redux';
 import ProductCollection from '../components/ProductCollection';
@@ -15,9 +16,7 @@ import { Redirect } from 'react-router'
 class App extends Component {
   constructor(){
     super();
-    this.state = {
-      // isLoading: true
-    }
+    this.state = {}
   }
   
   componentDidMount = () => {
@@ -74,3 +73,20 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+
+
+
+App.propTypes = {
+  blush: PropTypes.array,  
+  bronzer: PropTypes.array,
+  eyebrow: PropTypes.array,
+  eyeliner: PropTypes.array,
+  eyeshadow: PropTypes.array,
+  foundation: PropTypes.array,
+  lip_liner: PropTypes.array,
+  lipstick: PropTypes.array,
+  mascara: PropTypes.array, 
+  loves: PropTypes.array, 
+  isLoading: PropTypes.bool,
+};

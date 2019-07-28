@@ -4,6 +4,7 @@ import { NavLink, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchMakeup } from '../apiCalls';
 import ProductCollection from './ProductCollection'
+import PropTypes from 'prop-types';
 import { loadLoading, loadBlush, loadBronzer, loadEyebrow, loadEyeliner, loadEyeshadow, loadFoundation, loadLipliner, loadLipstick, loadMascara} from '../actions';
 
 class NavBar extends Component {
@@ -172,22 +173,26 @@ export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
 
 
 
-// const NavBar = () => {
-
-//   return (
-//     <nav>
-//       <NavLink to="/blush" className="nav-word">Blush</NavLink>
-//       <NavLink to="/bronzer" className="nav-word">Bronzer</NavLink>
-//       <NavLink to="/eyebrow" className="nav-word">Eyebrow</NavLink>
-//       <NavLink to="/eyeliner" className="nav-word">Eyeliner</NavLink>
-//       <NavLink to="/eyeshadow" className="nav-word">Eyeshadow</NavLink>
-//       <NavLink to="/foundation" className="nav-word">Foundation</NavLink>
-//       <NavLink to="/lip_liner" className="nav-word">Lip Liner</NavLink>
-//       <NavLink to="/lipstick" className="nav-word">Lipstick</NavLink>
-//       <NavLink to="/mascara" className="nav-word">Mascara</NavLink>
-//       <NavLink to="/" className="nav-word red">Loves list</NavLink>
-//     </nav>
-//   )
-// }
-
-// export default NavBar;
+NavBar.propTypes = {
+  blush: PropTypes.array,  
+  bronzer: PropTypes.array,
+  eyebrow: PropTypes.array,
+  eyeliner: PropTypes.array,
+  eyeshadow: PropTypes.array,
+  foundation: PropTypes.array,
+  lip_liner: PropTypes.array,
+  lipstick: PropTypes.array,
+  mascara: PropTypes.array, 
+  loves: PropTypes.array, 
+  isLoading: PropTypes.bool,
+  loadBlush: PropTypes.func, 
+  loadBronzer: PropTypes.func,
+  loadEyebrow: PropTypes.func, 
+  loadEyeliner: PropTypes.func, 
+  loadEyeshadow: PropTypes.func, 
+  loadFoundation: PropTypes.func,
+  loadLipliner: PropTypes.func,
+  loadLipstick: PropTypes.func,
+  loadMascara: PropTypes.func, 
+  loadLoading: PropTypes.func, 
+};
