@@ -232,13 +232,13 @@ describe('favoritesReducer', () => {
   })
 
   it('should delete a favorite after DELETE FAVORITE was fired', () => {
-    const expected = []
+    const expected = [{id:1}]
     const action = {
       type: "DELETE_FAVORITE",
       id: {id:1}
     }
 
-    const result = favoritesReducer([], action)
+    const result = favoritesReducer([{id:1}], action)
 
     expect(result).toEqual(expected)
   })
@@ -252,15 +252,14 @@ describe('loadErrorReducer', () => {
   })
 
   it('should return the state after loadError was fired', () => {
-    const expected = 'error'
     const action = {
-      type: 'IS_LOADING',
+      type: 'LOAD_ERROR',
       errorMsg: 'error'
     }
 
     const result = loadErrorReducer('error', action)
 
-    expect(result).toEqual(expected);
+    expect(result).toEqual(action.errorMsg);
   })
 });
 
