@@ -37,10 +37,10 @@ export class App extends Component {
     return(
       <section className="App">
         <NavBar />
+          <Switch>
         <Route exact path='/' component={Landing}/>
         <section className="product-collection">      
           {this.props.isLoading && <h1 className="loading">Loading...</h1>}  
-          <Switch>
           <Route exact path='/blush' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.blush} />} />
           <Route exact path='/bronzer' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.bronzer}/>}/>
           <Route exact path='/eyebrow' render={() => <ProductCollection toggleFavorite={this.toggleFavorite} products={this.props.eyebrow}/>}/>
@@ -89,8 +89,8 @@ export class App extends Component {
             return <DetailPage match={match} {...selectedProduct} toggleFavorite={this.toggleFavorite} allProducts={allProducts}/>
             }}/>
           <Route path='*' component={NotFound}/>
-          </Switch>
         </section>
+          </Switch>
       </section>
     )
   }
