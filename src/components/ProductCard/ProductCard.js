@@ -3,7 +3,7 @@ import './ProductCard.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const ProductCard = ({id, key, brand, name, price, image, colors, description, type, tagList, toggleFavorite, favorites}) => {
+export const ProductCard = ({id, key, brand, name, price, image, colors, description, type, tagList, toggleFavorite, favorites}) => {
  
   return (
     <article>
@@ -19,7 +19,7 @@ const ProductCard = ({id, key, brand, name, price, image, colors, description, t
   )
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   favorites: state.favorites
 })
 
