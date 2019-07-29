@@ -6,7 +6,6 @@ export const fetchMakeup = async (key) => {
       throw new Error('Error uploading makeup, response not ok');
     }
     const makeup = await response.json();
-    await console.log('fetched')
     return makeup;
   } catch(error) {
     throw new Error(error.message);
