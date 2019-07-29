@@ -37,7 +37,6 @@ describe('App', () => {
       favorites: []
     }
 
-    const allProducts = [{id:1}, {id:2}]
 
     wrapper=shallow(
     <App 
@@ -59,27 +58,8 @@ describe('App', () => {
       it('should match the snapshot', () => {
 
 
-        wrapper=shallow(<App blush={[]} />)    
-        // wrapper.setProps({blush:[]})
         expect(wrapper).toMatchSnapshot();
       })
-
-    // wrapper=shallow(
-    // <App 
-    // findFavorite={findFavoriteMock}
-    // toggleFavorite={toggleFavoriteMock}
-    // setFavorites={setFavoritesMock}
-    // blush={mockBlush}
-    // bronzer={mockBronzer}
-    // lipstick={mockLipstick}
-    // lip_liner={mockLipliner}
-    // mascara={mockMascara}
-    // foundation={mockFoundation}
-    // eyeliner={mockEyeliner}
-    // eyeshadow={mockEyeshadow}
-    // eyebrow={mockEyebrow}
-    // allProducts={mockAllProducts}
-    // />)
 
   it('should findFavorite product when findFavorite is called', () => {
     let mockAllProducts=[{id:1, product_type:"blush"}, {id:2, product_type:"bronzer"},{id: 3, product_type:"lipstick"},{id: 4, product_type:"lip_liner"},{id:5, product_type:"mascara"},{id:6, product_type:"foundation"},{id:7, product_type:"eyeliner"}, {id: 8, product_type:"eyeshadow"}, {id:9, product_type:"eyebrow"}]
@@ -175,8 +155,6 @@ describe('App', () => {
       wrapper.instance().toggleFavorite(mockFavoriteId)
       
       expect(mockAddFavoriteId).toHaveBeenCalledWith(1)
-      expect(wrapper.instance().toggleFavorite(mockFavoriteId)).toEqual(1)
-      // expect(mockDeleteFavorite).toHaveBeenCalledWith(1)
   })
 
   it('should call deleteFavorite in toggleFavorite when the id is included in favorites', () => {

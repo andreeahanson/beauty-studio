@@ -13,7 +13,8 @@ import DetailPage from '../../components/DetailPage/DetailPage';
 export class App extends Component {
 
   findFavorite = (id) => {
-    const allProducts = this.props.blush.concat(this.props.bronzer).concat(this.props.lipstick).concat(this.props.lip_liner).concat(this.props.mascara).concat(this.props.foundation).concat(this.props.eyeliner).concat(this.props.eyeshadow).concat(this.props.eyebrow)
+    const {blush, bronzer, lipstick, lip_liner, mascara, eyebrow, eyeliner, eyeshadow, foundation } = this.props
+    const allProducts = [...blush, ...bronzer, ...lipstick, ...lip_liner, ...mascara, ...eyebrow, ...eyeliner, ...eyeshadow, ...foundation]
     return allProducts.find(product => product.id === id).id
   }
 
@@ -27,15 +28,15 @@ export class App extends Component {
   }
 
   setFavorites = () => {
-    const allProducts = this.props.blush.concat(this.props.bronzer).concat(this.props.lipstick).concat(this.props.lip_liner).concat(this.props.mascara).concat(this.props.foundation).concat(this.props.eyeliner).concat(this.props.eyeshadow).concat(this.props.eyebrow)
+    const {blush, bronzer, lipstick, lip_liner, mascara, eyebrow, eyeliner, eyeshadow, foundation } = this.props
+    const allProducts = [...blush, ...bronzer, ...lipstick, ...lip_liner, ...mascara, ...eyebrow, ...eyeliner, ...eyeshadow, ...foundation]
     const favoriteProducts = allProducts.filter(product => this.props.favorites.includes(product.id))
     return favoriteProducts
   }
 
   render() {
-    // const allProducts = [this.props.blush, this.props.bronzer, this.props.lipstick, this.props.lip_liner, this.props.mascara, this.props.foundation, this.props.eyeliner, this.props.eyeshadow, this.props.eyebrow].flat()
-    // console.log(allProducts)
-    const allProducts = this.props.blush.concat(this.props.bronzer).concat(this.props.lipstick).concat(this.props.lip_liner).concat(this.props.mascara).concat(this.props.foundation).concat(this.props.eyeliner).concat(this.props.eyeshadow).concat(this.props.eyebrow)
+    const {blush, bronzer, lipstick, lip_liner, mascara, eyebrow, eyeliner, eyeshadow, foundation } = this.props
+    const allProducts = [...blush, ...bronzer, ...lipstick, ...lip_liner, ...mascara, ...eyebrow, ...eyeliner, ...eyeshadow, ...foundation]
     return (
       <section className="App">
         <NavBar />
