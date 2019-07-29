@@ -28,7 +28,7 @@ describe('NavBar', () => {
   let mockLoadMascara = jest.fn()
   let mockLoadEyebrow = jest.fn()
   let mockLoadLipliner = jest.fn()
-
+  let mockLoadError = jest.fn()
 
   beforeEach(() => {
     initialState = {
