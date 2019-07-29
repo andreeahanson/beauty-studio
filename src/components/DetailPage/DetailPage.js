@@ -11,7 +11,7 @@ export const DetailPage = ({match, toggleFavorite, id, brand, price, image_link,
       backgroundColor: color.hex_value
     }
     return (
-        <div className="align-vertically">
+        <div key={Date.now()} className="align-vertically">
           <p className="color-names marg">{color.colour_name}</p>
           <div className="colors marg" style={divStyle}></div>
       </div>
