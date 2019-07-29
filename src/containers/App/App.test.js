@@ -194,16 +194,27 @@ describe('App', () => {
       expect(mockDeleteFavorite).toHaveBeenCalledWith(1)
   })
 
-  // it('should set favorites to store when setFavorites is called', () => {
-  //   let mockSetFavorites = jest.fn();
-  //   wrapper = shallow(<App allProducts={[{id:1, product_type:"blush"}, {id:2, product_type:"bronzer"}]} favorites={[]} setFavorites={mockSetFavorites}/>)
+  it('should set favorites to store when setFavorites is called', () => {
+    wrapper = shallow(
+    <App 
+    allProducts={[{id:1, product_type:"blush"}, {id:2, product_type:"bronzer"}]} 
+    blush={[]} 
+    bronzer={[]}
+    lipstick={[]}
+    lip_liner={[]}
+    mascara={[]}
+    foundation={[]}
+    eyeliner={[]}
+    eyeshadow={[]}
+    eyebrow={[]}
+    favorites={[]} 
+    setFavorites={setFavoritesMock}
+    />)
 
-  //   wrapper.instance().setFavorites();
+    wrapper.instance().setFavorites();
 
-  //   const result = [{id:2, product_type:"bronzer"}]
-
-  //   expect(wrapper.instance().setFavorites).toEqual(result);
-  // })
+    expect(wrapper.instance().setFavorites()).toEqual([]);
+  })
 
   describe('mapStateToProps', () => {
     let initialState = {
