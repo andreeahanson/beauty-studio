@@ -15,9 +15,6 @@ dataCleanup.mockImplementation(() => ({
   id:2, product_type:"blush"
 }))
 
-
-
-
 describe('NavBar', () => {
   let wrapper, initialState;
   
@@ -25,6 +22,11 @@ describe('NavBar', () => {
   let mockLoadBlush = jest.fn()
   let mockLoadBronzer = jest.fn()
   let mockLoadEyeliner = jest.fn()
+  let mockLoadEyeshadow = jest.fn()
+  let mockLoadFoundation = jest.fn()
+  let mockLoadLipstick = jest.fn()
+  let mockLoadMascara = jest.fn()
+  let mockLoadEyebrow = jest.fn()
 
 
   beforeEach(() => {
@@ -55,14 +57,20 @@ describe('NavBar', () => {
     let mockBlush = []
     let mockBronzer = []
     let mockEyeliner = []
+    let mockLipstick = []
+    let mockLipliner = []
+    let mockMascara =[]
+    let mockFoundation = []
+    let mockEyeshadow = []
+    let mockEyebrow = []
     // let mockBronzer = [{id:2, product_type:"bronzer"}]
-    let mockLipstick = [{id: 3, product_type:"lipstick"}]
-    let mockLipliner = [{id: 4, product_type:"lip_liner"}]
-    let mockMascara =[{id:5, product_type:"mascara"}]
-    let mockFoundation = [{id:6, product_type:"foundation"}]
+    // let mockLipstick = [{id: 3, product_type:"lipstick"}]
+    // let mockLipliner = [{id: 4, product_type:"lip_liner"}]
+    // let mockMascara =[{id:5, product_type:"mascara"}]
+    // let mockFoundation = [{id:6, product_type:"foundation"}]
     // let mockEyeliner = [{id:7, product_type:"eyeliner"}]
-    let mockEyeshadow = [{id: 8, product_type:"eyeshadow"}]
-    let mockEyebrow = [{id:9, product_type:"eyebrow"}]
+    // let mockEyeshadow = [{id: 8, product_type:"eyeshadow"}]
+    // let mockEyebrow = [{id:9, product_type:"eyebrow"}]
 
 
     wrapper = shallow(
@@ -71,10 +79,20 @@ describe('NavBar', () => {
     blush={mockBlush}
     bronzer={mockBronzer}
     eyeliner={mockEyeliner}
+    eyeshadow={mockEyeshadow}
+    foundation={mockFoundation}
+    lip_liner={mockLipliner}
+    lipstick={mockLipstick}
+    mascara={mockMascara}
     loadLoading={mockLoadLoading}
     loadBlush={mockLoadBlush}
     loadBronzer={mockLoadBronzer}
     loadEyeliner={mockLoadEyeliner}
+    loadEyeshadow={mockLoadEyeshadow}
+    loadFoundation={mockLoadFoundation}
+    loadLipstick={mockLoadLipstick}
+    loadMascara={mockLoadMascara}
+    loadEyebrow={mockLoadEyebrow}
     loading={false}
     />)
     let mockProduct = { id: 1 }
@@ -269,6 +287,38 @@ it('should call loadLoading with a value of true, if the store is empty', async 
 
 })
 
+
+
+
+//EYESHADOW
+
+it('should call loadLoading with a value of true, if the store is empty', async () => {
+  fetchMakeup.mockImplementation(() => ({
+    id:4, product_type:"eyeshadow"
+  }))
+  dataCleanup.mockImplementation(() => ({
+    id:4, product_type:"eyeshadow"
+  }))
+
+
+  const mockEvent = {
+    target: {
+      name : 'eyeshadow'
+    }
+  }
+  await wrapper.instance().pickEyeshadow(mockEvent)
+
+  expect(mockLoadLoading).toHaveBeenCalledWith(true);
+  expect(fetchMakeup).toHaveBeenCalledWith('eyeshadow');
+  expect(dataCleanup).toHaveBeenCalledWith({
+    id:4, product_type:"eyeshadow"
+  })
+  expect(mockLoadEyeshadow).toHaveBeenCalledWith({
+    id:4, product_type:"eyeshadow"
+  })
+  expect(mockLoadLoading).toHaveBeenCalledWith(false);
+
+})
 
 
 
