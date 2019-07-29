@@ -21,12 +21,78 @@ describe('NavBar', () => {
       error: ''
     }
 
-    wrapper = shallow(<NavBar initialState={initialState}/>)
+    // let mockBlush = [{id:1, product_type:"blush"}]
+    // let mockBronzer = [{id:2, product_type:"bronzer"}]
+    // let mockLipstick = [{id: 3, product_type:"lipstick"}]
+    // let mockLipliner = [{id: 4, product_type:"lip_liner"}]
+    // let mockMascara =[{id:5, product_type:"mascara"}]
+    // let mockFoundation = [{id:6, product_type:"foundation"}]
+    // let mockEyeliner = [{id:7, product_type:"eyeliner"}]
+    // let mockEyeshadow = [{id: 8, product_type:"eyeshadow"}]
+    // let mockEyebrow = [{id:9, product_type:"eyebrow"}]
+
+    let mockBlush = []
+    let mockBronzer = [{id:2, product_type:"bronzer"}]
+    let mockLipstick = [{id: 3, product_type:"lipstick"}]
+    let mockLipliner = [{id: 4, product_type:"lip_liner"}]
+    let mockMascara =[{id:5, product_type:"mascara"}]
+    let mockFoundation = [{id:6, product_type:"foundation"}]
+    let mockEyeliner = [{id:7, product_type:"eyeliner"}]
+    let mockEyeshadow = [{id: 8, product_type:"eyeshadow"}]
+    let mockEyebrow = [{id:9, product_type:"eyebrow"}]
+    let mockLoadLoading = jest.fn()
+
+    wrapper = shallow(
+    <NavBar 
+    initialState={initialState}
+    blush={mockBlush}
+    loadLoading={mockLoadLoading}
+    loading={false}
+    />)
+    let mockProduct = { id: 1 }
+
+    window.fetch = jest.fn().mockImplementation(() => {
+      return Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve(mockProduct)
+      })
+    })
+
   })
 
   it('should match the snapshots', () => {
     expect(wrapper).toMatchSnapshot();
   })
+
+ //pickBlush
+
+ //FIRST PART OF THE IF STATEMENT >>>> blush=[]
+ //test that loadLoading is fired with the value of true
+ //mock fetch???
+ //test that dataCleanup was invoked with products as parameter
+ //test that loadBlush was invoked with cleanProducts as parameter
+ //test that loadLoading is fired with the value of false
+
+ //SECOND PART OF THE IF STATEMENT >>>> blush=[{id: 1}, { id: 2}]
+ //test that loadBlush was invoked with blush
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   describe('mapStateToProps', () => {
     let initialState = {

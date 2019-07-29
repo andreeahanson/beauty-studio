@@ -177,21 +177,20 @@ export class NavBar extends Component {
   }
 
   render() {
-    console.log(this.props.blush)
     return (
       <>
       <nav>
         <NavLink to="/" className="nav-word">Home</NavLink>
-        <NavLink to="/blush" className="nav-word" name="blush" onClick={this.pickBlush}>Blush</NavLink>
-        <NavLink to="/bronzer" className="nav-word" name="bronzer" onClick={this.pickBronzer}>Bronzer</NavLink>
-        <NavLink to="/eyebrow" className="nav-word" name="eyebrow" onClick={this.pickEyebrow}>Eyebrow</NavLink>
-        <NavLink to="/eyeliner" className="nav-word" name="eyeliner" onClick={this.pickEyeliner}>Eyeliner</NavLink>
-        <NavLink to="/eyeshadow" className="nav-word" name="eyeshadow" onClick={this.pickEyeshadow}>Eyeshadow</NavLink>
-        <NavLink to="/foundation" className="nav-word" name="foundation" onClick={this.pickFoundation}>Foundation</NavLink>
-        <NavLink to="/lip_liner" className="nav-word" name="lip_liner" onClick={this.pickLipliner}>Lip Liner</NavLink>
-        <NavLink to="/lipstick" className="nav-word" name="lipstick" onClick={this.pickLipstick}>Lipstick</NavLink>
-        <NavLink to="/mascara" className="nav-word" name="mascara" onClick={this.pickMascara}>Mascara</NavLink>
-        <NavLink to="/loves" className="nav-word red" name="loves">Loves list</NavLink>
+        <NavLink to="/blush" className="nav-word blush" name="blush" onClick={this.pickBlush}>Blush</NavLink>
+        <NavLink to="/bronzer" className="nav-word bronzer" name="bronzer" onClick={this.pickBronzer}>Bronzer</NavLink>
+        <NavLink to="/eyebrow" className="nav-word eyebrow" name="eyebrow" onClick={this.pickEyebrow}>Eyebrow</NavLink>
+        <NavLink to="/eyeliner" className="nav-word eyeliner" name="eyeliner" onClick={this.pickEyeliner}>Eyeliner</NavLink>
+        <NavLink to="/eyeshadow" className="nav-word eyeshadow" name="eyeshadow" onClick={this.pickEyeshadow}>Eyeshadow</NavLink>
+        <NavLink to="/foundation" className="nav-word foundation" name="foundation" onClick={this.pickFoundation}>Foundation</NavLink>
+        <NavLink to="/lip_liner" className="nav-word lip_liner" name="lip_liner" onClick={this.pickLipliner}>Lip Liner</NavLink>
+        <NavLink to="/lipstick" className="nav-word lipstick" name="lipstick" onClick={this.pickLipstick}>Lipstick</NavLink>
+        <NavLink to="/mascara" className="nav-word mascara" name="mascara" onClick={this.pickMascara}>Mascara</NavLink>
+        <NavLink to="/loves" className="nav-word red loves" name="loves">Loves list</NavLink>
       </nav>
     </>
     )
