@@ -27,6 +27,7 @@ describe('NavBar', () => {
   let mockLoadLipstick = jest.fn()
   let mockLoadMascara = jest.fn()
   let mockLoadEyebrow = jest.fn()
+  let mockLoadLipliner = jest.fn()
 
 
   beforeEach(() => {
@@ -93,6 +94,7 @@ describe('NavBar', () => {
     loadLipstick={mockLoadLipstick}
     loadMascara={mockLoadMascara}
     loadEyebrow={mockLoadEyebrow}
+    loadLipliner={mockLoadLipliner}
     loading={false}
     />)
     let mockProduct = { id: 1 }
@@ -354,8 +356,34 @@ it('should call loadLoading with a value of true, if the store is empty', async 
 
 
 
+//LIP LINER
+it('should call loadLoading with a value of true, if the store is empty', async () => {
+  fetchMakeup.mockImplementation(() => ({
+    id:6, product_type:"lip_liner"
+  }))
+  dataCleanup.mockImplementation(() => ({
+    id:6, product_type:"lip_liner"
+  }))
 
 
+  const mockEvent = {
+    target: {
+      name : 'lip_liner'
+    }
+  }
+  await wrapper.instance().pickLipliner(mockEvent)
+
+  expect(mockLoadLoading).toHaveBeenCalledWith(true);
+  expect(fetchMakeup).toHaveBeenCalledWith('lip_liner');
+  expect(dataCleanup).toHaveBeenCalledWith({
+    id:6, product_type:"lip_liner"
+  })
+  expect(mockLoadLipliner).toHaveBeenCalledWith({
+    id:6, product_type:"lip_liner"
+  })
+  expect(mockLoadLoading).toHaveBeenCalledWith(false);
+
+})
 
 
 
