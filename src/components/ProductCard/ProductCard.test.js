@@ -35,4 +35,32 @@ describe('ProductCard', () => {
 
     expect(wrapper).toMatchSnapshot();
   })
+
+  describe('mapStateToProps', () => {
+    let initialState = {
+      favorites: [{id: 1}, {id: 2}]
+    }
+
+    let wrapper=shallow(
+      <ProductCard 
+      id={id}
+      key={key}
+      brand={brand}
+      name={name}
+      price={price}
+      image={image}
+      colors={colors}
+      description={description}
+      type={type}
+      tagList={tagList}
+      toggleFavorite={toggleFavorite}
+      favorites={favorites}
+      initialState={initialState}
+      />)
+
+    it('should return an array of favorite products', () => {
+      const mappedProps = mapStateToProps(initialState);
+      expect(mappedProps).toEqual(initialState)
+    })
+  })
 }) 
