@@ -85,6 +85,7 @@ describe('NavBar', () => {
     lip_liner={mockLipliner}
     lipstick={mockLipstick}
     mascara={mockMascara}
+    eyebrow={mockEyebrow}
     loadLoading={mockLoadLoading}
     loadBlush={mockLoadBlush}
     loadBronzer={mockLoadBronzer}
@@ -455,6 +456,46 @@ it('should call loadLoading with a value of true, if the store is empty', async 
   expect(mockLoadLoading).toHaveBeenCalledWith(false);
 
 })
+
+
+
+
+
+
+
+
+
+
+//EYEBROW
+it('should call loadLoading with a value of true, if the store is empty', async () => {
+  fetchMakeup.mockImplementation(() => ({
+    id:9, product_type:"eyebrow"
+  }))
+  dataCleanup.mockImplementation(() => ({
+    id:9, product_type:"eyebrow"
+  }))
+
+
+  const mockEvent = {
+    target: {
+      name : 'eyebrow'
+    }
+  }
+  await wrapper.instance().pickEyebrow(mockEvent)
+
+  expect(mockLoadLoading).toHaveBeenCalledWith(true);
+  expect(fetchMakeup).toHaveBeenCalledWith('eyebrow');
+  expect(dataCleanup).toHaveBeenCalledWith({
+    id:9, product_type:"eyebrow"
+  })
+  expect(mockLoadEyebrow).toHaveBeenCalledWith({
+    id:9, product_type:"eyebrow"
+  })
+  expect(mockLoadLoading).toHaveBeenCalledWith(false);
+
+})
+
+
 
 
 
