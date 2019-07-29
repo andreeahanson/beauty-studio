@@ -13,7 +13,7 @@ import DetailPage from '../../components/DetailPage/DetailPage';
 export class App extends Component {
 
   findFavorite = (id) => {
-    const allProducts = [...this.props.blush, this.props.bronzer, this.props.lipstick, this.props.lip_liner, this.props.mascara, this.props.foundation, this.props.eyeliner, this.props.eyeshadow, this.props.eyebrow].flat()
+    const allProducts=this.props.blush.concat(this.props.bronzer).concat(this.props.lipstick).concat(this.props.lip_liner).concat(this.props.mascara).concat(this.props.foundation).concat(this.props.eyeliner).concat(this.props.eyeshadow).concat(this.props.eyebrow)
     return allProducts.find(product => product.id === id).id
   }
 
@@ -27,7 +27,7 @@ export class App extends Component {
   }
 
   setFavorites = () => {
-    const allProducts = [...this.props.blush, this.props.bronzer, this.props.lipstick, this.props.lip_liner, this.props.mascara, this.props.foundation, this.props.eyeliner, this.props.eyeshadow, this.props.eyebrow].flat()
+    const allProducts=this.props.blush.concat(this.props.bronzer).concat(this.props.lipstick).concat(this.props.lip_liner).concat(this.props.mascara).concat(this.props.foundation).concat(this.props.eyeliner).concat(this.props.eyeshadow).concat(this.props.eyebrow)
     const favoriteProducts = allProducts.filter(product => this.props.favorites.includes(product.id))
     return favoriteProducts
   }
