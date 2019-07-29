@@ -10,14 +10,7 @@ import { loadLoading, loadFavorites, addFavoriteId, deleteFavorite } from '../..
 import NotFound from '../../components/NotFound/NotFound';
 import DetailPage from '../../components/DetailPage/DetailPage';
 
-class App extends Component {
-  constructor(){
-    super();
-    this.state = {}
-  }
-  
-  componentDidMount = () => {
-  }
+export class App extends Component {
 
   findFavorite = (id) => {
     const allProducts = [...this.props.blush, this.props.bronzer, this.props.lipstick, this.props.lip_liner, this.props.mascara, this.props.foundation, this.props.eyeliner, this.props.eyeshadow, this.props.eyebrow].flat()
@@ -43,7 +36,6 @@ class App extends Component {
     const allProducts = [...this.props.blush, this.props.bronzer, this.props.lipstick, this.props.lip_liner, this.props.mascara, this.props.foundation, this.props.eyeliner, this.props.eyeshadow, this.props.eyebrow].flat()
     return(
       <section className="App">
-            {/* <Banner /> */}
         <NavBar />
         <Route exact path='/' component={Landing}/>
         <section className="product-collection">      
@@ -104,7 +96,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   blush: state.blush, 
   bronzer: state.bronzer,
   eyebrow: state.eyebrow,
@@ -118,7 +110,7 @@ const mapStateToProps = (state) => ({
   favorites: state.favorites
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   loadLoading: waiting => dispatch(loadLoading(waiting)),
   loadFavorites: favorites => dispatch(loadFavorites(favorites)),
   addFavoriteId: id => dispatch(addFavoriteId(id)),
