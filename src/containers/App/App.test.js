@@ -1,7 +1,7 @@
 import React from 'react';
 import { App, mapStateToProps, mapDispatchToProps } from './App';
-import { shallow, mount } from 'enzyme';
-import { loadLoading } from '../../actions';
+import { shallow } from 'enzyme';
+import { loadLoading, loadFavorites, addFavoriteId, deleteFavorite } from '../../actions';
 
 describe('App', () => {
   let wrapper;
@@ -21,8 +21,7 @@ describe('App', () => {
     let mockEyeliner = [{id:7, product_type:"eyeliner"}]
     let mockEyeshadow = [{id: 8, product_type:"eyeshadow"}]
     let mockEyebrow = [{id:9, product_type:"eyebrow"}]
-    let mockAllProducts=[{id:1, product_type:"blush"}, {id:2, product_type:"bronzer"},{id: 3, product_type:"lipstick"},{id: 4, product_type:"lip_liner"},{id:5, product_type:"mascara"},{id:6, product_type:"foundation"},{id:7, product_type:"eyeliner"}, {id: 8, product_type:"eyeshadow"}, {id:9, product_type:"eyebrow"}]
-
+    
     let initialState = {
       blush: [], 
       bronzer: [],
@@ -66,7 +65,6 @@ describe('App', () => {
 
     findFavoriteMock = jest.fn();
     let toggleFavoriteMock = jest.fn();
-    let setFavoritesMock = jest.fn();
 
     let initialState = {
       blush: [], 
@@ -112,7 +110,6 @@ describe('App', () => {
 
       const id = 1
       wrapper.instance().findFavorite(id)
-      // jest.spyOn(wrapper.instance(), 'findFavorite');
       
       expect(wrapper.instance().findFavorite(id)).toEqual(1)
   });
@@ -194,7 +191,6 @@ describe('App', () => {
 
       wrapper.instance().toggleFavorite(mockFavoriteId)
       
-      // expect(mockAddFavoriteId).toHaveBeenCalledWith(1)
       expect(mockDeleteFavorite).toHaveBeenCalledWith(1)
   })
 
@@ -230,33 +226,62 @@ describe('App', () => {
     })
   })
 
-  // describe('mapDispatchToProps', () => {
-  //   let initialState = {
-  //     blush: [{id:1, product_type:"blush"}],
-  //     bronzer: [{id:2, product_type:"bronzer"}],
-  //     lipstick: [{id: 3, product_type:"lipstick"}],
-  //     lipliner: [{id: 4, product_type:"lip_liner"}],
-  //     mascara:[{id:5, product_type:"mascara"}],
-  //     foundation: [{id:6, product_type:"foundation"}],
-  //     eyeliner: [{id:7, product_type:"eyeliner"}],
-  //     eyeshadow: [{id: 8, product_type:"eyeshadow"}],
-  //     eyebrow: [{id:9, product_type:"eyebrow"}],
-  //     isLoading: false,
-  //     favorites: [{id:9, product_type:"eyebrow"}]
-  //   }
-
-  //   it('calls dispatch with a loadLoading action when loadLoading is called', () => {
-  //     const mockDispatch = jest.fn();
-  //     const mockAction = loadLoading(initialState.isLoading);
-
-  //     const mappedProps = mapDispatchToProps(mockDispatch);
-  //     mappedProps.loadLoading(initialState.isLoading);
-
-  //     expect(mockDispatch).toHaveBeenCalledWith(mockAction);
-  //   })
-  // })
+  describe('mapDispatchToProps', () => {
+    let initialState = {
+      blush: [],
+      bronzer: [],
+      eyebrow: [],
+      eyeliner: [],
+      eyeshadow: [],
+      foundation: [],
+      lip_liner: [],
+      lipstick: [],
+      mascara: [],
+      loading: false,
+      error: ''
+    }
 
 
+    it('calls dispatch with a loadLoading action when loadLoading is called', () => {
+      const mockDispatch = jest.fn();
+      const mockAction = loadLoading(initialState.loading);
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.loadLoading(initialState.loading);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('calls dispatch with a loadFavorites action when loadFavorites is called', () => {
+      const mockDispatch = jest.fn();
+      const mockAction = loadFavorites(initialState.loading);
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.loadFavorites(initialState.loading);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('calls dispatch with an addFavoriteId action when addFavoriteId is called', () => {
+      const mockDispatch = jest.fn();
+      const mockAction = addFavoriteId(initialState.loading);
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.addFavoriteId(initialState.loading);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('calls dispatch with an deleteFavorite action when deleteFavorite is called', () => {
+      const mockDispatch = jest.fn();
+      const mockAction = deleteFavorite(initialState.loading);
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.deleteFavorite(initialState.loading);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+  })
 
 })
 
