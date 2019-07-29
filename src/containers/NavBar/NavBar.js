@@ -9,7 +9,7 @@ import { sampleProducts } from '../../sampleCall';
 import { dataCleanup } from '../../dataCleaner';
 
 
-class NavBar extends Component {
+export class NavBar extends Component {
   constructor() {
     super()
     this.state = {}
@@ -19,8 +19,8 @@ class NavBar extends Component {
     if(!this.props.blush.length){
       try{
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadBlush(cleanProducts)
         this.props.loadLoading(false)
@@ -36,8 +36,8 @@ class NavBar extends Component {
     if(!this.props.bronzer.length){
       try{
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadBronzer(cleanProducts)
         this.props.loadLoading(false)
@@ -54,8 +54,8 @@ class NavBar extends Component {
     if(!this.props.eyebrow.length){
       try{
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadEyebrow(cleanProducts)
         this.props.loadLoading(false)
@@ -72,8 +72,8 @@ class NavBar extends Component {
     if(!this.props.eyeliner.length){
       try{
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadEyeliner(cleanProducts)
         this.props.loadLoading(false)
@@ -90,8 +90,8 @@ class NavBar extends Component {
     if(!this.props.eyeshadow.length){
     try{
       this.props.loadLoading(true)
-      // const products = await fetchMakeup(e.target.name);
-      const products = sampleProducts;
+      const products = await fetchMakeup(e.target.name);
+      // const products = sampleProducts;
       let cleanProducts = dataCleanup(products);
       this.props.loadEyeshadow(cleanProducts)
       this.props.loadLoading(false)
@@ -108,8 +108,8 @@ class NavBar extends Component {
     if(!this.props.foundation.length){
       try{
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadFoundation(cleanProducts)
         this.props.loadLoading(false)
@@ -126,8 +126,8 @@ class NavBar extends Component {
     if(!this.props.lip_liner.length){
       try{
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadLipliner(cleanProducts)
         this.props.loadLoading(false)
@@ -144,8 +144,8 @@ class NavBar extends Component {
     if(!this.props.lipstick.length){
       try{
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadLipstick(cleanProducts)
         this.props.loadLoading(false)
@@ -162,8 +162,8 @@ class NavBar extends Component {
     if(!this.props.mascara.length){
       try{
         this.props.loadLoading(true)   
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadMascara(cleanProducts)
         this.props.loadLoading(false)
@@ -177,28 +177,27 @@ class NavBar extends Component {
   }
 
   render() {
-    console.log(this.props.blush)
     return (
       <>
       <nav>
         <NavLink to="/" className="nav-word">Home</NavLink>
-        <NavLink to="/blush" className="nav-word" name="blush" onClick={this.pickBlush}>Blush</NavLink>
-        <NavLink to="/bronzer" className="nav-word" name="bronzer" onClick={this.pickBronzer}>Bronzer</NavLink>
-        <NavLink to="/eyebrow" className="nav-word" name="eyebrow" onClick={this.pickEyebrow}>Eyebrow</NavLink>
-        <NavLink to="/eyeliner" className="nav-word" name="eyeliner" onClick={this.pickEyeliner}>Eyeliner</NavLink>
-        <NavLink to="/eyeshadow" className="nav-word" name="eyeshadow" onClick={this.pickEyeshadow}>Eyeshadow</NavLink>
-        <NavLink to="/foundation" className="nav-word" name="foundation" onClick={this.pickFoundation}>Foundation</NavLink>
-        <NavLink to="/lip_liner" className="nav-word" name="lip_liner" onClick={this.pickLipliner}>Lip Liner</NavLink>
-        <NavLink to="/lipstick" className="nav-word" name="lipstick" onClick={this.pickLipstick}>Lipstick</NavLink>
-        <NavLink to="/mascara" className="nav-word" name="mascara" onClick={this.pickMascara}>Mascara</NavLink>
-        <NavLink to="/loves" className="nav-word red" name="loves">Loves list</NavLink>
+        <NavLink to="/blush" className="nav-word blush" name="blush" onClick={this.pickBlush}>Blush</NavLink>
+        <NavLink to="/bronzer" className="nav-word bronzer" name="bronzer" onClick={this.pickBronzer}>Bronzer</NavLink>
+        <NavLink to="/eyebrow" className="nav-word eyebrow" name="eyebrow" onClick={this.pickEyebrow}>Eyebrow</NavLink>
+        <NavLink to="/eyeliner" className="nav-word eyeliner" name="eyeliner" onClick={this.pickEyeliner}>Eyeliner</NavLink>
+        <NavLink to="/eyeshadow" className="nav-word eyeshadow" name="eyeshadow" onClick={this.pickEyeshadow}>Eyeshadow</NavLink>
+        <NavLink to="/foundation" className="nav-word foundation" name="foundation" onClick={this.pickFoundation}>Foundation</NavLink>
+        <NavLink to="/lip_liner" className="nav-word lip_liner" name="lip_liner" onClick={this.pickLipliner}>Lip Liner</NavLink>
+        <NavLink to="/lipstick" className="nav-word lipstick" name="lipstick" onClick={this.pickLipstick}>Lipstick</NavLink>
+        <NavLink to="/mascara" className="nav-word mascara" name="mascara" onClick={this.pickMascara}>Mascara</NavLink>
+        <NavLink to="/loves" className="nav-word red loves" name="loves">Loves list</NavLink>
       </nav>
     </>
     )
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   blush: state.blush,
   bronzer: state.bronzer,
   eyebrow: state.eyebrow,
@@ -208,10 +207,11 @@ const mapStateToProps = state => ({
   lip_liner: state.lip_liner,
   lipstick: state.lipstick,
   mascara: state.mascara,
+  loading: state.loading,
   error: state.error
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   loadBlush: products => dispatch(loadBlush(products)),
   loadBronzer: products => dispatch(loadBronzer(products)),
   loadEyebrow: products => dispatch(loadEyebrow(products)),
