@@ -2,10 +2,27 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { NavBar, mapStateToProps, mapDispatchToProps } from './NavBar';
 import { loadError, loadLoading, loadBlush, loadBronzer, loadEyebrow, loadEyeliner, loadEyeshadow, loadFoundation, loadLipliner, loadLipstick, loadMascara} from '../../actions';
+import { fetchMakeup } from '../../apiCalls';
+import { dataCleanup } from '../../dataCleaner';
+
+jest.mock('../../apiCalls')
+
+jest.mock('../../dataCleaner')
+fetchMakeup.mockImplementation(() => ({
+  id:2, product_type:"blush"
+}))
+dataCleanup.mockImplementation(() => ({
+  id:2, product_type:"blush"
+}))
+
 
 describe('NavBar', () => {
   let wrapper, initialState;
   
+  let mockLoadLoading = jest.fn()
+  let mockLoadBlush = jest.fn()
+
+
   beforeEach(() => {
     initialState = {
       blush: [],
@@ -40,13 +57,14 @@ describe('NavBar', () => {
     let mockEyeliner = [{id:7, product_type:"eyeliner"}]
     let mockEyeshadow = [{id: 8, product_type:"eyeshadow"}]
     let mockEyebrow = [{id:9, product_type:"eyebrow"}]
-    let mockLoadLoading = jest.fn()
+
 
     wrapper = shallow(
     <NavBar 
     initialState={initialState}
     blush={mockBlush}
     loadLoading={mockLoadLoading}
+    loadBlush={mockLoadBlush}
     loading={false}
     />)
     let mockProduct = { id: 1 }
@@ -68,6 +86,29 @@ describe('NavBar', () => {
 
  //FIRST PART OF THE IF STATEMENT >>>> blush=[]
  //test that loadLoading is fired with the value of true
+
+  it('should call loadLoading with a value of true, if the store is empty', async () => {
+    const mockEvent = {
+      target: {
+        name : 'blush'
+      }
+    }
+
+    await wrapper.instance().pickBlush(mockEvent)
+
+    expect(mockLoadLoading).toHaveBeenCalledWith(true);
+    expect(fetchMakeup).toHaveBeenCalledWith('blush');
+    expect(dataCleanup).toHaveBeenCalledWith({
+      id:2, product_type:"blush"
+    })
+    expect(mockLoadBlush).toHaveBeenCalledWith({
+      id:2, product_type:"blush"
+    })
+    expect(mockLoadLoading).toHaveBeenCalledWith(false);
+
+  })
+
+
  //mock fetch???
  //test that dataCleanup was invoked with products as parameter
  //test that loadBlush was invoked with cleanProducts as parameter

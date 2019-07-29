@@ -37,10 +37,26 @@ describe('App', () => {
 
     const allProducts = [{id:1}, {id:2}]
 
-    wrapper=shallow(<App initialState={initialState} allProducts={allProducts} />)    
+    wrapper=shallow(
+    <App 
+    initialState={initialState} 
+    blush={mockBlush} 
+    bronzer={mockBronzer}
+    lipstick={mockLipstick}
+    lip_liner={mockLipliner}
+    mascara={mockMascara}
+    foundation={mockFoundation}
+    eyeliner={mockEyeliner}
+    eyeshadow={mockEyeshadow}
+    eyebrow={mockEyebrow}
+    />)    
   })
 
       it('should match the snapshot', () => {
+
+
+        wrapper=shallow(<App blush={[]} />)    
+        // wrapper.setProps({blush:[]})
         expect(wrapper).toMatchSnapshot();
       })
 
