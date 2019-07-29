@@ -17,6 +17,7 @@ describe('NavBar', () => {
       lip_liner: [],
       lipstick: [],
       mascara: [],
+      loading: false,
       error: ''
     }
 
@@ -38,6 +39,7 @@ describe('NavBar', () => {
       lip_liner: [],
       lipstick: [],
       mascara: [],
+      loading: false,
       error: ''
     }
 
@@ -61,6 +63,7 @@ describe('NavBar', () => {
       lip_liner: [],
       lipstick: [],
       mascara: [],
+      loading: false,
       error: ''
     }
 
@@ -156,6 +159,25 @@ describe('NavBar', () => {
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     })
 
+    it('calls dispatch with a loadLoading action when loadLoading is called', () => {
+      const mockDispatch = jest.fn();
+      const mockAction = loadLoading(initialState.loading);
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.loadLoading(initialState.loading);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    })
+
+    it('calls dispatch with a loadError action when loadError is called', () => {
+      const mockDispatch = jest.fn();
+      const mockAction = loadError(initialState.error);
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.loadError(initialState.error);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    })
 
 
   })

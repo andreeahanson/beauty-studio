@@ -208,6 +208,7 @@ export const mapStateToProps = state => ({
   lip_liner: state.lip_liner,
   lipstick: state.lipstick,
   mascara: state.mascara,
+  loading: state.loading,
   error: state.error
 })
 
