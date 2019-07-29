@@ -33,7 +33,9 @@ export class App extends Component {
   }
   
   render(){
-    const allProducts = [this.props.blush, this.props.bronzer, this.props.lipstick, this.props.lip_liner, this.props.mascara, this.props.foundation, this.props.eyeliner, this.props.eyeshadow, this.props.eyebrow].flat()
+    // const allProducts = [this.props.blush, this.props.bronzer, this.props.lipstick, this.props.lip_liner, this.props.mascara, this.props.foundation, this.props.eyeliner, this.props.eyeshadow, this.props.eyebrow].flat()
+    // console.log(allProducts)
+    const allProducts=this.props.blush.concat(this.props.bronzer).concat(this.props.lipstick).concat(this.props.lip_liner).concat(this.props.mascara).concat(this.props.foundation).concat(this.props.eyeliner).concat(this.props.eyeshadow).concat(this.props.eyebrow)
     return(
       <section className="App">
         <NavBar />
