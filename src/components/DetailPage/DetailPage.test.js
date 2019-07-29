@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { DetailPage, mapStateToProps} from './DetailPage';
+import { wrap } from 'module';
 
 describe('DetailPage', () => {
   let wrapper;
@@ -64,5 +65,36 @@ describe('DetailPage', () => {
       const mappedProps = mapStateToProps(initialState);
       expect(mappedProps).toEqual(initialState);
     })
+
+    it('should call toggleFavorite on click', () => {
+      wrapper = shallow(
+      <DetailPage 
+      initialState={initialState} 
+      product_colors={product_colors} 
+      tag_list={tag_list}
+      favorites = {mockFavorites}
+      toggleFavorite = {mockToggleFavorite}
+      />)
+
+      wrapper.find('.heart').simulate('click');
+
+      expect(mockToggleFavorite).toHaveBeenCalled();
+    })
+
+
+    it('should condition the rendering of the rating', () => {
+      wrapper = shallow(
+        <DetailPage 
+        initialState={initialState} 
+        product_colors={product_colors} 
+        tag_list={tag_list}
+        favorites = {mockFavorites}
+        toggleFavorite = {mockToggleFavorite}
+        rating={1}
+        />)
+
+      expect(wrapper).toMatchSnapshot();
+    });
+
   })
 })
