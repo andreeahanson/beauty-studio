@@ -323,6 +323,34 @@ it('should call loadLoading with a value of true, if the store is empty', async 
 
 
 
+//FOUNDATION
+it('should call loadLoading with a value of true, if the store is empty', async () => {
+  fetchMakeup.mockImplementation(() => ({
+    id:5, product_type:"foundation"
+  }))
+  dataCleanup.mockImplementation(() => ({
+    id:5, product_type:"foundation"
+  }))
+
+
+  const mockEvent = {
+    target: {
+      name : 'foundation'
+    }
+  }
+  await wrapper.instance().pickFoundation(mockEvent)
+
+  expect(mockLoadLoading).toHaveBeenCalledWith(true);
+  expect(fetchMakeup).toHaveBeenCalledWith('foundation');
+  expect(dataCleanup).toHaveBeenCalledWith({
+    id:5, product_type:"foundation"
+  })
+  expect(mockLoadFoundation).toHaveBeenCalledWith({
+    id:5, product_type:"foundation"
+  })
+  expect(mockLoadLoading).toHaveBeenCalledWith(false);
+
+})
 
 
 
