@@ -393,10 +393,10 @@ it('should call loadLoading with a value of true, if the store is empty', async 
 //LIPSTICK
 it('should call loadLoading with a value of true, if the store is empty', async () => {
   fetchMakeup.mockImplementation(() => ({
-    id:6, product_type:"lipstick"
+    id:7, product_type:"lipstick"
   }))
   dataCleanup.mockImplementation(() => ({
-    id:6, product_type:"lipstick"
+    id:7, product_type:"lipstick"
   }))
 
 
@@ -410,10 +410,10 @@ it('should call loadLoading with a value of true, if the store is empty', async 
   expect(mockLoadLoading).toHaveBeenCalledWith(true);
   expect(fetchMakeup).toHaveBeenCalledWith('lipstick');
   expect(dataCleanup).toHaveBeenCalledWith({
-    id:6, product_type:"lipstick"
+    id:7, product_type:"lipstick"
   })
   expect(mockLoadLipstick).toHaveBeenCalledWith({
-    id:6, product_type:"lipstick"
+    id:7, product_type:"lipstick"
   })
   expect(mockLoadLoading).toHaveBeenCalledWith(false);
 
@@ -423,6 +423,38 @@ it('should call loadLoading with a value of true, if the store is empty', async 
 
 
 
+
+
+
+
+//MASCARA
+it('should call loadLoading with a value of true, if the store is empty', async () => {
+  fetchMakeup.mockImplementation(() => ({
+    id:8, product_type:"mascara"
+  }))
+  dataCleanup.mockImplementation(() => ({
+    id:8, product_type:"mascara"
+  }))
+
+
+  const mockEvent = {
+    target: {
+      name : 'mascara'
+    }
+  }
+  await wrapper.instance().pickMascara(mockEvent)
+
+  expect(mockLoadLoading).toHaveBeenCalledWith(true);
+  expect(fetchMakeup).toHaveBeenCalledWith('mascara');
+  expect(dataCleanup).toHaveBeenCalledWith({
+    id:8, product_type:"mascara"
+  })
+  expect(mockLoadMascara).toHaveBeenCalledWith({
+    id:8, product_type:"mascara"
+  })
+  expect(mockLoadLoading).toHaveBeenCalledWith(false);
+
+})
 
 
 
