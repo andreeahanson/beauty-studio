@@ -390,6 +390,45 @@ it('should call loadLoading with a value of true, if the store is empty', async 
 
 
 
+//LIPSTICK
+it('should call loadLoading with a value of true, if the store is empty', async () => {
+  fetchMakeup.mockImplementation(() => ({
+    id:6, product_type:"lipstick"
+  }))
+  dataCleanup.mockImplementation(() => ({
+    id:6, product_type:"lipstick"
+  }))
+
+
+  const mockEvent = {
+    target: {
+      name : 'lipstick'
+    }
+  }
+  await wrapper.instance().pickLipstick(mockEvent)
+
+  expect(mockLoadLoading).toHaveBeenCalledWith(true);
+  expect(fetchMakeup).toHaveBeenCalledWith('lipstick');
+  expect(dataCleanup).toHaveBeenCalledWith({
+    id:6, product_type:"lipstick"
+  })
+  expect(mockLoadLipstick).toHaveBeenCalledWith({
+    id:6, product_type:"lipstick"
+  })
+  expect(mockLoadLoading).toHaveBeenCalledWith(false);
+
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 
