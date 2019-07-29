@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { NavBar, mapStateToProps, mapDispatchToProps } from './NavBar';
-import { loadError, loadLoading, loadBlush, loadBronzer, loadEyebrow, loadEyeliner, loadEyeshadow, loadFoundation, loadLipliner, loadLipstick, loadMascara} from '../../actions';
+import { loadError, loadLoading, loadBlush, loadBronzer, loadEyebrow, loadEyeliner, loadEyeshadow, loadFoundation, loadLipliner, loadLipstick, loadMascara } from '../../actions';
 import { fetchMakeup } from '../../apiCalls';
 import { dataCleanup } from '../../dataCleaner';
 
@@ -9,15 +9,15 @@ jest.mock('../../apiCalls')
 
 jest.mock('../../dataCleaner')
 fetchMakeup.mockImplementation(() => ({
-  id:2, product_type:"blush"
+  id: 2, product_type: "blush"
 }))
 dataCleanup.mockImplementation(() => ({
-  id:2, product_type:"blush"
+  id: 2, product_type: "blush"
 }))
 
 describe('NavBar', () => {
   let wrapper, initialState;
-  
+
   let mockLoadLoading = jest.fn()
   let mockLoadBlush = jest.fn()
   let mockLoadBronzer = jest.fn()
@@ -60,7 +60,7 @@ describe('NavBar', () => {
     let mockEyeliner = []
     let mockLipstick = []
     let mockLipliner = []
-    let mockMascara =[]
+    let mockMascara = []
     let mockFoundation = []
     let mockEyeshadow = []
     let mockEyebrow = []
@@ -75,29 +75,29 @@ describe('NavBar', () => {
 
 
     wrapper = shallow(
-    <NavBar 
-    initialState={initialState}
-    blush={mockBlush}
-    bronzer={mockBronzer}
-    eyeliner={mockEyeliner}
-    eyeshadow={mockEyeshadow}
-    foundation={mockFoundation}
-    lip_liner={mockLipliner}
-    lipstick={mockLipstick}
-    mascara={mockMascara}
-    eyebrow={mockEyebrow}
-    loadLoading={mockLoadLoading}
-    loadBlush={mockLoadBlush}
-    loadBronzer={mockLoadBronzer}
-    loadEyeliner={mockLoadEyeliner}
-    loadEyeshadow={mockLoadEyeshadow}
-    loadFoundation={mockLoadFoundation}
-    loadLipstick={mockLoadLipstick}
-    loadMascara={mockLoadMascara}
-    loadEyebrow={mockLoadEyebrow}
-    loadLipliner={mockLoadLipliner}
-    loading={false}
-    />)
+      <NavBar
+        initialState={initialState}
+        blush={mockBlush}
+        bronzer={mockBronzer}
+        eyeliner={mockEyeliner}
+        eyeshadow={mockEyeshadow}
+        foundation={mockFoundation}
+        lip_liner={mockLipliner}
+        lipstick={mockLipstick}
+        mascara={mockMascara}
+        eyebrow={mockEyebrow}
+        loadLoading={mockLoadLoading}
+        loadBlush={mockLoadBlush}
+        loadBronzer={mockLoadBronzer}
+        loadEyeliner={mockLoadEyeliner}
+        loadEyeshadow={mockLoadEyeshadow}
+        loadFoundation={mockLoadFoundation}
+        loadLipstick={mockLoadLipstick}
+        loadMascara={mockLoadMascara}
+        loadEyebrow={mockLoadEyebrow}
+        loadLipliner={mockLoadLipliner}
+        loading={false}
+      />)
     let mockProduct = { id: 1 }
 
     window.fetch = jest.fn().mockImplementation(() => {
@@ -113,23 +113,23 @@ describe('NavBar', () => {
     expect(wrapper).toMatchSnapshot();
   })
 
- //pickBlush
+  //pickBlush
 
- //FIRST PART OF THE IF STATEMENT >>>> blush=[]
- //test that loadLoading is fired with the value of true
+  //FIRST PART OF THE IF STATEMENT >>>> blush=[]
+  //test that loadLoading is fired with the value of true
   //mock fetch???
- //test that dataCleanup was invoked with products as parameter
- //test that loadBlush was invoked with cleanProducts as parameter
- //test that loadLoading is fired with the value of false
+  //test that dataCleanup was invoked with products as parameter
+  //test that loadBlush was invoked with cleanProducts as parameter
+  //test that loadLoading is fired with the value of false
 
- //SECOND PART OF THE IF STATEMENT >>>> blush=[{id: 1}, { id: 2}]
- //test that loadBlush was invoked with blush
+  //SECOND PART OF THE IF STATEMENT >>>> blush=[{id: 1}, { id: 2}]
+  //test that loadBlush was invoked with blush
 
 
   it('should call loadLoading with a value of true, if the store is empty', async () => {
     const mockEvent = {
       target: {
-        name : 'blush'
+        name: 'blush'
       }
     }
     await wrapper.instance().pickBlush(mockEvent)
@@ -137,20 +137,20 @@ describe('NavBar', () => {
     expect(mockLoadLoading).toHaveBeenCalledWith(true);
     expect(fetchMakeup).toHaveBeenCalledWith('blush');
     expect(dataCleanup).toHaveBeenCalledWith({
-      id:2, product_type:"blush"
+      id: 2, product_type: "blush"
     })
     expect(mockLoadBlush).toHaveBeenCalledWith({
-      id:2, product_type:"blush"
+      id: 2, product_type: "blush"
     })
     expect(mockLoadLoading).toHaveBeenCalledWith(false);
 
   })
 
   it('should call loadBlush, if the store is not empty', async () => {
-    let mockBlush = [{id: 1, product_type:"blush"}]
+    let mockBlush = [{ id: 1, product_type: "blush" }]
 
     initialState = {
-      blush: [{id: 1, product_type:"blush"}],
+      blush: [{ id: 1, product_type: "blush" }],
       bronzer: [],
       eyebrow: [],
       eyeliner: [],
@@ -164,23 +164,23 @@ describe('NavBar', () => {
     }
 
     wrapper = shallow(
-      <NavBar 
-      initialState={initialState}
-      blush={mockBlush}
-      loadLoading={mockLoadLoading}
-      loadBlush={mockLoadBlush}
-      loading={false}
+      <NavBar
+        initialState={initialState}
+        blush={mockBlush}
+        loadLoading={mockLoadLoading}
+        loadBlush={mockLoadBlush}
+        loading={false}
       />)
 
 
     const mockEvent = {
       target: {
-        name : 'blush'
+        name: 'blush'
       }
     }
 
     expect(mockLoadBlush).toHaveBeenCalledWith({
-      id:2, product_type:"blush"
+      id: 2, product_type: "blush"
     })
   })
 
@@ -195,16 +195,16 @@ describe('NavBar', () => {
 
   it('should call loadLoading with a value of true, if the store is empty', async () => {
     fetchMakeup.mockImplementation(() => ({
-      id:1, product_type:"bronzer"
+      id: 1, product_type: "bronzer"
     }))
     dataCleanup.mockImplementation(() => ({
-      id:1, product_type:"bronzer"
+      id: 1, product_type: "bronzer"
     }))
 
 
     const mockEvent = {
       target: {
-        name : 'bronzer'
+        name: 'bronzer'
       }
     }
     await wrapper.instance().pickBronzer(mockEvent)
@@ -212,20 +212,20 @@ describe('NavBar', () => {
     expect(mockLoadLoading).toHaveBeenCalledWith(true);
     expect(fetchMakeup).toHaveBeenCalledWith('bronzer');
     expect(dataCleanup).toHaveBeenCalledWith({
-      id:1, product_type:"bronzer"
+      id: 1, product_type: "bronzer"
     })
     expect(mockLoadBronzer).toHaveBeenCalledWith({
-      id:1, product_type:"bronzer"
+      id: 1, product_type: "bronzer"
     })
     expect(mockLoadLoading).toHaveBeenCalledWith(false);
 
   })
 
   it('should call loadBronzer, if the store is not empty', async () => {
-    let mockBronzer = [{id: 1, product_type:"bronzer"}]
+    let mockBronzer = [{ id: 1, product_type: "bronzer" }]
 
     initialState = {
-      bronzer: [{id: 1, product_type:"bronzer"}],
+      bronzer: [{ id: 1, product_type: "bronzer" }],
       eyebrow: [],
       eyeliner: [],
       eyeshadow: [],
@@ -238,187 +238,187 @@ describe('NavBar', () => {
     }
 
     wrapper = shallow(
-      <NavBar 
-      initialState={initialState}
-      bronzer={mockBronzer}
-      loadLoading={mockLoadLoading}
-      loadBronzer={mockLoadBronzer}
-      loading={false}
+      <NavBar
+        initialState={initialState}
+        bronzer={mockBronzer}
+        loadLoading={mockLoadLoading}
+        loadBronzer={mockLoadBronzer}
+        loading={false}
       />)
 
 
     const mockEvent = {
       target: {
-        name : 'bronzer'
+        name: 'bronzer'
       }
     }
 
     expect(mockLoadBronzer).toHaveBeenCalledWith({
-      id:1, product_type:"bronzer"
+      id: 1, product_type: "bronzer"
     })
   })
 
 
 
-// EYELINER
+  // EYELINER
 
-it('should call loadLoading with a value of true, if the store is empty', async () => {
-  fetchMakeup.mockImplementation(() => ({
-    id:3, product_type:"eyeliner"
-  }))
-  dataCleanup.mockImplementation(() => ({
-    id:3, product_type:"eyeliner"
-  }))
+  it('should call loadLoading with a value of true, if the store is empty', async () => {
+    fetchMakeup.mockImplementation(() => ({
+      id: 3, product_type: "eyeliner"
+    }))
+    dataCleanup.mockImplementation(() => ({
+      id: 3, product_type: "eyeliner"
+    }))
 
 
-  const mockEvent = {
-    target: {
-      name : 'eyeliner'
+    const mockEvent = {
+      target: {
+        name: 'eyeliner'
+      }
     }
-  }
-  await wrapper.instance().pickEyeliner(mockEvent)
+    await wrapper.instance().pickEyeliner(mockEvent)
 
-  expect(mockLoadLoading).toHaveBeenCalledWith(true);
-  expect(fetchMakeup).toHaveBeenCalledWith('eyeliner');
-  expect(dataCleanup).toHaveBeenCalledWith({
-    id:3, product_type:"eyeliner"
+    expect(mockLoadLoading).toHaveBeenCalledWith(true);
+    expect(fetchMakeup).toHaveBeenCalledWith('eyeliner');
+    expect(dataCleanup).toHaveBeenCalledWith({
+      id: 3, product_type: "eyeliner"
+    })
+    expect(mockLoadEyeliner).toHaveBeenCalledWith({
+      id: 3, product_type: "eyeliner"
+    })
+    expect(mockLoadLoading).toHaveBeenCalledWith(false);
+
   })
-  expect(mockLoadEyeliner).toHaveBeenCalledWith({
-    id:3, product_type:"eyeliner"
-  })
-  expect(mockLoadLoading).toHaveBeenCalledWith(false);
-
-})
 
 
 
 
-//EYESHADOW
+  //EYESHADOW
 
-it('should call loadLoading with a value of true, if the store is empty', async () => {
-  fetchMakeup.mockImplementation(() => ({
-    id:4, product_type:"eyeshadow"
-  }))
-  dataCleanup.mockImplementation(() => ({
-    id:4, product_type:"eyeshadow"
-  }))
+  it('should call loadLoading with a value of true, if the store is empty', async () => {
+    fetchMakeup.mockImplementation(() => ({
+      id: 4, product_type: "eyeshadow"
+    }))
+    dataCleanup.mockImplementation(() => ({
+      id: 4, product_type: "eyeshadow"
+    }))
 
 
-  const mockEvent = {
-    target: {
-      name : 'eyeshadow'
+    const mockEvent = {
+      target: {
+        name: 'eyeshadow'
+      }
     }
-  }
-  await wrapper.instance().pickEyeshadow(mockEvent)
+    await wrapper.instance().pickEyeshadow(mockEvent)
 
-  expect(mockLoadLoading).toHaveBeenCalledWith(true);
-  expect(fetchMakeup).toHaveBeenCalledWith('eyeshadow');
-  expect(dataCleanup).toHaveBeenCalledWith({
-    id:4, product_type:"eyeshadow"
+    expect(mockLoadLoading).toHaveBeenCalledWith(true);
+    expect(fetchMakeup).toHaveBeenCalledWith('eyeshadow');
+    expect(dataCleanup).toHaveBeenCalledWith({
+      id: 4, product_type: "eyeshadow"
+    })
+    expect(mockLoadEyeshadow).toHaveBeenCalledWith({
+      id: 4, product_type: "eyeshadow"
+    })
+    expect(mockLoadLoading).toHaveBeenCalledWith(false);
+
   })
-  expect(mockLoadEyeshadow).toHaveBeenCalledWith({
-    id:4, product_type:"eyeshadow"
-  })
-  expect(mockLoadLoading).toHaveBeenCalledWith(false);
-
-})
 
 
 
 
-//FOUNDATION
-it('should call loadLoading with a value of true, if the store is empty', async () => {
-  fetchMakeup.mockImplementation(() => ({
-    id:5, product_type:"foundation"
-  }))
-  dataCleanup.mockImplementation(() => ({
-    id:5, product_type:"foundation"
-  }))
+  //FOUNDATION
+  it('should call loadLoading with a value of true, if the store is empty', async () => {
+    fetchMakeup.mockImplementation(() => ({
+      id: 5, product_type: "foundation"
+    }))
+    dataCleanup.mockImplementation(() => ({
+      id: 5, product_type: "foundation"
+    }))
 
 
-  const mockEvent = {
-    target: {
-      name : 'foundation'
+    const mockEvent = {
+      target: {
+        name: 'foundation'
+      }
     }
-  }
-  await wrapper.instance().pickFoundation(mockEvent)
+    await wrapper.instance().pickFoundation(mockEvent)
 
-  expect(mockLoadLoading).toHaveBeenCalledWith(true);
-  expect(fetchMakeup).toHaveBeenCalledWith('foundation');
-  expect(dataCleanup).toHaveBeenCalledWith({
-    id:5, product_type:"foundation"
+    expect(mockLoadLoading).toHaveBeenCalledWith(true);
+    expect(fetchMakeup).toHaveBeenCalledWith('foundation');
+    expect(dataCleanup).toHaveBeenCalledWith({
+      id: 5, product_type: "foundation"
+    })
+    expect(mockLoadFoundation).toHaveBeenCalledWith({
+      id: 5, product_type: "foundation"
+    })
+    expect(mockLoadLoading).toHaveBeenCalledWith(false);
+
   })
-  expect(mockLoadFoundation).toHaveBeenCalledWith({
-    id:5, product_type:"foundation"
-  })
-  expect(mockLoadLoading).toHaveBeenCalledWith(false);
-
-})
 
 
 
-//LIP LINER
-it('should call loadLoading with a value of true, if the store is empty', async () => {
-  fetchMakeup.mockImplementation(() => ({
-    id:6, product_type:"lip_liner"
-  }))
-  dataCleanup.mockImplementation(() => ({
-    id:6, product_type:"lip_liner"
-  }))
+  //LIP LINER
+  it('should call loadLoading with a value of true, if the store is empty', async () => {
+    fetchMakeup.mockImplementation(() => ({
+      id: 6, product_type: "lip_liner"
+    }))
+    dataCleanup.mockImplementation(() => ({
+      id: 6, product_type: "lip_liner"
+    }))
 
 
-  const mockEvent = {
-    target: {
-      name : 'lip_liner'
+    const mockEvent = {
+      target: {
+        name: 'lip_liner'
+      }
     }
-  }
-  await wrapper.instance().pickLipliner(mockEvent)
+    await wrapper.instance().pickLipliner(mockEvent)
 
-  expect(mockLoadLoading).toHaveBeenCalledWith(true);
-  expect(fetchMakeup).toHaveBeenCalledWith('lip_liner');
-  expect(dataCleanup).toHaveBeenCalledWith({
-    id:6, product_type:"lip_liner"
+    expect(mockLoadLoading).toHaveBeenCalledWith(true);
+    expect(fetchMakeup).toHaveBeenCalledWith('lip_liner');
+    expect(dataCleanup).toHaveBeenCalledWith({
+      id: 6, product_type: "lip_liner"
+    })
+    expect(mockLoadLipliner).toHaveBeenCalledWith({
+      id: 6, product_type: "lip_liner"
+    })
+    expect(mockLoadLoading).toHaveBeenCalledWith(false);
+
   })
-  expect(mockLoadLipliner).toHaveBeenCalledWith({
-    id:6, product_type:"lip_liner"
-  })
-  expect(mockLoadLoading).toHaveBeenCalledWith(false);
-
-})
 
 
 
 
 
 
-//LIPSTICK
-it('should call loadLoading with a value of true, if the store is empty', async () => {
-  fetchMakeup.mockImplementation(() => ({
-    id:7, product_type:"lipstick"
-  }))
-  dataCleanup.mockImplementation(() => ({
-    id:7, product_type:"lipstick"
-  }))
+  //LIPSTICK
+  it('should call loadLoading with a value of true, if the store is empty', async () => {
+    fetchMakeup.mockImplementation(() => ({
+      id: 7, product_type: "lipstick"
+    }))
+    dataCleanup.mockImplementation(() => ({
+      id: 7, product_type: "lipstick"
+    }))
 
 
-  const mockEvent = {
-    target: {
-      name : 'lipstick'
+    const mockEvent = {
+      target: {
+        name: 'lipstick'
+      }
     }
-  }
-  await wrapper.instance().pickLipstick(mockEvent)
+    await wrapper.instance().pickLipstick(mockEvent)
 
-  expect(mockLoadLoading).toHaveBeenCalledWith(true);
-  expect(fetchMakeup).toHaveBeenCalledWith('lipstick');
-  expect(dataCleanup).toHaveBeenCalledWith({
-    id:7, product_type:"lipstick"
+    expect(mockLoadLoading).toHaveBeenCalledWith(true);
+    expect(fetchMakeup).toHaveBeenCalledWith('lipstick');
+    expect(dataCleanup).toHaveBeenCalledWith({
+      id: 7, product_type: "lipstick"
+    })
+    expect(mockLoadLipstick).toHaveBeenCalledWith({
+      id: 7, product_type: "lipstick"
+    })
+    expect(mockLoadLoading).toHaveBeenCalledWith(false);
+
   })
-  expect(mockLoadLipstick).toHaveBeenCalledWith({
-    id:7, product_type:"lipstick"
-  })
-  expect(mockLoadLoading).toHaveBeenCalledWith(false);
-
-})
 
 
 
@@ -428,34 +428,34 @@ it('should call loadLoading with a value of true, if the store is empty', async 
 
 
 
-//MASCARA
-it('should call loadLoading with a value of true, if the store is empty', async () => {
-  fetchMakeup.mockImplementation(() => ({
-    id:8, product_type:"mascara"
-  }))
-  dataCleanup.mockImplementation(() => ({
-    id:8, product_type:"mascara"
-  }))
+  //MASCARA
+  it('should call loadLoading with a value of true, if the store is empty', async () => {
+    fetchMakeup.mockImplementation(() => ({
+      id: 8, product_type: "mascara"
+    }))
+    dataCleanup.mockImplementation(() => ({
+      id: 8, product_type: "mascara"
+    }))
 
 
-  const mockEvent = {
-    target: {
-      name : 'mascara'
+    const mockEvent = {
+      target: {
+        name: 'mascara'
+      }
     }
-  }
-  await wrapper.instance().pickMascara(mockEvent)
+    await wrapper.instance().pickMascara(mockEvent)
 
-  expect(mockLoadLoading).toHaveBeenCalledWith(true);
-  expect(fetchMakeup).toHaveBeenCalledWith('mascara');
-  expect(dataCleanup).toHaveBeenCalledWith({
-    id:8, product_type:"mascara"
+    expect(mockLoadLoading).toHaveBeenCalledWith(true);
+    expect(fetchMakeup).toHaveBeenCalledWith('mascara');
+    expect(dataCleanup).toHaveBeenCalledWith({
+      id: 8, product_type: "mascara"
+    })
+    expect(mockLoadMascara).toHaveBeenCalledWith({
+      id: 8, product_type: "mascara"
+    })
+    expect(mockLoadLoading).toHaveBeenCalledWith(false);
+
   })
-  expect(mockLoadMascara).toHaveBeenCalledWith({
-    id:8, product_type:"mascara"
-  })
-  expect(mockLoadLoading).toHaveBeenCalledWith(false);
-
-})
 
 
 
@@ -466,34 +466,34 @@ it('should call loadLoading with a value of true, if the store is empty', async 
 
 
 
-//EYEBROW
-it('should call loadLoading with a value of true, if the store is empty', async () => {
-  fetchMakeup.mockImplementation(() => ({
-    id:9, product_type:"eyebrow"
-  }))
-  dataCleanup.mockImplementation(() => ({
-    id:9, product_type:"eyebrow"
-  }))
+  //EYEBROW
+  it('should call loadLoading with a value of true, if the store is empty', async () => {
+    fetchMakeup.mockImplementation(() => ({
+      id: 9, product_type: "eyebrow"
+    }))
+    dataCleanup.mockImplementation(() => ({
+      id: 9, product_type: "eyebrow"
+    }))
 
 
-  const mockEvent = {
-    target: {
-      name : 'eyebrow'
+    const mockEvent = {
+      target: {
+        name: 'eyebrow'
+      }
     }
-  }
-  await wrapper.instance().pickEyebrow(mockEvent)
+    await wrapper.instance().pickEyebrow(mockEvent)
 
-  expect(mockLoadLoading).toHaveBeenCalledWith(true);
-  expect(fetchMakeup).toHaveBeenCalledWith('eyebrow');
-  expect(dataCleanup).toHaveBeenCalledWith({
-    id:9, product_type:"eyebrow"
-  })
-  expect(mockLoadEyebrow).toHaveBeenCalledWith({
-    id:9, product_type:"eyebrow"
-  })
-  expect(mockLoadLoading).toHaveBeenCalledWith(false);
+    expect(mockLoadLoading).toHaveBeenCalledWith(true);
+    expect(fetchMakeup).toHaveBeenCalledWith('eyebrow');
+    expect(dataCleanup).toHaveBeenCalledWith({
+      id: 9, product_type: "eyebrow"
+    })
+    expect(mockLoadEyebrow).toHaveBeenCalledWith({
+      id: 9, product_type: "eyebrow"
+    })
+    expect(mockLoadLoading).toHaveBeenCalledWith(false);
 
-})
+  })
 
 
 
@@ -521,7 +521,7 @@ it('should call loadLoading with a value of true, if the store is empty', async 
       error: ''
     }
 
-    let wrapper = shallow(<NavBar initialState={initialState}/>)
+    let wrapper = shallow(<NavBar initialState={initialState} />)
 
     it('should return arrays of all products', () => {
       let mappedProps = mapStateToProps(initialState);
@@ -545,7 +545,7 @@ it('should call loadLoading with a value of true, if the store is empty', async 
       error: ''
     }
 
-    let wrapper = shallow(<NavBar initialState={initialState}/>)
+    let wrapper = shallow(<NavBar initialState={initialState} />)
 
     it('calls dispatch with a loadBlush action when loadBlush is called', () => {
       const mockDispatch = jest.fn();
