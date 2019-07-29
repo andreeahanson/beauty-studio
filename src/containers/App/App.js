@@ -96,7 +96,7 @@ export class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   blush: state.blush, 
   bronzer: state.bronzer,
   eyebrow: state.eyebrow,
@@ -110,7 +110,7 @@ const mapStateToProps = (state) => ({
   favorites: state.favorites
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   loadLoading: waiting => dispatch(loadLoading(waiting)),
   loadFavorites: favorites => dispatch(loadFavorites(favorites)),
   addFavoriteId: id => dispatch(addFavoriteId(id)),
