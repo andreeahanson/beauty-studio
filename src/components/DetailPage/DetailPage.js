@@ -82,7 +82,7 @@ DetailPage.propTypes = {
   product_type: PropTypes.string,
   product_link: PropTypes.string,
   description: PropTypes.string,
-  rating: PropTypes.string,
-  tag_list: PropTypes.string,
+  rating: PropTypes.number,
+  tag_list: PropTypes.array,
   product_colors: PropTypes.array
 };

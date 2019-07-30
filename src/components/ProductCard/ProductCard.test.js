@@ -4,7 +4,6 @@ import { shallow } from 'enzyme';
 
 describe('ProductCard', () => {
   let id = 1
-  let key = 2
   let brand = "X"
   let name = "Y"
   let price = 12
@@ -20,7 +19,6 @@ describe('ProductCard', () => {
     let wrapper=shallow(
     <ProductCard 
     id={id}
-    key={key}
     brand={brand}
     name={name}
     price={price}
@@ -44,7 +42,6 @@ describe('ProductCard', () => {
     let wrapper=shallow(
       <ProductCard 
       id={id}
-      key={key}
       brand={brand}
       name={name}
       price={price}
