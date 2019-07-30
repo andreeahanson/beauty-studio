@@ -1,69 +1,69 @@
-export const loadBlush = (blush) => ({
+export const loadBlush = blush => ({
   type: "LOAD_BLUSH",
   blush
-})
+});
 
-export const loadBronzer = (bronzer) => ({
+export const loadBronzer = bronzer => ({
   type: "LOAD_BRONZER",
   bronzer
-})
+});
 
-export const loadEyebrow = (eyebrow) => ({
+export const loadEyebrow = eyebrow => ({
   type: "LOAD_EYEBROW",
   eyebrow
-})
+});
 
-export const loadEyeliner = (eyeliner) => ({
+export const loadEyeliner = eyeliner => ({
   type: "LOAD_EYELINER",
   eyeliner
-})
+});
 
-export const loadEyeshadow = (eyeshadow) => ({
+export const loadEyeshadow = eyeshadow => ({
   type: "LOAD_EYESHADOW",
   eyeshadow
-})
+});
 
-export const loadFoundation = (foundation) => ({
+export const loadFoundation = foundation => ({
   type: "LOAD_FOUNDATION",
   foundation
-})
+});
 
-export const loadLipliner = (lip_liner) => ({
+export const loadLipliner = lip_liner => ({
   type: "LOAD_LIPLINER",
   lip_liner
-})
+});
 
-export const loadLipstick = (lipstick) => ({
+export const loadLipstick = lipstick => ({
   type: "LOAD_LIPSTICK",
   lipstick
-})
+});
 
-export const loadMascara = (mascara) => ({
+export const loadMascara = mascara => ({
   type: "LOAD_MASCARA",
   mascara
-})
+});
 
-export const loadLoading = (isLoading) => ({
+export const loadLoading = isLoading => ({
   type: "IS_LOADING",
   isLoading
-})
+});
 
-export const loadFavorites = (favorites) => ({
+export const loadFavorites = favorites => ({
   type: "LOAD_FAVORITES",
   favorites
-})
+});
 
-export const addFavoriteId = (id) => ({
-  type: 'ADD_FAVORITE_ID',
+export const addFavoriteId = id => ({
+  type: "ADD_FAVORITE_ID",
   id
-})
+});
 
-export const deleteFavorite = (id) => ({
-  type: 'DELETE_FAVORITE',
+export const deleteFavorite = id => ({
+  type: "DELETE_FAVORITE",
   id
-})
+});
 
-export const loadError = (errorMsg) => ({
-  type: 'LOAD_ERROR',
+export const loadError = errorMsg => ({
+  type: "LOAD_ERROR",
   errorMsg
-})
+});
