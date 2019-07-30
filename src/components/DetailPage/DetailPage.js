@@ -29,7 +29,6 @@ export const DetailPage = ({match, toggleFavorite, id, brand, price, image_link,
             <h5>{brand}</h5>
             <h3>{name}</h3>
             <h4>$ {price}</h4>
-            <img onClick={()=>toggleFavorite(id)} className="heart" alt="heart" src={favorites.includes(id) ? 'https://ui-ex.com/images/svg-heart-transparent-background.png' : 'https://images.vexels.com/media/users/3/156965/isolated/preview/cc193f8f5c8e89553153055f410288f9-simple-heart-silhouette-by-vexels.png'} />
             <p className="description detail">Description: {description}</p>
             <p className="find-link detail">Find the product here: {product_link}</p>
             <h5 className="rating detail">Rating: {rating ? rating : 'not yet rated'}</h5>
