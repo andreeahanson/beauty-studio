@@ -19,8 +19,8 @@ export class NavBar extends Component {
     if (!this.props.blush.length) {
       try {
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadBlush(cleanProducts)
         this.props.loadLoading(false)
@@ -36,8 +36,8 @@ export class NavBar extends Component {
     if (!this.props.bronzer.length) {
       try {
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadBronzer(cleanProducts)
         this.props.loadLoading(false)
@@ -54,8 +54,8 @@ export class NavBar extends Component {
     if (!this.props.eyebrow.length) {
       try {
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadEyebrow(cleanProducts)
         this.props.loadLoading(false)
@@ -72,8 +72,8 @@ export class NavBar extends Component {
     if (!this.props.eyeliner.length) {
       try {
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadEyeliner(cleanProducts)
         this.props.loadLoading(false)
@@ -90,8 +90,8 @@ export class NavBar extends Component {
     if (!this.props.eyeshadow.length) {
       try {
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadEyeshadow(cleanProducts)
         this.props.loadLoading(false)
@@ -108,8 +108,8 @@ export class NavBar extends Component {
     if (!this.props.foundation.length) {
       try {
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadFoundation(cleanProducts)
         this.props.loadLoading(false)
@@ -126,8 +126,8 @@ export class NavBar extends Component {
     if (!this.props.lip_liner.length) {
       try {
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadLipliner(cleanProducts)
         this.props.loadLoading(false)
@@ -144,8 +144,8 @@ export class NavBar extends Component {
     if (!this.props.lipstick.length) {
       try {
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadLipstick(cleanProducts)
         this.props.loadLoading(false)
@@ -162,8 +162,8 @@ export class NavBar extends Component {
     if (!this.props.mascara.length) {
       try {
         this.props.loadLoading(true)
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(e.target.name);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadMascara(cleanProducts)
         this.props.loadLoading(false)
