@@ -14,7 +14,7 @@ import {
   loadEyeshadow,
   loadFoundation,
   loadLipliner,
-  loadLipstick,
+  loadLipstick, 
   loadMascara
 } from "../../actions";
 // import { sampleProducts } from "../../sampleCall";
