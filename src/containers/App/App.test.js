@@ -5,6 +5,7 @@ import { loadLoading, loadFavorites, addFavoriteId, deleteFavorite } from '../..
 
 describe('App', () => {
   let wrapper;
+  let wrapper2
   let findFavoriteMock = jest.fn();
   let toggleFavoriteMock = jest.fn();
   let setFavoritesMock = jest.fn();
@@ -52,12 +53,30 @@ describe('App', () => {
     addFavoriteId={mockAddFavoriteId}
     deleteFavorite={mockDeleteFavorite}
     />)    
+
+wrapper2=shallow(
+  <App 
+  initialState={initialState} 
+  blush={mockBlush} 
+  bronzer={mockBronzer}
+  lipstick={mockLipstick}
+  lip_liner={mockLipliner}
+  mascara={mockMascara}
+  foundation={mockFoundation}
+  eyeliner={mockEyeliner}
+  eyeshadow={mockEyeshadow}
+  eyebrow={mockEyebrow}
+  addFavoriteId={mockAddFavoriteId}
+  deleteFavorite={mockDeleteFavorite}
+  isLoading={true}
+  />) 
+
+
   })
 
       it('should match the snapshot', () => {
-
-
         expect(wrapper).toMatchSnapshot();
+        expect(wrapper2).toMatchSnapshot();
       })
 
   it('should findFavorite product when findFavorite is called', () => {
@@ -220,13 +239,13 @@ describe('App', () => {
     let initialState = {
       blush: [],
       bronzer: [],
-      lipstick: [],
-      lip_liner: [],
-      mascara:[],
-      foundation: [],
+      eyebrow: [],
       eyeliner: [],
       eyeshadow: [],
-      eyebrow: [],
+      foundation: [],
+      lip_liner: [],
+      lipstick: [],
+      mascara:[],
       isLoading: false,
       favorites: []
     }

@@ -134,5 +134,9 @@ App.propTypes = {
   lipstick: PropTypes.array,
   mascara: PropTypes.array,
   isLoading: PropTypes.bool,
-  favorites: PropTypes.array
+  favorites: PropTypes.array,
+  loadLoading: PropTypes.func,
+  loadFavorites: PropTypes.func,
+  addFavoriteId: PropTypes.func,
+  deleteFavorite: PropTypes.func
 };
