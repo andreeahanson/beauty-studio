@@ -4,7 +4,7 @@ Beauty-Studio is a desktop app built for make-up enthusiasts. On load, the app r
 
 Clicking on any of the categories will generate, at first, a fetch call to the API for that specific category, followed by the loading of the product cards on the screen. Each card will contain information about the brand, the name, the price, and an image(if available). At the bottom of the cards there are the heart shaped "love" button, and a link to the Detail Page of each product. 
 
-On the detail page, the user can look more into the product, by reading the description, analyzing the color palette (where applicable), checking the rating of the product, or the tag list, if it has any.
+On the detail page, the user can look more into the product, by reading the description, scrolling through the color palette (where applicable), checking the rating of the product, or the tag list, if it has any.
 
 If the user accidentally enters a strange url, the page with display a Not Found message, inviting the user to go back to the home page.
 
