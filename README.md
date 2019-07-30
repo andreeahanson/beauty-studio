@@ -1,68 +1,56 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Beauty-Studio is a desktop app built for make-up enthusiasts. On load, the app renders the landing page, at the top of which there are 9 product categories to click on and view, plus a 'loves' section, where the user can view their selected favorite products.
 
-In the project directory, you can run:
+Clicking on any of the categories will generate, at first, a fetch call to the API for that specific category, followed by the loading of the product cards on the screen. Each card will contain information about the brand, the name, the price, and an image(if available). At the bottom of the cards there are the heart shaped "love" button, and a link to the Detail Page of each product. 
 
-### `npm start`
+On the detail page, the user can look more into the product, by reading the description, analyzing the color palette (where applicable), checking the rating of the product, or the tag list, if it has any.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+If the user accidentally enters a strange url, the page with display a Not Found message, inviting the user to go back to the home page.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+This project highlights my efforts of creating an app using React, Redux, Router and testing it using Enzyme.
 
-### `npm test`
+The app was created using `create-react-app`.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Installation
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+https://github.com/andreeahanson/beauty-studio.git
+```
+Once you have cloned the repo, install the library dependencies. Run:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```
+npm install
+```
+To view the app in action, run the following command in your terminal:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm start
+```
+Then, go to http://localhost:3000/ in your browser to see the code running in the browser.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Screenshots
+![Crawll](https://github.com/andreeahanson/lightside/blob/master/src/images/Crawll.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![People](https://github.com/andreeahanson/lightside/blob/master/src/images/People.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+![PeopleFav](https://github.com/andreeahanson/lightside/blob/master/src/images/People-with-favs.png)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Favorites](https://github.com/andreeahanson/lightside/blob/master/src/images/Favorites-full.png)
 
-## Learn More
+![FavoritesEmpty](https://github.com/andreeahanson/lightside/blob/master/src/images/Favorites-empty.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![GIF](https://media.giphy.com/media/kZty7ldVvp8m4Sih2G/200w_d.gif)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Learning goals
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Learn how to wireframe and know why it is important.
+- Write squeaky clean, well refactored code using ES6 & ES7 syntax.
+- Make informed design decisions to create a user-friendly application.
+- Keep state based components to a minimum and leverage more functional components.
+- Use a modular architecture for your application file structure.
+- Think deeply about React Lifecycle Methods.
+- Understand and utilize React Router to effectively display data.
+- Use propTypes for every component receiving props.
