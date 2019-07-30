@@ -32,25 +32,22 @@ Then, go to http://localhost:3000/ in your browser to see the code running in th
 
 
 ## Screenshots
-![Crawll](https://github.com/andreeahanson/lightside/blob/master/src/images/Crawll.png)
+![Home Page](https://github.com/andreeahanson/beauty-studio/blob/master/src/images/Home%20Page.png)
 
-![People](https://github.com/andreeahanson/lightside/blob/master/src/images/People.png)
+![Product Collection](https://github.com/andreeahanson/beauty-studio/blob/master/src/images/Product%20Collection.png)
 
-![PeopleFav](https://github.com/andreeahanson/lightside/blob/master/src/images/People-with-favs.png)
+![Product Detail](https://github.com/andreeahanson/beauty-studio/blob/master/src/images/Product%20Detail%20Page.png)
 
-![Favorites](https://github.com/andreeahanson/lightside/blob/master/src/images/Favorites-full.png)
+![Favorites](https://github.com/andreeahanson/beauty-studio/blob/master/src/images/Favorites.png)
 
-![FavoritesEmpty](https://github.com/andreeahanson/lightside/blob/master/src/images/Favorites-empty.png)
-
-![GIF](https://media.giphy.com/media/kZty7ldVvp8m4Sih2G/200w_d.gif)
 
 ## Learning goals
 
-- Learn how to wireframe and know why it is important.
-- Write squeaky clean, well refactored code using ES6 & ES7 syntax.
+- Practice building apps using wireframes.
 - Make informed design decisions to create a user-friendly application.
-- Keep state based components to a minimum and leverage more functional components.
+- Learn Redux and make use of the store, rather than local state of components and containers
 - Use a modular architecture for your application file structure.
-- Think deeply about React Lifecycle Methods.
+- Learn to write tests in React
+- Learn how to write asynchronous tests
 - Understand and utilize React Router to effectively display data.
 - Use propTypes for every component receiving props.
