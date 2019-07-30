@@ -1,6 +1,7 @@
 import React from 'react';
 import './ProductCard.css';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 export const ProductCard = ({id, key, brand, name, price, image, colors, description, type, tagList, toggleFavorite, favorites}) => {
@@ -24,3 +25,18 @@ export const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps)(ProductCard);
+
+ProductCard.propTypes = {
+  favorites: PropTypes.array,
+  id: PropTypes.string,
+  key: PropTypes.string,
+  brand: PropTypes.string,
+  name: PropTypes.string,
+  price: PropTypes.string,
+  image: PropTypes.string,
+  colors: PropTypes.string,
+  description: PropTypes.string,
+  type: PropTypes.string,
+  tagList: PropTypes.string,
+  toggleFavorite: PropTypes.string,
+}  
