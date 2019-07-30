@@ -55,7 +55,7 @@ export const DetailPage = ({
               {qualities.length ? qualities : "no tags for this product"}
             </ul>
             <h4 className="find-link detail">Find the product here: </h4>
-            <Link>{product_link}</Link>
+            <Link to={`${product_link}`}>{product_link}</Link>
           </div>
         </div>
 
