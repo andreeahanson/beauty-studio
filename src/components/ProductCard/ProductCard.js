@@ -10,13 +10,15 @@ export const ProductCard = ({id, key, brand, name, price, image, colors, descrip
     <article>
       <div className="top-card">
         <h5 className="card-brand">{brand}</h5>
-        <h3 className="card-name">{name}</h3>
-        <h4>$ {price}</h4>
+        <h4 className="card-name">{name}</h4>
+        <h5>$ {price}</h5>
       </div>
-      <img className="product-image" src={image} alt='beauty-product' />
+
+        <img className="product-image" src={image} alt='beauty-product' />
+
       <div className='bottom-card'>
-      <img onClick={()=>toggleFavorite(id)} className="heart" alt="heart" src={favorites.includes(id) ? 'https://ui-ex.com/images/svg-heart-transparent-background.png' : 'https://images.vexels.com/media/users/3/156965/isolated/preview/cc193f8f5c8e89553153055f410288f9-simple-heart-silhouette-by-vexels.png'} />
-      <Link className="detail-link" to={`${type}/${id}`}>Details</Link>
+        <img onClick={()=>toggleFavorite(id)} className="heart" alt="heart" src={favorites.includes(id) ? 'https://ui-ex.com/images/svg-heart-transparent-background.png' : 'https://images.vexels.com/media/users/3/156965/isolated/preview/cc193f8f5c8e89553153055f410288f9-simple-heart-silhouette-by-vexels.png'} />
+        <Link className="detail-link" to={`${type}/${id}`}>Details</Link>
       </div>
     </article>
   )

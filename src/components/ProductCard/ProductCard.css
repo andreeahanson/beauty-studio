@@ -10,9 +10,15 @@ article {
   height: 150px;
 }
 
+.card-name {
+  min-height: 40px;
+}
+
 .product-image {
   width: 60%;
-  height: 170px;;
+  min-height: 170px;
+  background: rgb(29, 29, 29);
+  height: 170px;
 }
 
 .bottom-card {
