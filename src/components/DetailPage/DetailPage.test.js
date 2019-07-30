@@ -66,22 +66,6 @@ describe('DetailPage', () => {
       expect(mappedProps).toEqual(initialState);
     })
 
-    it('should call toggleFavorite on click', () => {
-      wrapper = shallow(
-      <DetailPage 
-      initialState={initialState} 
-      product_colors={product_colors} 
-      tag_list={tag_list}
-      favorites = {mockFavorites}
-      toggleFavorite = {mockToggleFavorite}
-      />)
-
-      wrapper.find('.heart').simulate('click');
-
-      expect(mockToggleFavorite).toHaveBeenCalled();
-    })
-
-
     it('should condition the rendering of the rating', () => {
       wrapper = shallow(
         <DetailPage 

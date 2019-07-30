@@ -28,15 +28,15 @@ export default connect(mapStateToProps)(ProductCard);
 
 ProductCard.propTypes = {
   favorites: PropTypes.array,
-  id: PropTypes.string,
+  id: PropTypes.number,
   key: PropTypes.string,
   brand: PropTypes.string,
   name: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   image: PropTypes.string,
-  colors: PropTypes.string,
+  colors: PropTypes.array,
   description: PropTypes.string,
   type: PropTypes.string,
-  tagList: PropTypes.string,
-  toggleFavorite: PropTypes.string,
-}  
+  tagList: PropTypes.array,
+  toggleFavorite: PropTypes.func
+}
