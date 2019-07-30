@@ -8,7 +8,7 @@ On the detail page, the user can look more into the product, by reading the desc
 
 If the user accidentally enters a strange url, the page with display a Not Found message, inviting the user to go back to the home page.
 
-This project highlights my efforts of creating an app using React, Redux, Router and testing it using Enzyme.
+This project highlights my efforts of creating an app using React, Redux, Router, and also testing it using Enzyme.
 
 The app was created using `create-react-app`.
 
