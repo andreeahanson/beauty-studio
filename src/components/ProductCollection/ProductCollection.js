@@ -1,5 +1,6 @@
 import React from 'react';
 import ProductCard from '../ProductCard/ProductCard';
+import './ProductCollection.css';
 import PropTypes from 'prop-types';
 
 const ProductCollection = ({products, toggleFavorite}) => {
@@ -21,7 +22,11 @@ const ProductCollection = ({products, toggleFavorite}) => {
     />)
     }
   })
-  return allProducts
+  if(!allProducts.length){
+    return (<h2 className="pink">No loves added yet</h2>)
+  } else {
+    return allProducts
+  }
 }
 
 export default ProductCollection;
