@@ -1,3 +1,5 @@
 .not-found {
   text-align: center;
+  grid-column: 2/5;
+  margin-top: 200px;
 }
