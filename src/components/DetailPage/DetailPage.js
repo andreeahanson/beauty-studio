@@ -73,5 +73,16 @@ DetailPage.propTypes = {
   mascara: PropTypes.array,
   favorites: PropTypes.array,
   match: PropTypes.object,
-  toggleFavorite: PropTypes.func
+  toggleFavorite: PropTypes.func,
+  id: PropTypes.string,
+  brand: PropTypes.string,
+  price: PropTypes.string,
+  image_link: PropTypes.string,
+  name: PropTypes.string,
+  product_type: PropTypes.string,
+  product_link: PropTypes.string,
+  description: PropTypes.string,
+  rating: PropTypes.string,
+  tag_list: PropTypes.string,
+  product_colors: PropTypes.array
 };

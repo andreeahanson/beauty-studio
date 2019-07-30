@@ -251,4 +251,5 @@ NavBar.propTypes = {
   loadLipstick: PropTypes.func,
   loadMascara: PropTypes.func,
   loadLoading: PropTypes.func,
+  error: PropTypes.string
 };
