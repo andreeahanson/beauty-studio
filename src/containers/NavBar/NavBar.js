@@ -17,15 +17,10 @@ import {
   loadLipstick,
   loadMascara
 } from "../../actions";
-import { sampleProducts } from "../../sampleCall";
+// import { sampleProducts } from "../../sampleCall";
 import { dataCleanup } from "../../dataCleaner";
 
 export class NavBar extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   pickBlush = async e => {
     if (!this.props.blush.length) {
       try {
