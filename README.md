@@ -33,16 +33,16 @@ Then, go to http://localhost:3000/ in your browser to see the code running in th
 
 ## Screenshots
 
-### Home Page
+##### Home Page
 ![Home Page](https://github.com/andreeahanson/beauty-studio/blob/master/src/images/Home%20Page.png)
 
-### Product Collection
+##### Product Collection
 ![Product Collection](https://github.com/andreeahanson/beauty-studio/blob/master/src/images/Product%20Collection.png)
 
-### Product Detail
+##### Product Detail
 ![Product Detail](https://github.com/andreeahanson/beauty-studio/blob/master/src/images/Product%20Detail%20Page.png)
 
-### Favorites
+##### Favorites
 ![Favorites](https://github.com/andreeahanson/beauty-studio/blob/master/src/images/Favorites.png)
 
 
