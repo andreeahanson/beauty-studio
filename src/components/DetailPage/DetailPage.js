@@ -74,7 +74,7 @@ DetailPage.propTypes = {
   favorites: PropTypes.array,
   match: PropTypes.object,
   toggleFavorite: PropTypes.func,
-  id: PropTypes.string,
+  id: PropTypes.number,
   brand: PropTypes.string,
   price: PropTypes.string,
   image_link: PropTypes.string,

@@ -32,7 +32,7 @@ ProductCard.propTypes = {
   key: PropTypes.string,
   brand: PropTypes.string,
   name: PropTypes.string,
-  price: PropTypes.number,
+  price: PropTypes.string,
   image: PropTypes.string,
   colors: PropTypes.array,
   description: PropTypes.string,
