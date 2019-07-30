@@ -2,7 +2,7 @@ import React from 'react';
 import './DetailPage.css';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 
 export const DetailPage = ({match, toggleFavorite, id, brand, price, image_link, name, product_type, product_link, description, rating, tag_list, product_colors, favorites}) => {
@@ -20,28 +20,41 @@ export const DetailPage = ({match, toggleFavorite, id, brand, price, image_link,
 
     let qualities = tag_list.map(element => <li>{element}</li>)
   return (
+    <>
+      <NavLink to={`/${product_type}`} className="go-back detail">◀️ Go Back</NavLink>
     <section className="whole-detail-page">
-      <NavLink to={`/${product_type}`} className="go-back detail">Go Back</NavLink>
-      <div className="align-colors-and-details">
-        <div className="align">
+
+
+
+      <div className="left-side">
           <img className="detail-page-image" src={image_link} alt='beauty-product' />
-          <div className="detail-page">
-            <h5>{brand}</h5>
-            <h3>{name}</h3>
-            <h4>$ {price}</h4>
-            <p className="description detail">Description: {description}</p>
-            <p className="find-link detail">Find the product here: {product_link}</p>
-            <h5 className="rating detail">Rating: {rating ? rating : 'not yet rated'}</h5>
-            <h5>Product tags: </h5>
+          <h4 className="rating detail">Rating: {rating ? rating : 'not yet rated'}</h4>
+          <h4>Product tags: </h4>
+
+          <div className="link-details">
             <ul className="tags detail">{qualities.length ? qualities : 'no tags for this product'}</ul>
+            <h4 className="find-link detail">Find the product here: </h4>
+            <Link>{product_link}</Link>
           </div>
-        </div>
+      </div>
+
+
+
+      <div className="right-side">
+            <h5 className="brand">{brand}</h5>
+            <h3>{name}</h3>
+            {/* <h4>$ {price}</h4> */}
+            <p className="description detail">Description: {description}</p>
           <h3>Color pallete</h3>
           <div className="color-box">
             {allColors}
           </div>
       </div>
+
+
+
     </section>
+    </>
   )
 }
 
@@ -74,7 +87,7 @@ DetailPage.propTypes = {
   favorites: PropTypes.array,
   match: PropTypes.object,
   toggleFavorite: PropTypes.func,
-  id: PropTypes.string,
+  id: PropTypes.number,
   brand: PropTypes.string,
   price: PropTypes.string,
   image_link: PropTypes.string,
