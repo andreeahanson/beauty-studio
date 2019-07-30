@@ -2,8 +2,9 @@ import React from 'react';
 import ProductCard from '../ProductCard/ProductCard';
 import './ProductCollection.css';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const ProductCollection = ({products, toggleFavorite}) => {
+export const ProductCollection = ({products, toggleFavorite, isLoading}) => {
   const allProducts = products.map(product => {
     if(product.price != 0){
     return (
@@ -22,16 +23,21 @@ const ProductCollection = ({products, toggleFavorite}) => {
     />)
     }
   })
-  if(!allProducts.length){
+  if(!allProducts.length && !isLoading){
     return (<h2 className="pink">No loves added yet</h2>)
   } else {
     return allProducts
   }
 }
 
-export default ProductCollection;
+export const mapStateToProps = (state) => ({
+  isLoading: state.isLoading
+})
+
+export default connect(mapStateToProps)(ProductCollection);
 
 ProductCollection.propTypes = {
   products: PropTypes.array,
-  toggleFavorite: PropTypes.func
+  toggleFavorite: PropTypes.func,
+  isLoading: PropTypes.bool
 }  
