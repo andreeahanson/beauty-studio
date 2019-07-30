@@ -20,6 +20,10 @@
   width: 40%;
 }
 
+.detail-page-image:hover{
+  width: 50%;
+}
+
 .right-side,
 .left-side {
   height: 100%;
@@ -65,6 +69,22 @@ ul{
   height: 275px;
 }
 
+.color-names {
+  height: 30%;
+}
+.colors {
+  margin: auto;
+  height: 40%;
+  width: 100px;
+}
+
+.colors:hover {
+  border: 1px solid black;
+}
+
+.align-vertically {
+  height: 100px;
+}
 
 
 
