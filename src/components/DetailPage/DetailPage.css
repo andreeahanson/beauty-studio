@@ -1,7 +1,99 @@
-.whole-detail-page{
-  position: fixed;
+.go-back{
+  margin-right: 30px; 
+  margin-top: 10px;
+}
+
+.whole-detail-page {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  width: 85vw;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  overflow: hidden;
+  margin-top: 10px; 
+}
+
+.detail-page-image{
+  width: 40%;
+}
+
+.detail-page-image:hover{
+  width: 50%;
+}
+
+.right-side,
+.left-side {
+  height: 100%;
+  width: 50%;
+  padding: 20px;
+}
+
+li {
+  list-style: none;
+  text-align: center;
+}
+
+.rating{
+  height: 5%;
+}
+
+ul{
+  height: 80px;
   overflow: scroll;
-  height: 200vh;
+  padding-left: 0px;
+}
+
+.link-details{
+  height: 10%;;
+}
+
+.brand{
+  margin: 0px;
+  height: 25px;
+}
+
+.description{
+  height: 150px;
+  overflow: scroll;
+}
+
+.color-box{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 5px;
+  overflow: scroll;
+  margin: 20px;
+  height: 275px;
+}
+
+.color-names {
+  height: 30%;
+}
+.colors {
+  margin: auto;
+  height: 40%;
+  width: 100px;
+}
+
+.colors:hover {
+  border: 1px solid black;
+}
+
+.align-vertically {
+  height: 100px;
+}
+
+
+
+/* .whole-detail-page{
+  position: absolute;
+  overflow: scroll;
+  border: 1px solid red;
+  width: 96%;
+  display: flex;
 }
 
 .align-colors-and-details{
@@ -16,11 +108,12 @@
   flex-direction: row;
   justify-content: center;
   align-content: center;
+  font-size: 1em;
 }
 
 .detail-page-image {
-  height: 54vh;
-  width: 28vw;
+  height: 29vh;
+  width: 22vw;
 }
 
 .detail-page {
@@ -41,4 +134,4 @@
 .align-vertically{
   height: 60px;;
 }
-
+ */
