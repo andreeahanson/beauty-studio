@@ -1,4 +1,4 @@
-export const dataCleanup = (products) => {
+export const dataCleanup = products => {
   return products.map(product => {
     return {
       id: product.id,
@@ -13,6 +13,6 @@ export const dataCleanup = (products) => {
       tag_list: product.tag_list,
       created_at: product.created_at,
       product_colors: product.product_colors
-    }
-  })
-}
+    };
+  });
+};

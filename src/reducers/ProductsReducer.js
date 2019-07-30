@@ -1,111 +1,111 @@
-export const blushReducer = (state=[], action) => {
-  switch(action.type){
-    case 'LOAD_BLUSH':
+export const blushReducer = (state = [], action) => {
+  switch (action.type) {
+    case "LOAD_BLUSH":
       return action.blush;
-    default: 
+    default:
       return state;
   }
-}
+};
 
-export const bronzerReducer = (state=[], action) => {
-  switch(action.type){
-    case 'LOAD_BRONZER':
+export const bronzerReducer = (state = [], action) => {
+  switch (action.type) {
+    case "LOAD_BRONZER":
       return action.bronzer;
-    default: 
+    default:
       return state;
   }
-}
+};
 
-export const eyebrowReducer = (state=[], action) => {
-  switch(action.type){
-    case 'LOAD_EYEBROW':
+export const eyebrowReducer = (state = [], action) => {
+  switch (action.type) {
+    case "LOAD_EYEBROW":
       return action.eyebrow;
-    default: 
+    default:
       return state;
   }
-}
+};
 
-export const eyelinerReducer = (state=[], action) => {
-  switch(action.type){
-    case 'LOAD_EYELINER':
+export const eyelinerReducer = (state = [], action) => {
+  switch (action.type) {
+    case "LOAD_EYELINER":
       return action.eyeliner;
-    default: 
+    default:
       return state;
   }
-}
+};
 
-export const eyeshadowReducer = (state=[], action) => {
-  switch(action.type){
-    case 'LOAD_EYESHADOW':
+export const eyeshadowReducer = (state = [], action) => {
+  switch (action.type) {
+    case "LOAD_EYESHADOW":
       return action.eyeshadow;
-    default: 
+    default:
       return state;
   }
-}
+};
 
-export const foundationReducer = (state=[], action) => {
-  switch(action.type){
-    case 'LOAD_FOUNDATION':
+export const foundationReducer = (state = [], action) => {
+  switch (action.type) {
+    case "LOAD_FOUNDATION":
       return action.foundation;
-    default: 
+    default:
       return state;
   }
-}
+};
 
-export const liplinerReducer = (state=[], action) => {
-  switch(action.type){
-    case 'LOAD_LIPLINER':
+export const liplinerReducer = (state = [], action) => {
+  switch (action.type) {
+    case "LOAD_LIPLINER":
       return action.lip_liner;
-    default: 
+    default:
       return state;
   }
-}
+};
 
-export const lipstickReducer = (state=[], action) => {
-  switch(action.type){
-    case 'LOAD_LIPSTICK':
+export const lipstickReducer = (state = [], action) => {
+  switch (action.type) {
+    case "LOAD_LIPSTICK":
       return action.lipstick;
-    default: 
+    default:
       return state;
   }
-}
+};
 
-export const mascaraReducer = (state=[], action) => {
-  switch(action.type){
-    case 'LOAD_MASCARA':
+export const mascaraReducer = (state = [], action) => {
+  switch (action.type) {
+    case "LOAD_MASCARA":
       return action.mascara;
-    default: 
-      return state;
-  }
-}
-
-export const isLoadingReducer = (state=false, action) => {
-  switch(action.type){
-    case 'IS_LOADING':
-      return action.isLoading
     default:
       return state;
   }
-}
+};
 
-export const favoritesReducer = (state=[], action) => {
-  switch(action.type){
-    case 'LOAD_FAVORITES':
+export const isLoadingReducer = (state = false, action) => {
+  switch (action.type) {
+    case "IS_LOADING":
+      return action.isLoading;
+    default:
+      return state;
+  }
+};
+
+export const favoritesReducer = (state = [], action) => {
+  switch (action.type) {
+    case "LOAD_FAVORITES":
       return action.favorites;
-    case 'ADD_FAVORITE_ID':
+    case "ADD_FAVORITE_ID":
       return [...state, action.id];
-    case 'DELETE_FAVORITE':
-      return state.filter(id => id !== action.id) || []
+    case "DELETE_FAVORITE":
+      return state.filter(id => id !== action.id) || [];
     default:
       return state;
   }
-}
+};
 
-export const loadErrorReducer = (state='', action) => {
-  switch(action.type){
-    case 'LOAD_ERROR':
+export const loadErrorReducer = (state = "", action) => {
+  switch (action.type) {
+    case "LOAD_ERROR":
       return action.errorMsg;
     default:
       return state;
   }
-}
+};
