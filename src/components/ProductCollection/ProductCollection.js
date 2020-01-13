@@ -24,11 +24,11 @@ export const ProductCollection = ({ products, toggleFavorite, isLoading }) => {
       );
     }
   });
-  // if(!allProducts.length && !isLoading){
-  //   return (<h2 className="pink">No loves added yet</h2>)
-  // } else {
+  if(!allProducts.length && !isLoading){
+    return (<h2 className="pink">No loves added yet</h2>)
+  } else {
   return allProducts;
-  // }
+  }
 };
 
 export const mapStateToProps = state => ({

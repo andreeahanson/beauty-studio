@@ -35,7 +35,7 @@ export const ProductCard = ({
           alt="heart"
           src={
             favorites.includes(id)
-              ? "https://ui-ex.com/images/svg-heart-transparent-background.png"
+              ? "http://pngimg.com/uploads/heart/heart_PNG51182.png"
               : "https://images.vexels.com/media/users/3/156965/isolated/preview/cc193f8f5c8e89553153055f410288f9-simple-heart-silhouette-by-vexels.png"
           }
         />
