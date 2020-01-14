@@ -14,253 +14,72 @@ import {
   loadEyeshadow,
   loadFoundation,
   loadLipliner,
-  loadLipstick, 
+  loadLipstick,
   loadMascara
 } from "../../actions";
-// import { sampleProducts } from "../../sampleCall";
+import { sampleProducts } from "../../sampleCall";
 import { dataCleanup } from "../../dataCleaner";
 
 export class NavBar extends Component {
-  pickBlush = async e => {
-    if (!this.props.blush.length) {
+  pickProduct = async e => {
+    let beautyProduct = e.target.name;
+    let cammelName =
+      beautyProduct[0].toUpperCase() +
+      beautyProduct.substring(1, beautyProduct.length);
+    if(cammelName === "Lip_liner"){
+      // beautyProduct = "lip_liner"
+      cammelName = "Lipliner"
+    }
+    // console.log(beautyProduct)
+    console.log(cammelName);
+    if (!this.props[beautyProduct].length) {
       try {
         this.props.loadLoading(true);
-        const products = await fetchMakeup(e.target.name);
+        const products = await fetchMakeup(beautyProduct);
         // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
-        this.props.loadBlush(cleanProducts);
+        this.props[`load${cammelName}`](cleanProducts);
         this.props.loadLoading(false);
       } catch ({ errorMsg }) {
         this.props.loadError(errorMsg);
       }
     } else {
-      this.props.loadBlush(this.props.blush);
+      this.props[`load${cammelName}`](this.props[beautyProduct]);
     }
-  };
-
-  pickBronzer = async e => {
-    if (!this.props.bronzer.length) {
-      try {
-        this.props.loadLoading(true);
-        const products = await fetchMakeup(e.target.name);
-        // const products = sampleProducts;
-        let cleanProducts = dataCleanup(products);
-        this.props.loadBronzer(cleanProducts);
-        this.props.loadLoading(false);
-      } catch ({ errorMsg }) {
-        this.props.loadError(errorMsg);
-      }
-    } else {
-      this.props.loadBronzer(this.props.bronzer);
-      this.props.loadLoading(false);
-    }
-  };
-
-  pickEyebrow = async e => {
-    if (!this.props.eyebrow.length) {
-      try {
-        this.props.loadLoading(true);
-        const products = await fetchMakeup(e.target.name);
-        // const products = sampleProducts;
-        let cleanProducts = dataCleanup(products);
-        this.props.loadEyebrow(cleanProducts);
-        this.props.loadLoading(false);
-      } catch ({ errorMsg }) {
-        this.props.loadError(errorMsg);
-      }
-    } else {
-      this.props.loadEyebrow(this.props.eyebrow);
-      this.props.loadLoading(false);
-    }
-  };
-
-  pickEyeliner = async e => {
-    if (!this.props.eyeliner.length) {
-      try {
-        this.props.loadLoading(true);
-        const products = await fetchMakeup(e.target.name);
-        // const products = sampleProducts;
-        let cleanProducts = dataCleanup(products);
-        this.props.loadEyeliner(cleanProducts);
-        this.props.loadLoading(false);
-      } catch ({ errorMsg }) {
-        this.props.loadError(errorMsg);
-      }
-    } else {
-      this.props.loadEyeliner(this.props.eyeliner);
-      this.props.loadLoading(false);
-    }
-  };
-
-  pickEyeshadow = async e => {
-    if (!this.props.eyeshadow.length) {
-      try {
-        this.props.loadLoading(true);
-        const products = await fetchMakeup(e.target.name);
-        // const products = sampleProducts;
-        let cleanProducts = dataCleanup(products);
-        this.props.loadEyeshadow(cleanProducts);
-        this.props.loadLoading(false);
-      } catch ({ errorMsg }) {
-        this.props.loadError(errorMsg);
-      }
-    } else {
-      this.props.loadEyeshadow(this.props.eyeshadow);
-      this.props.loadLoading(false);
-    }
-  };
-
-  pickFoundation = async e => {
-    if (!this.props.foundation.length) {
-      try {
-        this.props.loadLoading(true);
-        const products = await fetchMakeup(e.target.name);
-        // const products = sampleProducts;
-        let cleanProducts = dataCleanup(products);
-        this.props.loadFoundation(cleanProducts);
-        this.props.loadLoading(false);
-      } catch ({ errorMsg }) {
-        this.props.loadError(errorMsg);
-      }
-    } else {
-      this.props.loadFoundation(this.props.foundation);
-      this.props.loadLoading(false);
-    }
-  };
-
-  pickLipliner = async e => {
-    if (!this.props.lip_liner.length) {
-      try {
-        this.props.loadLoading(true);
-        const products = await fetchMakeup(e.target.name);
-        // const products = sampleProducts;
-        let cleanProducts = dataCleanup(products);
-        this.props.loadLipliner(cleanProducts);
-        this.props.loadLoading(false);
-      } catch ({ errorMsg }) {
-        this.props.loadError(errorMsg);
-      }
-    } else {
-      this.props.loadLipliner(this.props.lip_liner);
-      this.props.loadLoading(false);
-    }
-  };
-
-  pickLipstick = async e => {
-    if (!this.props.lipstick.length) {
-      try {
-        this.props.loadLoading(true);
-        const products = await fetchMakeup(e.target.name);
-        // const products = sampleProducts;
-        let cleanProducts = dataCleanup(products);
-        this.props.loadLipstick(cleanProducts);
-        this.props.loadLoading(false);
-      } catch ({ errorMsg }) {
-        this.props.loadError(errorMsg);
-      }
-    } else {
-      this.props.loadLipstick(this.props.lipstick);
-      this.props.loadLoading(false);
-    }
-  };
-
-  pickMascara = async e => {
-    if (!this.props.mascara.length) {
-      try {
-        this.props.loadLoading(true);
-        const products = await fetchMakeup(e.target.name);
-        // const products = sampleProducts;
-        let cleanProducts = dataCleanup(products);
-        this.props.loadMascara(cleanProducts);
-        this.props.loadLoading(false);
-      } catch ({ errorMsg }) {
-        this.props.loadError(errorMsg);
-      }
-    } else {
-      this.props.loadMascara(this.props.mascara);
-      this.props.loadLoading(false);
-    }
+    // };
   };
 
   render() {
+    const products = [
+      "blush",
+      "bronzer",
+      "eyebrow",
+      "eyeliner",
+      "eyeshadow",
+      "foundation",
+      "lip_liner",
+      "lipstick",
+      "mascara"
+    ];
+    let allProducts = products.map(categ => {
+      return (
+        <NavLink
+          to={`/${categ}`}
+          className={`nav-word ${categ.toLowerCase()}`}
+          name={`${categ}`}
+          onClick={this.pickProduct}
+        >
+          { categ === "lip_liner" ? "Lip Liner" : categ[0].toUpperCase() + categ.substring(1, categ.length)}
+        </NavLink>
+      );
+    });
     return (
       <>
         <nav>
           <NavLink to="/" className="nav-word">
             Home
           </NavLink>
-          <NavLink
-            to="/blush"
-            className="nav-word blush"
-            name="blush"
-            onClick={this.pickBlush}
-          >
-            Blush
-          </NavLink>
-          <NavLink
-            to="/bronzer"
-            className="nav-word bronzer"
-            name="bronzer"
-            onClick={this.pickBronzer}
-          >
-            Bronzer
-          </NavLink>
-          <NavLink
-            to="/eyebrow"
-            className="nav-word eyebrow"
-            name="eyebrow"
-            onClick={this.pickEyebrow}
-          >
-            Eyebrow
-          </NavLink>
-          <NavLink
-            to="/eyeliner"
-            className="nav-word eyeliner"
-            name="eyeliner"
-            onClick={this.pickEyeliner}
-          >
-            Eyeliner
-          </NavLink>
-          <NavLink
-            to="/eyeshadow"
-            className="nav-word eyeshadow"
-            name="eyeshadow"
-            onClick={this.pickEyeshadow}
-          >
-            Eyeshadow
-          </NavLink>
-          <NavLink
-            to="/foundation"
-            className="nav-word foundation"
-            name="foundation"
-            onClick={this.pickFoundation}
-          >
-            Foundation
-          </NavLink>
-          <NavLink
-            to="/lip_liner"
-            className="nav-word lip_liner"
-            name="lip_liner"
-            onClick={this.pickLipliner}
-          >
-            Lip Liner
-          </NavLink>
-          <NavLink
-            to="/lipstick"
-            className="nav-word lipstick"
-            name="lipstick"
-            onClick={this.pickLipstick}
-          >
-            Lipstick
-          </NavLink>
-          <NavLink
-            to="/mascara"
-            className="nav-word mascara"
-            name="mascara"
-            onClick={this.pickMascara}
-          >
-            Mascara
-          </NavLink>
+          {allProducts}
           <NavLink to="/loves" className="nav-word red loves" name="loves">
             Loves list
           </NavLink>
@@ -298,10 +117,7 @@ export const mapDispatchToProps = dispatch => ({
   loadError: error => dispatch(loadError(error))
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(NavBar);
+export default connect(mapStateToProps, mapDispatchToProps)(NavBar);
 
 NavBar.propTypes = {
   blush: PropTypes.array,
