@@ -22,47 +22,57 @@ import { dataCleanup } from "../../dataCleaner";
 
 export class NavBar extends Component {
   pickProduct = async e => {
-    if (!this.props[e.target.name.toLowerCase()].length) {
+    let beautyProduct = e.target.name;
+    let cammelName =
+      beautyProduct[0].toUpperCase() +
+      beautyProduct.substring(1, beautyProduct.length);
+    if(cammelName === "Lip_liner"){
+      // beautyProduct = "lip_liner"
+      cammelName = "Lipliner"
+    }
+    // console.log(beautyProduct)
+    console.log(cammelName);
+    if (!this.props[beautyProduct].length) {
       try {
         this.props.loadLoading(true);
-        // const products = await fetchMakeup(e.target.name);
-        const products = sampleProducts;
+        const products = await fetchMakeup(beautyProduct);
+        // const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
-        this.props.loadBlush(cleanProducts);
+        this.props[`load${cammelName}`](cleanProducts);
         this.props.loadLoading(false);
       } catch ({ errorMsg }) {
         this.props.loadError(errorMsg);
       }
     } else {
-      this.props.loadBlush(this.props.blush);
+      this.props[`load${cammelName}`](this.props[beautyProduct]);
     }
     // };
   };
-    
-    render() {
-      const products = [
-        "blush",
-        "bronzer",
-        "eyebrow",
-        "eyeliner",
-        "eyeshadow",
-        "foundation",
-        "lip_liner",
-        "lipstick",
-        "mascara"
-      ];
-      let allProducts = products.map(categ => {
-        return (
-          <NavLink
-            to={`/${categ[0].toUpperCase() + categ.substring(1, categ.length)}`}
-            className={`nav-word ${categ}`}
-            name={`${categ[0].toUpperCase() + categ.substring(1, categ.length)}`}
-            onClick={this.pickProduct}
-          >
-            {categ[0].toUpperCase() + categ.substring(1, categ.length)}
-          </NavLink>
-        );
-      });
+
+  render() {
+    const products = [
+      "blush",
+      "bronzer",
+      "eyebrow",
+      "eyeliner",
+      "eyeshadow",
+      "foundation",
+      "lip_liner",
+      "lipstick",
+      "mascara"
+    ];
+    let allProducts = products.map(categ => {
+      return (
+        <NavLink
+          to={`/${categ}`}
+          className={`nav-word ${categ.toLowerCase()}`}
+          name={`${categ}`}
+          onClick={this.pickProduct}
+        >
+          { categ === "lip_liner" ? "Lip Liner" : categ[0].toUpperCase() + categ.substring(1, categ.length)}
+        </NavLink>
+      );
+    });
     return (
       <>
         <nav>
