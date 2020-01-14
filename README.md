@@ -14,6 +14,8 @@ This project highlights my efforts of creating an app using React, Redux, Router
 
 The app was created using `create-react-app`.
 
+## [Production url](https://beauty-studio9.herokuapp.com/)
+
 
 ## Installation
 
