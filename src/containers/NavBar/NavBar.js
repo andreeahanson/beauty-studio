@@ -23,15 +23,8 @@ import { dataCleanup } from "../../dataCleaner";
 export class NavBar extends Component {
   pickProduct = async e => {
     let beautyProduct = e.target.name;
-    let cammelName =
-      beautyProduct[0].toUpperCase() +
-      beautyProduct.substring(1, beautyProduct.length);
-    if(cammelName === "Lip_liner"){
-      // beautyProduct = "lip_liner"
-      cammelName = "Lipliner"
-    }
-    // console.log(beautyProduct)
-    console.log(cammelName);
+    let cammelName = beautyProduct[0].toUpperCase() + beautyProduct.substring(1, beautyProduct.length);
+    if(cammelName === "Lip_liner"){ cammelName = "Lipliner" }
     if (!this.props[beautyProduct].length) {
       try {
         this.props.loadLoading(true);
@@ -46,7 +39,6 @@ export class NavBar extends Component {
     } else {
       this.props[`load${cammelName}`](this.props[beautyProduct]);
     }
-    // };
   };
 
   render() {
