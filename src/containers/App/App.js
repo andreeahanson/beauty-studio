@@ -210,7 +210,7 @@ export class App extends Component {
                 />
               )}
             />
-            {/* <Route
+            <Route
               exact
               path="/blush/:id"
               render={({ match }) => {
@@ -360,7 +360,7 @@ export class App extends Component {
                     toggleFavorite={this.toggleFavorite}
                     allProducts={allProducts}
                   />
-                ); */}
+                );
               }}
             />
             <Route path="*" component={NotFound} />
