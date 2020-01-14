@@ -17,16 +17,16 @@ import {
   loadLipstick,
   loadMascara
 } from "../../actions";
-// import { sampleProducts } from "../../sampleCall";
+import { sampleProducts } from "../../sampleCall";
 import { dataCleanup } from "../../dataCleaner";
 
 export class NavBar extends Component {
   pickProduct = async e => {
-    if (!this.props.blush.length) {
+    if (!this.props[e.target.name.toLowerCase()].length) {
       try {
         this.props.loadLoading(true);
-        const products = await fetchMakeup(e.target.name);
-        // const products = sampleProducts;
+        // const products = await fetchMakeup(e.target.name);
+        const products = sampleProducts;
         let cleanProducts = dataCleanup(products);
         this.props.loadBlush(cleanProducts);
         this.props.loadLoading(false);
@@ -38,9 +38,6 @@ export class NavBar extends Component {
     }
     // };
   };
-
-  // presentProducts = () => {
-    // };
     
     render() {
       const products = [
@@ -57,12 +54,12 @@ export class NavBar extends Component {
       let allProducts = products.map(categ => {
         return (
           <NavLink
-            to={`/${categ}`}
+            to={`/${categ[0].toUpperCase() + categ.substring(1, categ.length)}`}
             className={`nav-word ${categ}`}
-            name={`${categ}`}
+            name={`${categ[0].toUpperCase() + categ.substring(1, categ.length)}`}
             onClick={this.pickProduct}
           >
-            {categ}
+            {categ[0].toUpperCase() + categ.substring(1, categ.length)}
           </NavLink>
         );
       });
