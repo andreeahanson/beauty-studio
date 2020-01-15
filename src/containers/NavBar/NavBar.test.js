@@ -99,7 +99,7 @@ describe("NavBar", () => {
       return Promise.resolve({
         ok: true,
         json: () => Promise.resolve(mockProduct)
-      });
+      }); 
     });
   });
 
@@ -125,7 +125,7 @@ describe("NavBar", () => {
         name: "blush"
       }
     };
-    await wrapper.instance().pickBlush(mockEvent);
+    await wrapper.instance().pickProduct(mockEvent);
 
     expect(mockLoadLoading).toHaveBeenCalledWith(true);
     expect(fetchMakeup).toHaveBeenCalledWith("blush");
@@ -190,7 +190,7 @@ describe("NavBar", () => {
         name: "bronzer"
       }
     };
-    await wrapper.instance().pickBronzer(mockEvent);
+    await wrapper.instance().pickProduct(mockEvent);
 
     expect(mockLoadLoading).toHaveBeenCalledWith(true);
     expect(fetchMakeup).toHaveBeenCalledWith("bronzer");
@@ -254,7 +254,7 @@ describe("NavBar", () => {
         name: "eyeliner"
       }
     };
-    await wrapper.instance().pickEyeliner(mockEvent);
+    await wrapper.instance().pickProduct(mockEvent);
 
     expect(mockLoadLoading).toHaveBeenCalledWith(true);
     expect(fetchMakeup).toHaveBeenCalledWith("eyeliner");
@@ -286,7 +286,7 @@ describe("NavBar", () => {
         name: "eyeshadow"
       }
     };
-    await wrapper.instance().pickEyeshadow(mockEvent);
+    await wrapper.instance().pickProduct(mockEvent);
 
     expect(mockLoadLoading).toHaveBeenCalledWith(true);
     expect(fetchMakeup).toHaveBeenCalledWith("eyeshadow");
@@ -317,7 +317,7 @@ describe("NavBar", () => {
         name: "foundation"
       }
     };
-    await wrapper.instance().pickFoundation(mockEvent);
+    await wrapper.instance().pickProduct(mockEvent);
 
     expect(mockLoadLoading).toHaveBeenCalledWith(true);
     expect(fetchMakeup).toHaveBeenCalledWith("foundation");
@@ -348,7 +348,7 @@ describe("NavBar", () => {
         name: "lip_liner"
       }
     };
-    await wrapper.instance().pickLipliner(mockEvent);
+    await wrapper.instance().pickProduct(mockEvent);
 
     expect(mockLoadLoading).toHaveBeenCalledWith(true);
     expect(fetchMakeup).toHaveBeenCalledWith("lip_liner");
@@ -379,7 +379,7 @@ describe("NavBar", () => {
         name: "lipstick"
       }
     };
-    await wrapper.instance().pickLipstick(mockEvent);
+    await wrapper.instance().pickProduct(mockEvent);
 
     expect(mockLoadLoading).toHaveBeenCalledWith(true);
     expect(fetchMakeup).toHaveBeenCalledWith("lipstick");
@@ -410,7 +410,7 @@ describe("NavBar", () => {
         name: "mascara"
       }
     };
-    await wrapper.instance().pickMascara(mockEvent);
+    await wrapper.instance().pickProduct(mockEvent);
 
     expect(mockLoadLoading).toHaveBeenCalledWith(true);
     expect(fetchMakeup).toHaveBeenCalledWith("mascara");
@@ -441,7 +441,7 @@ describe("NavBar", () => {
         name: "eyebrow"
       }
     };
-    await wrapper.instance().pickEyebrow(mockEvent);
+    await wrapper.instance().pickProduct(mockEvent);
 
     expect(mockLoadLoading).toHaveBeenCalledWith(true);
     expect(fetchMakeup).toHaveBeenCalledWith("eyebrow");
