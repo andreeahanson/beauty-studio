@@ -99,7 +99,7 @@ describe("NavBar", () => {
       return Promise.resolve({
         ok: true,
         json: () => Promise.resolve(mockProduct)
-      });
+      }); 
     });
   });
 
