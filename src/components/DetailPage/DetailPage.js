@@ -3,6 +3,7 @@ import "./DetailPage.css";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { NavLink, Link } from "react-router-dom";
+import NotesForm from "../NotesForm/NotesForm";
 
 export const DetailPage = ({
   match,
@@ -67,6 +68,7 @@ export const DetailPage = ({
           <h3>Color pallete</h3>
           <div className="color-box">{allColors}</div>
         </div>
+        <NotesForm />
       </section>
     </>
   );
