@@ -47,7 +47,9 @@ ul{
 }
 
 .link-details{
-  height: 10%;;
+  height: 10%;
+  background: green;
+  margin: 10px;
 }
 
 .brand{

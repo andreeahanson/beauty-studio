@@ -4,7 +4,7 @@ import "./NotesForm.css";
 const NotesForm = () => {
   return(
     <form>
-      <label>My notes: </label>
+      <h4>My notes: </h4>
       <input type="text" />
       <button>Add my note</button>
     </form>
