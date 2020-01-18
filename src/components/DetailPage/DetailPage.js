@@ -46,18 +46,19 @@ export const DetailPage = ({
             src={image_link}
             alt="beauty-product"
           />
-          <h4 className="rating detail">
+          {/* <h4 className="rating detail">
             Rating: {rating ? rating : "not yet rated"}
-          </h4>
-          <h4>Product tags: </h4>
+          </h4> */}
+          {/* <h4>Product tags: </h4> */}
 
           <div className="link-details">
-            <ul className="tags detail">
+            {/* <ul className="tags detail">
               {qualities.length ? qualities : "no tags for this product"}
-            </ul>
-            <h4 className="find-link detail">Find the product here: </h4>
+            </ul> */}
+            <h4 className="find-link detail">Link to product: </h4>
             <Link to={`${product_link}`}>{product_link}</Link>
           </div>
+        <NotesForm />
         </div>
 
         <div className="right-side">
@@ -68,7 +69,6 @@ export const DetailPage = ({
           <h3>Color pallete</h3>
           <div className="color-box">{allColors}</div>
         </div>
-        <NotesForm />
       </section>
     </>
   );
