@@ -1,5 +1,6 @@
 import React from 'react';
-import "./NotesForm.css";
+import './NotesForm.css';
+import NoteList from '../NoteList/NoteList';
 
 const NotesForm = () => {
   return(
@@ -8,6 +9,7 @@ const NotesForm = () => {
       <h4>My notes: </h4>
       <input type="text" />
       <button>Add my note</button>
+      <NoteList />
     </form>
   )
 }
